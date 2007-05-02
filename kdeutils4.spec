@@ -18,7 +18,7 @@
 %define unstable 1
 %{?_unstable: %{expand: %%global unstable 1}}
 
-%define branch_date 20070418
+%define branch_date 20070502
 
 %if %unstable
 %define dont_strip 1

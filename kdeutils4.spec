@@ -126,6 +126,23 @@ Battery and power management, including KControl plugins.
 %defattr(-,root,root)
 #%attr(-,root,nogroup) %_bindir/klaptop_acpi_helper
 
+%_libdir/kde4/kcm_thinkpad.so
+%_libdir/kde4/kded_kmilod.so
+%_libdir/kde4/kmilo_asus.so
+%_libdir/kde4/kmilo_kvaio.so
+%_libdir/kde4/kmilo_thinkpad.so
+%_datadir/applications/kde4/thinkpad.desktop
+
+
+%_datadir/dbus-1/interfaces/org.kde.kmilod.xml
+
+
+%_datadir/kde4/services/kded/kmilod.desktop
+%_datadir/kde4/services/kmilo/kmilo_asus.desktop
+%_datadir/kde4/services/kmilo/kmilo_kvaio.desktop
+%_datadir/kde4/services/kmilo/kmilo_thinkpad.desktop
+%_datadir/kde4/servicetypes/kmilo/kmilopluginsvc.desktop
+
 #-----------------------------------------------------------------------------
 
 %package -n %lib_name-klaptop
@@ -140,6 +157,7 @@ Library for klaptop.
 
 %files -n %lib_name-klaptop
 %defattr(-,root,root)
+%_libdir/libkmilo.so.*
 
 #-----------------------------------------------------------------------------
 
@@ -153,6 +171,7 @@ Devel for klaptop.
 
 %files -n %lib_name-klaptop-devel
 %defattr(-,root,root)
+%_libdir/libkmilo.so
 
 #-----------------------------------------------------------------------------
 
@@ -180,7 +199,7 @@ Kdeutils common files
 %_bindir/kregexpeditor
 %dir %_datadir/apps/kregexpeditor/
 %_datadir/apps/kregexpeditor/*
-%_datadir/services/kregexpeditorgui.desktop
+%_datadir/kde4/services/kregexpeditorgui.desktop
 %_libdir/kde4/libkregexpeditorgui.*
 %_bindir/sweeper
 %_datadir/applications/kde4/sweeper.desktop
@@ -382,13 +401,13 @@ A binary file editor
 %defattr(-,root,root)
 %_bindir/khexedit
 %_iconsdir/*/*/*/khexedit.*
-%_datadir/services/khexedit2part.desktop
+%_datadir/kde4/services/khexedit2part.desktop
 %_datadir/apps/khexedit2part/khexedit2partui.rc
 %dir %_datadir/apps/khexedit
 %_datadir/apps/khexedit/*
 %_datadir/applications/kde4/khexedit.desktop       
 %_libdir/kde4/libkhexedit2part.*
-%_datadir/services/kbytearrayedit.desktop
+%_datadir/kde4/services/kbytearrayedit.desktop
 %dir %_docdir/HTML/en/khexedit/
 %doc %_docdir/HTML/en/khexedit/*.bz2
 %doc %_docdir/HTML/en/khexedit/*.docbook
@@ -460,7 +479,7 @@ Manager for compressed files and archives
 %_datadir/applications/kde4/ark.desktop          
 %_libdir/kde4/libarkpart.*
 %_datadir/config.kcfg/ark.kcfg
-%_datadir/services/ark_part.desktop
+%_datadir/kde4/services/ark_part.desktop
 %_libdir/libkdeinit_ark.*
 %dir %_docdir/HTML/en/ark/
 %doc %_docdir/HTML/en/ark/*.bz2
@@ -630,25 +649,28 @@ purpose of Karamba is sit on the background.
 %_bindir/superkaramba
 %_datadir/applications/kde4/superkaramba.desktop
 %_datadir/apps/superkaramba/superkarambaui.rc
+%_datadir/config/superkaramba.knsrc
+
+%_datadir/dbus-1/interfaces/org.kde.superkaramba.xml
 
 %dir %_docdir/HTML/en/superkaramba/
 %doc %_docdir/HTML/en/superkaramba/*.bz2
 %doc %_docdir/HTML/en/superkaramba/*.docbook
 
-%_iconsdir/crystalsvg/128x128/apps/superkaramba.png
-%_iconsdir/crystalsvg/128x128/mimetypes/superkaramba_theme.png
-%_iconsdir/crystalsvg/16x16/apps/superkaramba.png
-%_iconsdir/crystalsvg/16x16/mimetypes/superkaramba_theme.png
-%_iconsdir/crystalsvg/22x22/apps/superkaramba.png
-%_iconsdir/crystalsvg/22x22/mimetypes/superkaramba_theme.png
-%_iconsdir/crystalsvg/32x32/apps/superkaramba.png
-%_iconsdir/crystalsvg/32x32/mimetypes/superkaramba_theme.png
-%_iconsdir/crystalsvg/48x48/apps/superkaramba.png
-%_iconsdir/crystalsvg/48x48/mimetypes/superkaramba_theme.png
-%_iconsdir/crystalsvg/64x64/apps/superkaramba.png
-%_iconsdir/crystalsvg/64x64/mimetypes/superkaramba_theme.png
-%_iconsdir/crystalsvg/scalable/apps/superkaramba.svgz
-%_iconsdir/crystalsvg/scalable/mimetypes/superkaramba_theme.svgz
+%_iconsdir/hicolor/128x128/apps/superkaramba.png
+%_iconsdir/hicolor/16x16/apps/superkaramba.png
+%_iconsdir/hicolor/22x22/apps/superkaramba.png
+%_iconsdir/hicolor/32x32/apps/superkaramba.png
+%_iconsdir/hicolor/48x48/apps/superkaramba.png
+%_iconsdir/hicolor/64x64/apps/superkaramba.png
+%_iconsdir/hicolor/scalable/apps/superkaramba.svgz
+%_iconsdir/oxygen/128x128/mimetypes/superkaramba_theme.png
+%_iconsdir/oxygen/16x16/mimetypes/superkaramba_theme.png
+%_iconsdir/oxygen/22x22/mimetypes/superkaramba_theme.png
+%_iconsdir/oxygen/32x32/mimetypes/superkaramba_theme.png
+%_iconsdir/oxygen/48x48/mimetypes/superkaramba_theme.png
+%_iconsdir/oxygen/64x64/mimetypes/superkaramba_theme.png
+%_iconsdir/oxygen/scalable/mimetypes/superkaramba_theme.svgz
 
 #-----------------------------------------------------------------------------
 
@@ -681,7 +703,7 @@ Kwalletmanager program
 %_datadir/applications/kde4/kwalletmanager-kwalletd.desktop
 %_datadir/applications/kde4/kwalletmanager.desktop
 %_libdir/kde4/kcm_kwallet.*
-%_datadir/services/kwalletmanager_show.desktop
+%_datadir/kde4/services/kwalletmanager_show.desktop
 %dir %_datadir/apps/kwalletmanager/
 %_datadir/apps/kwalletmanager/*
 %_datadir/icons/hicolor/128x128/apps/kwalletmanager2.png
@@ -689,7 +711,7 @@ Kwalletmanager program
 %_datadir/icons/hicolor/32x32/apps/kwalletmanager2.png
 %_datadir/icons/hicolor/48x48/apps/kwalletmanager2.png
 %_datadir/icons/hicolor/64x64/apps/kwalletmanager2.png
-%_datadir/services/kwalletconfig.desktop
+%_datadir/kde4/services/kwalletconfig.desktop
 %dir %_docdir/HTML/en/kwallet/
 %doc %_docdir/HTML/en/kwallet/*.png
 %doc %_docdir/HTML/en/kwallet/*.bz2
@@ -779,5 +801,4 @@ rm -fr %buildroot/%_datadir/apps/kdm/pics/users/
 
 %clean
 rm -fr %buildroot/
-
 

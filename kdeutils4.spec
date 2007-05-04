@@ -60,6 +60,8 @@ BuildRequires:	gmp-devel
 %define mini_release %mkrel 0.%branch_date.1
 BuildRequires: kdelibs4-devel >= %version-%mini_release
 BuildRequires:	kdepimlibs4-devel >= %version-%mini_release
+# Need by superkaramba
+BuildRequires:	kdebase4-devel
 %py_requires -d
 %ifarch %{tpctl_arches}
 #BuildRequires:	libtpctl-devel

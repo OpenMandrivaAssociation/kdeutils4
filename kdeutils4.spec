@@ -35,7 +35,7 @@
 
 Name: 		kdeutils4
 Summary:	K Desktop Environment - Utilities
-Version: 	3.80.3
+Version: 	3.90.1
 Release: 	%mkrel 0.%branch_date.1 
 Group: 		Graphical desktop/KDE
 URL: http://www.kde.org

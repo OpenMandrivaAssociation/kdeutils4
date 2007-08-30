@@ -1,4 +1,4 @@
-%define revision 704415
+%define revision 706411
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -33,8 +33,6 @@ BuildRequires: X11-devel
 BuildRequires: openssl-devel
 BuildRequires: libnet-snmp-devel
 BuildRequires: gmp-devel
-BuildRequires: tpctl-devel
-BuildRequires: tpctl
 BuildRequires: kdelibs4-devel
 BuildRequires: kde4-macros
 %py_requires -d
@@ -406,13 +404,54 @@ Obsoletes: %name-superkaramba
 %files -n kde4-superkaramba
 %defattr(-,root,root)
 %_kde_appsdir/superkaramba
-%_kde_bindir/superkaramba-bin
+%_kde_bindir/superkaramba
 %_kde_libdir/kde4/plasma_applet_skapplet.so
 %_kde_datadir/applications/kde4/superkaramba.desktop
 %_kde_datadir/config/superkaramba.knsrc
 %_kde_datadir/kde4/services/plasma-skapplet-default.desktop
 %_datadir/dbus-1/interfaces/org.kde.superkaramba.xml
 %_kde_docdir/HTML/*/superkaramba
+
+#---------------------------------------------
+
+%package -n kde4-ark
+Summary: %{name} ark
+Group: Graphical desktop/KDE
+Requires: %name-core = %version
+Obsoletes: %name-ark
+
+%description -n kde4-ark
+%{name} ark.
+
+%files -n kde4-ark
+%defattr(-,root,root)
+%_kde_bindir/ark
+%_kde_libdir/kde4/kerfuffle_bk.so
+%_kde_libdir/kde4/libarkpart.so
+%_kde_datadir/applications/kde4/ark.desktop
+%_kde_appsdir/ark
+%_kde_datadir/config.kcfg/ark.kcfg
+%_kde_datadir/kde4/services/ark_part.desktop
+%_kde_datadir/kde4/services/kerfuffle_bk.desktop
+%_kde_datadir/kde4/servicetypes/kerfufflePlugin.desktop
+
+#---------------------------------------------
+
+%define libkerfuffle %mklibname kerfuffle 4
+
+%package -n %libkerfuffle
+Summary: KDE 4 library
+Group: System/Libraries
+
+%description -n %libkerfuffle
+KDE 4 library
+
+%post -n %libkerfuffle -p /sbin/ldconfig
+%postun -n %libkerfuffle -p /sbin/ldconfig
+
+%files -n %libkerfuffle
+%defattr(-,root,root)
+%_kde_libdir/libkerfuffle.so.*
 
 #---------------------------------------------
 

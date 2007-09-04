@@ -1,4 +1,4 @@
-%define revision 706641
+%define revision 708188
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -18,7 +18,7 @@
 
 Name: kdeutils4
 Summary: K Desktop Environment
-Version: 3.92.0
+Version: 3.93.0
 Release: %mkrel 0.%revision.1
 Group: Graphical desktop/KDE
 License: GPL
@@ -405,10 +405,8 @@ Obsoletes: %name-superkaramba
 %defattr(-,root,root)
 %_kde_appsdir/superkaramba
 %_kde_bindir/superkaramba
-%_kde_libdir/kde4/plasma_applet_skapplet.so
 %_kde_datadir/applications/kde4/superkaramba.desktop
 %_kde_datadir/config/superkaramba.knsrc
-%_kde_datadir/kde4/services/plasma-skapplet-default.desktop
 %_datadir/dbus-1/interfaces/org.kde.superkaramba.xml
 %_kde_docdir/HTML/*/superkaramba
 
@@ -426,7 +424,6 @@ Obsoletes: %name-ark
 %files -n kde4-ark
 %defattr(-,root,root)
 %_kde_bindir/ark
-%_kde_libdir/kde4/kerfuffle_bk.so
 %_kde_libdir/kde4/libarkpart.so
 %_kde_libdir/kde4/kerfuffle_*
 %_kde_datadir/applications/kde4/ark.desktop

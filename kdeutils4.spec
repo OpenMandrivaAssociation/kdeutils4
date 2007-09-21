@@ -1,4 +1,4 @@
-%define revision 708188
+%define revision 714053
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -37,6 +37,7 @@ BuildRequires: kdelibs4-devel
 BuildRequires: kdepimlibs4-devel
 BuildRequires: libzip-devel
 BuildRequires: kde4-macros
+BuildRequires: libtpctl-devel
 %py_requires -d
 BuildConflicts: libxmms-devel
 Requires: kde4-kcalc
@@ -81,7 +82,7 @@ Core files for %{name}.
 Summary: %{name} kcalc
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
-Obsoletes: %name-kcalc
+Obsoletes: %name-kcalc < 3.93.0-0.714053.1
 
 %description -n kde4-kcalc
 %{name} kcalc.
@@ -101,7 +102,7 @@ Obsoletes: %name-kcalc
 Summary: %{name} kcharselect
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
-Obsoletes: %name-kcharselect
+Obsoletes: %name-kcharselect < 3.93.0-0.714053.1
 
 %description -n kde4-kcharselect
 %{name} kcharselect.
@@ -120,7 +121,7 @@ Obsoletes: %name-kcharselect
 Summary: %{name} kdessh
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
-Obsoletes: %name-kdessh
+Obsoletes: %name-kdessh < 3.93.0-0.714053.1
 
 %description -n kde4-kdessh
 %{name} kdessh.
@@ -135,7 +136,7 @@ Obsoletes: %name-kdessh
 Summary: %{name} kdf
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
-Obsoletes: %name-kdf
+Obsoletes: %name-kdf < 3.93.0-0.714053.1
 
 %description -n kde4-kdf
 %{name} kdf.
@@ -157,7 +158,7 @@ Obsoletes: %name-kdf
 Summary: %{name} kfloppy
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
-Obsoletes: %name-kfloppy
+Obsoletes: %name-kfloppy < 3.93.0-0.714053.1
 
 %description -n kde4-kfloppy
 %{name} kfloppy.
@@ -175,7 +176,7 @@ Obsoletes: %name-kfloppy
 Summary: %{name} kgpg
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
-Obsoletes: %name-kgpg
+Obsoletes: %name-kgpg < 3.93.0-0.714053.1
 
 %description -n kde4-kgpg
 %{name} kgpg.
@@ -197,7 +198,7 @@ Obsoletes: %name-kgpg
 Summary: %{name} khexedit
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
-Obsoletes: %name-khexedit
+Obsoletes: %name-khexedit < 3.93.0-0.714053.1
 
 %description -n kde4-khexedit
 %{name} khexedit.
@@ -256,7 +257,7 @@ KDE 4 library
 Summary: %{name} kjots
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
-Obsoletes: %name-kjots
+Obsoletes: %name-kjots < 3.93.0-0.714053.1
 
 %description -n kde4-kjots
 %{name} kjots.
@@ -275,7 +276,7 @@ Obsoletes: %name-kjots
 Summary: %{name} kmilo
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
-Obsoletes: %name-kmilo
+Obsoletes: %name-kmilo < 3.93.0-0.714053.1
 
 %description -n kde4-kmilo
 %{name} kmilo.
@@ -319,7 +320,7 @@ KDE 4 library
 Summary: %{name} kregexpeditor
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
-Obsoletes: %name-kregexpeditor
+Obsoletes: %name-kregexpeditor < 3.93.0-0.714053.1
 
 %description -n kde4-kregexpeditor
 %{name} kregexpeditor.
@@ -357,7 +358,7 @@ KDE 4 library
 Summary: %{name} ktimer
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
-Obsoletes: %name-ktimer
+Obsoletes: %name-ktimer < 3.93.0-0.714053.1
 
 %description -n kde4-ktimer
 %{name} ktimer.
@@ -374,7 +375,7 @@ Obsoletes: %name-ktimer
 Summary: %{name} kwallet
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
-Obsoletes: %name-kwallet
+Obsoletes: %name-kwallet < 3.93.0-0.714053.1
 
 %description -n kde4-kwallet
 %{name} kwallet.
@@ -396,7 +397,7 @@ Obsoletes: %name-kwallet
 Summary: %{name} superkaramba
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
-Obsoletes: %name-superkaramba
+Obsoletes: %name-superkaramba < 3.93.0-0.714053.1
 
 %description -n kde4-superkaramba
 %{name} superkaramba.
@@ -406,6 +407,8 @@ Obsoletes: %name-superkaramba
 %_kde_appsdir/superkaramba
 %_kde_bindir/superkaramba
 %_kde_datadir/applications/kde4/superkaramba.desktop
+%_kde_libdir/kde4/plasma_applet_skapplet.so
+%_kde_datadir/kde4/services/plasma-skapplet-default.desktop
 %_kde_datadir/config/superkaramba.knsrc
 %_datadir/dbus-1/interfaces/org.kde.superkaramba.xml
 %_kde_docdir/HTML/*/superkaramba
@@ -416,7 +419,7 @@ Obsoletes: %name-superkaramba
 Summary: %{name} ark
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
-Obsoletes: %name-ark
+Obsoletes: %name-ark < 3.93.0-0.714053.1
 
 %description -n kde4-ark
 %{name} ark.
@@ -476,7 +479,7 @@ KDE 4 library
 Summary: %{name} sweeper
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
-Obsoletes: %name-sweeper
+Obsoletes: %name-sweeper < 3.93.0-0.714053.1
 
 %description -n kde4-sweeper
 %{name} sweeper.

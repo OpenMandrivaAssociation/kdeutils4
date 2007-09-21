@@ -33,11 +33,11 @@ BuildRequires: X11-devel
 BuildRequires: openssl-devel
 BuildRequires: libnet-snmp-devel
 BuildRequires: gmp-devel
-BuildRequires: kdelibs4-devel
+BuildRequires: kdebase4-workspace-devel
 BuildRequires: kdepimlibs4-devel
 BuildRequires: libzip-devel
 BuildRequires: kde4-macros
-BuildRequires: libtpctl-devel
+BuildRequires: tpctl-devel
 %py_requires -d
 BuildConflicts: libxmms-devel
 Requires: kde4-kcalc
@@ -95,6 +95,7 @@ Obsoletes: %name-kcalc < 3.93.0-0.714053.1
 %_kde_datadir/applications/kde4/kcalc.desktop
 %_kde_datadir/config.kcfg/kcalc.kcfg
 %_kde_docdir/HTML/*/kcalc
+%_kde_libdir/libkdeinit4_kcalc.so
 
 #---------------------------------------------
 
@@ -510,6 +511,7 @@ This package contains header files needed if you wish to build applications base
 %defattr(-,root,root)
 %_kde_libdir/*.so
 %_kde_prefix/include/*
+%exclude %_kde_libdir/libkdeinit4_kcalc.so
 
 %prep
 %setup -q -n kdeutils-%version

@@ -37,7 +37,9 @@ BuildRequires: kdebase4-workspace-devel
 BuildRequires: kdepimlibs4-devel
 BuildRequires: libzip-devel
 BuildRequires: kde4-macros
+%ifarch %{ix86}
 BuildRequires: tpctl-devel
+%endif
 %py_requires -d
 BuildConflicts: libxmms-devel
 Requires: kde4-kcalc

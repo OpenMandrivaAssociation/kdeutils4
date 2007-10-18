@@ -1,4 +1,4 @@
-%define revision 714053
+%define revision 726233
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -18,7 +18,7 @@
 
 Name: kdeutils4
 Summary: K Desktop Environment
-Version: 3.93.0
+Version: 3.94.0
 Release: %mkrel 0.%revision.1
 Group: Graphical desktop/KDE
 License: GPL
@@ -291,6 +291,10 @@ Obsoletes: %name-kmilo < 3.93.0-0.714053.1
 %_kde_libdir/kde4/kmilo_asus.so
 %_kde_libdir/kde4/kmilo_kvaio.so
 %_kde_libdir/kde4/kmilo_thinkpad.so
+%_kde_libdir/kde4/kcm_kvaio.so
+%_kde_libdir/kde4/kmilo_delli8k.so
+%_kde_datadir/kde4/services/kmilo/kmilo_delli8k.desktop
+%_kde_datadir/kde4/services/kvaio.desktop
 %_kde_datadir/kde4/services/kded/kmilod.desktop
 %_kde_datadir/kde4/services/kmilo/kmilo_asus.desktop
 %_kde_datadir/kde4/services/kmilo/kmilo_kvaio.desktop

@@ -1,4 +1,4 @@
-%define revision 726233
+%define revision 729251
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -18,7 +18,7 @@
 
 Name: kdeutils4
 Summary: K Desktop Environment
-Version: 3.94.0
+Version: 3.94.1
 Release: %mkrel 0.%revision.1
 Group: Graphical desktop/KDE
 License: GPL

@@ -1,4 +1,4 @@
-%define revision 729251
+%define revision 737425
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -18,7 +18,7 @@
 
 Name: kdeutils4
 Summary: K Desktop Environment
-Version: 3.94.1
+Version: 3.96.0
 Release: %mkrel 0.%revision.1
 Group: Graphical desktop/KDE
 License: GPL
@@ -169,9 +169,9 @@ Obsoletes: %name-kfloppy < 3.93.0-0.714053.1
 
 %files -n kde4-kfloppy
 %defattr(-,root,root)
-%_kde_appsdir/konqueror
 %_kde_bindir/kfloppy
 %_kde_datadir/applications/kde4/KFloppy.desktop
+%_kde_datadir/kde4/services/ServiceMenus/floppy_format.desktop
 %_kde_docdir/HTML/*/kfloppy
 
 #---------------------------------------------
@@ -188,9 +188,10 @@ Obsoletes: %name-kgpg < 3.93.0-0.714053.1
 %files -n kde4-kgpg
 %defattr(-,root,root)
 %_kde_appsdir/kgpg
-%_kde_appsdir/konqueror
 %_kde_bindir/kgpg
 %_kde_datadir/applications/kde4/kgpg.desktop
+%_kde_datadir/kde4/services/ServiceMenus/encryptfile.desktop
+%_kde_datadir/kde4/services/ServiceMenus/encryptfolder.desktop
 %_kde_datadir/autostart/kgpg.desktop
 %_kde_datadir/config.kcfg/kgpg.kcfg
 %_datadir/dbus-1/interfaces/org.kde.kgpg.Key.xml

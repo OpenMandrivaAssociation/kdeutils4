@@ -19,7 +19,7 @@
 Name: kdeutils4
 Summary: K Desktop Environment
 Version: 3.96.1
-Release: %mkrel 0.%revision.1
+Release: %mkrel 0.%revision.2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -57,6 +57,8 @@ Requires: kde4-ktimer
 Requires: kde4-kwallet
 Requires: kde4-superkaramba
 Requires: kde4-sweeper
+
+Obsoletes: kdeutils4-kedit
 
 %description
 %{name} metapackage.

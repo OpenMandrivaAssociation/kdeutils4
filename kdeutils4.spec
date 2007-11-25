@@ -517,9 +517,13 @@ This package contains header files needed if you wish to build applications base
 
 %files devel
 %defattr(-,root,root)
-%_kde_libdir/*.so
+%_kde_libdir/libkerfuffle.so
+%_kde_libdir/libkmilo.so
+%_kde_libdir/libkregexpeditorcommon.so
+%_kde_libdir/liboktetacore.so
+%_kde_libdir/liboktetagui.so
+%_kde_libdir/libsuperkaramba.so
 %_kde_prefix/include/*
-%exclude %_kde_libdir/libkdeinit4_kcalc.so
 
 %prep
 %setup -q -n kdeutils-%version

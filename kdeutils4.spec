@@ -9,7 +9,7 @@
 %define unstable 1
 %{?_unstable: %{expand: %%global unstable 1}}
 
-%define branch 1
+%define branch 0
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %unstable
@@ -18,7 +18,7 @@
 
 Name: kdeutils4
 Summary: K Desktop Environment
-Version: 3.97.1
+Version: 4.0.0
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -39,6 +39,7 @@ BuildRequires: kdepimlibs4-devel
 BuildRequires: libzip-devel
 BuildRequires: kde4-macros
 BuildRequires: qimageblitz-devel 
+BuildRequires: libarchive-devel 
 %ifarch %{ix86}
 BuildRequires: tpctl-devel
 %endif
@@ -50,10 +51,8 @@ Requires: kde4-kdessh
 Requires: kde4-kdf
 Requires: kde4-kfloppy
 Requires: kde4-kgpg
-Requires: kde4-khexedit
 Requires: kde4-kjots
 Requires: kde4-kmilo
-Requires: kde4-kregexpeditor
 Requires: kde4-ktimer
 Requires: kde4-kwallet
 Requires: kde4-superkaramba
@@ -199,66 +198,6 @@ Obsoletes: %name-kgpg < 3.93.0-0.714053.1
 %_kde_datadir/config.kcfg/kgpg.kcfg
 %_datadir/dbus-1/interfaces/org.kde.kgpg.Key.xml
 %_kde_docdir/HTML/*/kgpg
-
-#---------------------------------------------
-
-%package -n kde4-khexedit
-Summary: %{name} khexedit
-Group: Graphical desktop/KDE
-Requires: %name-core = %version
-Obsoletes: %name-khexedit < 3.93.0-0.714053.1
-
-%description -n kde4-khexedit
-%{name} khexedit.
-
-%files -n kde4-khexedit
-%defattr(-,root,root)
-%_kde_appsdir/khexedit
-%_kde_appsdir/oktetapart
-%_kde_bindir/khexedit
-%_kde_libdir/kde4/libkbytearrayedit.so
-%_kde_libdir/kde4/liboktetapart.so
-%_kde_datadir/applications/kde4/khexedit.desktop
-%_kde_datadir/kde4/services/kbytearrayedit.desktop
-%_kde_datadir/kde4/services/oktetapart.desktop
-%_kde_docdir/HTML/*/khexedit
-
-#---------------------------------------------
-
-%define liboktetagui %mklibname oktetagui 4
-
-%package -n %liboktetagui
-Summary: KDE 4 library
-Group: System/Libraries
-
-%description -n %liboktetagui
-KDE 4 library
-
-%post -n %liboktetagui -p /sbin/ldconfig
-%postun -n %liboktetagui -p /sbin/ldconfig
-
-%files -n %liboktetagui
-%defattr(-,root,root)
-%_kde_libdir/liboktetagui.so.*
-
-#---------------------------------------------
-
-%define liboktetacore %mklibname oktetacore 4
-
-%package -n %liboktetacore
-Summary: KDE 4 library
-Group: System/Libraries
-
-%description -n %liboktetacore
-KDE 4 library
-
-%post -n %liboktetacore -p /sbin/ldconfig
-%postun -n %liboktetacore -p /sbin/ldconfig
-
-%files -n %liboktetacore
-%defattr(-,root,root)
-%_kde_libdir/liboktetacore.so.*
-
 #---------------------------------------------
 
 %package -n kde4-kjots
@@ -285,6 +224,7 @@ Summary: %{name} kmilo
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Obsoletes: %name-kmilo < 3.93.0-0.714053.1
+Obsoletes: kdeutils4-devel
 
 %description -n kde4-kmilo
 %{name} kmilo.
@@ -298,6 +238,7 @@ Obsoletes: %name-kmilo < 3.93.0-0.714053.1
 %_kde_libdir/kde4/kmilo_thinkpad.so
 %_kde_libdir/kde4/kcm_kvaio.so
 %_kde_libdir/kde4/kmilo_delli8k.so
+%_kde_libdir/libkmilo.so
 %_kde_datadir/kde4/services/kmilo/kmilo_delli8k.desktop
 %_kde_datadir/kde4/services/kvaio.desktop
 %_kde_datadir/kde4/services/kded/kmilod.desktop
@@ -325,44 +266,6 @@ KDE 4 library
 %files -n %libkmilo
 %defattr(-,root,root)
 %_kde_libdir/libkmilo.so.*
-
-#---------------------------------------------
-
-%package -n kde4-kregexpeditor
-Summary: %{name} kregexpeditor
-Group: Graphical desktop/KDE
-Requires: %name-core = %version
-Obsoletes: %name-kregexpeditor < 3.93.0-0.714053.1
-
-%description -n kde4-kregexpeditor
-%{name} kregexpeditor.
-
-%files -n kde4-kregexpeditor
-%defattr(-,root,root)
-%_kde_appsdir/kregexpeditor
-%_kde_bindir/kregexpeditor
-%_kde_libdir/kde4/libkregexpeditorgui.so
-%_kde_datadir/applications/kde4/kregexpeditor.desktop
-%_kde_datadir/kde4/services/kregexpeditorgui.desktop
-%_kde_docdir/HTML/*/KRegExpEditor
-
-#---------------------------------------------
-
-%define libkregexpeditorcommon %mklibname kregexpeditorcommon 4
-
-%package -n %libkregexpeditorcommon
-Summary: KDE 4 library
-Group: System/Libraries
-
-%description -n %libkregexpeditorcommon
-KDE 4 library
-
-%post -n %libkregexpeditorcommon -p /sbin/ldconfig
-%postun -n %libkregexpeditorcommon -p /sbin/ldconfig
-
-%files -n %libkregexpeditorcommon
-%defattr(-,root,root)
-%_kde_libdir/libkregexpeditorcommon.so.*
 
 #---------------------------------------------
 
@@ -410,6 +313,7 @@ Summary: %{name} superkaramba
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Obsoletes: %name-superkaramba < 3.93.0-0.714053.1
+Obsoletes: kdeutils4-devel
 
 %description -n kde4-superkaramba
 %{name} superkaramba.
@@ -420,6 +324,7 @@ Obsoletes: %name-superkaramba < 3.93.0-0.714053.1
 %_kde_bindir/superkaramba
 %_kde_datadir/applications/kde4/superkaramba.desktop
 %_kde_libdir/kde4/plasma_applet_skapplet.so
+%_kde_libdir/libsuperkaramba.so
 %_kde_datadir/kde4/services/plasma-skapplet-default.desktop
 %_kde_datadir/config/superkaramba.knsrc
 %_datadir/dbus-1/interfaces/org.kde.superkaramba.xml
@@ -432,6 +337,7 @@ Summary: %{name} ark
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Obsoletes: %name-ark < 3.93.0-0.714053.1
+Obsoletes: kdeutils4-devel
 
 %description -n kde4-ark
 %{name} ark.
@@ -441,6 +347,7 @@ Obsoletes: %name-ark < 3.93.0-0.714053.1
 %_kde_bindir/ark
 %_kde_libdir/kde4/libarkpart.so
 %_kde_libdir/kde4/kerfuffle_*
+%_kde_libdir/libkerfuffle.so
 %_kde_datadir/applications/kde4/ark.desktop
 %_kde_appsdir/ark
 %_kde_datadir/config.kcfg/ark.kcfg
@@ -504,29 +411,6 @@ Obsoletes: %name-sweeper < 3.93.0-0.714053.1
 %_datadir/dbus-1/interfaces/org.kde.sweeper.xml
 
 #---------------------------------------------
-
-%package devel
-Summary: Devel stuff for %{name}
-Group: Development/KDE and Qt
-Requires: kde4-macros
-Requires: kdelibs4-devel
-Requires: %liboktetagui = %version
-Requires: %liboktetacore = %version
-Requires: %libkmilo = %version
-Requires: %libkregexpeditorcommon = %version
-Requires: %libsuperkaramba = %version
-%description  devel
-This package contains header files needed if you wish to build applications based on %{name}.
-
-%files devel
-%defattr(-,root,root)
-%_kde_libdir/libkerfuffle.so
-%_kde_libdir/libkmilo.so
-%_kde_libdir/libkregexpeditorcommon.so
-%_kde_libdir/liboktetacore.so
-%_kde_libdir/liboktetagui.so
-%_kde_libdir/libsuperkaramba.so
-%_kde_prefix/include/*
 
 %prep
 %setup -q -n kdeutils-%version

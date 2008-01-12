@@ -26,7 +26,7 @@ URL: http://www.kde.org
 Release: %mkrel 0.%revision.1
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.%revision.tar.bz2
 %else
-Release: %mkrel 1
+Release: %mkrel 2
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 %endif
 Buildroot:	%_tmppath/%name-%version-%release-root
@@ -238,7 +238,6 @@ Obsoletes: kdeutils4-devel
 %_kde_libdir/kde4/kmilo_thinkpad.so
 %_kde_libdir/kde4/kcm_kvaio.so
 %_kde_libdir/kde4/kmilo_delli8k.so
-%_kde_libdir/libkmilo.so
 %_kde_datadir/kde4/services/kmilo/kmilo_delli8k.desktop
 %_kde_datadir/kde4/services/kvaio.desktop
 %_kde_datadir/kde4/services/kded/kmilod.desktop
@@ -248,6 +247,8 @@ Obsoletes: kdeutils4-devel
 %_kde_datadir/kde4/services/thinkpad.desktop
 %_kde_datadir/kde4/servicetypes/kmilo/kmilopluginsvc.desktop
 %_datadir/dbus-1/interfaces/org.kde.kmilod.xml
+# Should not be installed
+%exclude %_kde_libdir/libkmilo.so
 
 #---------------------------------------------
 
@@ -324,11 +325,12 @@ Obsoletes: kdeutils4-devel
 %_kde_bindir/superkaramba
 %_kde_datadir/applications/kde4/superkaramba.desktop
 %_kde_libdir/kde4/plasma_applet_skapplet.so
-%_kde_libdir/libsuperkaramba.so
 %_kde_datadir/kde4/services/plasma-skapplet-default.desktop
 %_kde_datadir/config/superkaramba.knsrc
 %_datadir/dbus-1/interfaces/org.kde.superkaramba.xml
 %_kde_docdir/HTML/*/superkaramba
+# Should not be installed
+%exclude %_kde_libdir/libsuperkaramba.so
 
 #---------------------------------------------
 

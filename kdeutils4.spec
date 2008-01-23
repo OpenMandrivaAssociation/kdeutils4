@@ -26,7 +26,7 @@ URL: http://www.kde.org
 Release: %mkrel 0.%revision.1
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.%revision.tar.bz2
 %else
-Release: %mkrel 2
+Release: %mkrel 3
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 %endif
 Buildroot:	%_tmppath/%name-%version-%release-root
@@ -349,7 +349,6 @@ Obsoletes: kdeutils4-devel
 %_kde_bindir/ark
 %_kde_libdir/kde4/libarkpart.so
 %_kde_libdir/kde4/kerfuffle_*
-%_kde_libdir/libkerfuffle.so
 %_kde_datadir/applications/kde4/ark.desktop
 %_kde_appsdir/ark
 %_kde_datadir/config.kcfg/ark.kcfg
@@ -357,6 +356,9 @@ Obsoletes: kdeutils4-devel
 %_kde_datadir/kde4/services/kerfuffle_*
 %_kde_datadir/kde4/servicetypes/kerfufflePlugin.desktop
 %_kde_docdir/HTML/*/ark
+
+# Should not be installed
+%exclude %_kde_libdir/libkerfuffle.so
 
 #---------------------------------------------
 

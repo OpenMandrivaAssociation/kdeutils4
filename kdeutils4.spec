@@ -323,10 +323,8 @@ Provides:       kde4-superkaramba = %version
 %_kde_appsdir/superkaramba
 %_kde_bindir/superkaramba
 %_kde_datadir/applications/kde4/superkaramba.desktop
-%_kde_libdir/kde4/plasma_applet_skapplet.so
 %_kde_libdir/kde4/plasma_package_superkaramba.so
 %_kde_libdir/kde4/plasma_scriptengine_superkaramba.so
-%_kde_datadir/kde4/services/plasma-skapplet-default.desktop
 %_kde_datadir/kde4/services/plasma-package-superkaramba.desktop
 %_kde_datadir/kde4/services/plasma-scriptengine-superkaramba.desktop
 %_kde_datadir/config/superkaramba.knsrc

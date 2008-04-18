@@ -1,6 +1,6 @@
 Name: kdeutils4
 Summary: K Desktop Environment
-Version: 4.0.3
+Version: 4.0.69
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -22,18 +22,18 @@ BuildRequires: tpctl-devel
 %endif
 %py_requires -d
 BuildConflicts: libxmms-devel
-Requires: kde4-kcalc
-Requires: kde4-kcharselect
-Requires: kde4-kdessh
-Requires: kde4-kdf
-Requires: kde4-kfloppy
-Requires: kde4-kgpg
-Requires: kde4-kjots
-Requires: kde4-kmilo
-Requires: kde4-ktimer
-Requires: kde4-kwallet
-Requires: kde4-superkaramba
-Requires: kde4-sweeper
+Requires: kcalc
+Requires: kcharselect
+Requires: kdessh
+Requires: kdf
+Requires: kfloppy
+Requires: kgpg
+Requires: kjots
+Requires: kmilo
+Requires: ktimer
+Requires: kwallet
+Requires: superkaramba
+Requires: sweeper
 
 Obsoletes: kdeutils4-kedit
 
@@ -60,16 +60,18 @@ Core files for %{name}.
 
 #----------------------------------------------------------------------
 
-%package -n kde4-kcalc
+%package -n kcalc
 Summary: %{name} kcalc
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Obsoletes: %name-kcalc < 3.93.0-0.714053.1
+Obsoletes:      kde4-kcalc < 4.0.68
+Provides:       kde4-kcalc = %version
 
-%description -n kde4-kcalc
+%description -n kcalc
 %{name} kcalc.
 
-%files -n kde4-kcalc
+%files -n kcalc
 %defattr(-,root,root)
 %_kde_appsdir/kcalc
 %_kde_appsdir/kconf_update
@@ -81,16 +83,18 @@ Obsoletes: %name-kcalc < 3.93.0-0.714053.1
 
 #---------------------------------------------
 
-%package -n kde4-kcharselect
+%package -n kcharselect
 Summary: %{name} kcharselect
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Obsoletes: %name-kcharselect < 3.93.0-0.714053.1
+Obsoletes:      kde4-kcharselect < 4.0.68
+Provides:       kde4-kcharselect = %version
 
-%description -n kde4-kcharselect
+%description -n kcharselect
 %{name} kcharselect.
 
-%files -n kde4-kcharselect
+%files -n kcharselect
 %defattr(-,root,root)
 %_kde_appsdir/kconf_update
 %_kde_appsdir/kcharselect
@@ -100,31 +104,35 @@ Obsoletes: %name-kcharselect < 3.93.0-0.714053.1
 
 #---------------------------------------------
 
-%package -n kde4-kdessh
+%package -n kdessh
 Summary: %{name} kdessh
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Obsoletes: %name-kdessh < 3.93.0-0.714053.1
+Obsoletes:      kde4-kdessh < 4.0.68
+Provides:       kde4-kdessh = %version
 
-%description -n kde4-kdessh
+%description -n kdessh
 %{name} kdessh.
 
-%files -n kde4-kdessh
+%files -n kdessh
 %defattr(-,root,root)
 %_kde_bindir/kdessh
 
 #---------------------------------------------
 
-%package -n kde4-kdf
+%package -n kdf
 Summary: %{name} kdf
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Obsoletes: %name-kdf < 3.93.0-0.714053.1
+Obsoletes:      kde4-kdf < 4.0.68
+Provides:       kde4-kdf = %version
 
-%description -n kde4-kdf
+%description -n kdf
 %{name} kdf.
 
-%files -n kde4-kdf
+%files -n kdf
 %defattr(-,root,root)
 %_kde_appsdir/kdf
 %_kde_bindir/kdf
@@ -137,16 +145,18 @@ Obsoletes: %name-kdf < 3.93.0-0.714053.1
 
 #---------------------------------------------
 
-%package -n kde4-kfloppy
+%package -n kfloppy
 Summary: %{name} kfloppy
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Obsoletes: %name-kfloppy < 3.93.0-0.714053.1
+Obsoletes:      kde4-kfloppy < 4.0.68
+Provides:       kde4-kfloppy = %version
 
-%description -n kde4-kfloppy
+%description -n kfloppy
 %{name} kfloppy.
 
-%files -n kde4-kfloppy
+%files -n kfloppy
 %defattr(-,root,root)
 %_kde_bindir/kfloppy
 %_kde_datadir/applications/kde4/KFloppy.desktop
@@ -155,16 +165,18 @@ Obsoletes: %name-kfloppy < 3.93.0-0.714053.1
 
 #---------------------------------------------
 
-%package -n kde4-kgpg
+%package -n kgpg
 Summary: %{name} kgpg
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Obsoletes: %name-kgpg < 3.93.0-0.714053.1
+Obsoletes:      kde4-kgpg < 4.0.68
+Provides:       kde4-kgpg = %version
 
-%description -n kde4-kgpg
+%description -n kgpg
 %{name} kgpg.
 
-%files -n kde4-kgpg
+%files -n kgpg
 %defattr(-,root,root)
 %_kde_appsdir/kgpg
 %_kde_bindir/kgpg
@@ -177,16 +189,18 @@ Obsoletes: %name-kgpg < 3.93.0-0.714053.1
 %_kde_docdir/HTML/*/kgpg
 #---------------------------------------------
 
-%package -n kde4-kjots
+%package -n kjots
 Summary: %{name} kjots
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Obsoletes: %name-kjots < 3.93.0-0.714053.1
+Obsoletes:      kde4-kjots < 4.0.68
+Provides:       kde4-kjots = %version
 
-%description -n kde4-kjots
+%description -n kjots
 %{name} kjots.
 
-%files -n kde4-kjots
+%files -n kjots
 %defattr(-,root,root)
 %_kde_appsdir/kjots
 %_kde_bindir/kjots
@@ -196,17 +210,19 @@ Obsoletes: %name-kjots < 3.93.0-0.714053.1
 
 #---------------------------------------------
 
-%package -n kde4-kmilo
+%package -n kmilo
 Summary: %{name} kmilo
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Obsoletes: %name-kmilo < 3.93.0-0.714053.1
 Obsoletes: kdeutils4-devel
+Obsoletes:      kde4-kmilo < 4.0.68
+Provides:       kde4-kmilo = %version
 
-%description -n kde4-kmilo
+%description -n kmilo
 %{name} kmilo.
 
-%files -n kde4-kmilo
+%files -n kmilo
 %defattr(-,root,root)
 %_kde_libdir/kde4/kcm_thinkpad.so
 %_kde_libdir/kde4/kded_kmilod.so
@@ -247,16 +263,18 @@ KDE 4 library
 
 #---------------------------------------------
 
-%package -n kde4-ktimer
+%package -n ktimer
 Summary: %{name} ktimer
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Obsoletes: %name-ktimer < 3.93.0-0.714053.1
+Obsoletes:      kde4-ktimer < 4.0.68
+Provides:       kde4-ktimer = %version
 
-%description -n kde4-ktimer
+%description -n ktimer
 %{name} ktimer.
 
-%files -n kde4-ktimer
+%files -n ktimer
 %defattr(-,root,root)
 %_kde_bindir/ktimer
 %_kde_datadir/applications/kde4/ktimer.desktop
@@ -264,16 +282,18 @@ Obsoletes: %name-ktimer < 3.93.0-0.714053.1
 
 #---------------------------------------------
 
-%package -n kde4-kwallet
+%package -n kwallet
 Summary: %{name} kwallet
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Obsoletes: %name-kwallet < 3.93.0-0.714053.1
+Obsoletes:      kde4-kwallet < 4.0.68
+Provides:       kde4-kwallet = %version
 
-%description -n kde4-kwallet
+%description -n kwallet
 %{name} kwallet.
 
-%files -n kde4-kwallet
+%files -n kwallet
 %defattr(-,root,root)
 %_kde_appsdir/kwalletmanager
 %_kde_bindir/kwalletmanager
@@ -286,23 +306,29 @@ Obsoletes: %name-kwallet < 3.93.0-0.714053.1
 
 #---------------------------------------------
 
-%package -n kde4-superkaramba
+%package -n superkaramba
 Summary: %{name} superkaramba
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Obsoletes: %name-superkaramba < 3.93.0-0.714053.1
 Obsoletes: kdeutils4-devel
+Obsoletes:      kde4-superkaramba < 4.0.68
+Provides:       kde4-superkaramba = %version
 
-%description -n kde4-superkaramba
+%description -n superkaramba
 %{name} superkaramba.
 
-%files -n kde4-superkaramba
+%files -n superkaramba
 %defattr(-,root,root)
 %_kde_appsdir/superkaramba
 %_kde_bindir/superkaramba
 %_kde_datadir/applications/kde4/superkaramba.desktop
 %_kde_libdir/kde4/plasma_applet_skapplet.so
+%_kde_libdir/kde4/plasma_package_superkaramba.so
+%_kde_libdir/kde4/plasma_scriptengine_superkaramba.so
 %_kde_datadir/kde4/services/plasma-skapplet-default.desktop
+%_kde_datadir/kde4/services/plasma-package-superkaramba.desktop
+%_kde_datadir/kde4/services/plasma-scriptengine-superkaramba.desktop
 %_kde_datadir/config/superkaramba.knsrc
 %_datadir/dbus-1/interfaces/org.kde.superkaramba.xml
 %_kde_docdir/HTML/*/superkaramba
@@ -311,17 +337,19 @@ Obsoletes: kdeutils4-devel
 
 #---------------------------------------------
 
-%package -n kde4-ark
+%package -n ark
 Summary: %{name} ark
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Obsoletes: %name-ark < 3.93.0-0.714053.1
 Obsoletes: kdeutils4-devel
+Obsoletes:      kde4-ark < 4.0.68
+Provides:       kde4-ark = %version
 
-%description -n kde4-ark
+%description -n ark
 %{name} ark.
 
-%files -n kde4-ark
+%files -n ark
 %defattr(-,root,root)
 %_kde_bindir/ark
 %_kde_libdir/kde4/libarkpart.so
@@ -375,16 +403,18 @@ KDE 4 library
 
 #---------------------------------------------
 
-%package -n kde4-sweeper
+%package -n sweeper
 Summary: %{name} sweeper
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Obsoletes: %name-sweeper < 3.93.0-0.714053.1
+Obsoletes:      kde4-sweeper < 4.0.68
+Provides:       kde4-sweeper = %version
 
-%description -n kde4-sweeper
+%description -n sweeper
 %{name} sweeper.
 
-%files -n kde4-sweeper
+%files -n sweeper
 %defattr(-,root,root)
 %_kde_appsdir/sweeper
 %_kde_bindir/sweeper

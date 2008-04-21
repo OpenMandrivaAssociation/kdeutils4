@@ -1,6 +1,6 @@
 Name: kdeutils4
 Summary: K Desktop Environment
-Version: 4.0.69
+Version: 4.0.70
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -420,6 +420,72 @@ Provides:       kde4-sweeper = %version
 %_datadir/dbus-1/interfaces/org.kde.sweeper.xml
 
 #---------------------------------------------
+
+%package -n okteta
+Summary: %{name} okteta
+Group: Graphical desktop/KDE
+Requires: %name-core = %version
+
+%description -n okteta
+%{name} okteta.
+
+%files -n okteta
+%defattr(-,root,root)
+%_kde_bindir/okteta
+%_kde_libdir/kde4/libkbytearrayedit.so
+%_kde_libdir/kde4/liboktetapart.so
+%_kde_datadir/applications/kde4/okteta.desktop
+%dir %_kde_appsdir/okteta
+%_kde_appsdir/okteta/oktetaui.rc
+%dir %_kde_appsdir/oktetapart
+%_kde_appsdir/oktetapart/oktetapartui.rc
+%_kde_datadir/kde4/services/kbytearrayedit.desktop
+%_kde_datadir/kde4/services/oktetapart.desktop
+%_kde_docdir/HTML/en/okteta
+
+%exclude %_kde_libdir/liboktetagui.so
+%exclude %_kde_libdir/liboktetacore.so
+
+#---------------------------------------------
+
+%define liboktetacore_major 4
+%define liboktetacore %mklibname oktetacore %{liboktetacore_major}
+
+%package -n %liboktetacore
+Summary: KDE 4 library
+Group: System/Libraries
+
+%description -n %liboktetacore
+KDE 4 library
+
+%post -n %liboktetacore -p /sbin/ldconfig
+%postun -n %liboktetacore -p /sbin/ldconfig
+
+%files -n %liboktetacore
+%defattr(-,root,root)
+%_kde_libdir/liboktetacore.so.%{liboktetacore_major}*
+
+#---------------------------------------------
+
+%define liboktetagui_major 4
+%define liboktetagui %mklibname oktetagui %{liboktetagui_major}
+
+%package -n %liboktetagui
+Summary: KDE 4 library
+Group: System/Libraries
+
+%description -n %liboktetagui
+KDE 4 library
+
+%post -n %liboktetagui -p /sbin/ldconfig
+%postun -n %liboktetagui -p /sbin/ldconfig
+
+%files -n %liboktetagui
+%defattr(-,root,root)
+%_kde_libdir/liboktetagui.so.%{liboktetagui_major}*
+
+#---------------------------------------------
+
 
 %prep
 %setup -q -n kdeutils-%version

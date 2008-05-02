@@ -1,6 +1,6 @@
 Name: kdeutils4
 Summary: K Desktop Environment
-Version: 4.0.71
+Version: 4.0.72
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -323,10 +323,10 @@ Provides:       kde4-superkaramba = %version
 %_kde_appsdir/superkaramba
 %_kde_bindir/superkaramba
 %_kde_datadir/applications/kde4/superkaramba.desktop
-%_kde_libdir/kde4/plasma_package_superkaramba.so
-%_kde_libdir/kde4/plasma_scriptengine_superkaramba.so
-%_kde_datadir/kde4/services/plasma-package-superkaramba.desktop
-%_kde_datadir/kde4/services/plasma-scriptengine-superkaramba.desktop
+#%_kde_libdir/kde4/plasma_package_superkaramba.so
+#%_kde_libdir/kde4/plasma_scriptengine_superkaramba.so
+#%_kde_datadir/kde4/services/plasma-package-superkaramba.desktop
+#%_kde_datadir/kde4/services/plasma-scriptengine-superkaramba.desktop
 %_kde_datadir/config/superkaramba.knsrc
 %_datadir/dbus-1/interfaces/org.kde.superkaramba.xml
 %_kde_docdir/HTML/*/superkaramba

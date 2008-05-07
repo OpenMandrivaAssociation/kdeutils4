@@ -4,7 +4,7 @@ Version: 4.0.72
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 3
+Release: %mkrel 4
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
@@ -50,10 +50,10 @@ Obsoletes: kdeutils4-kedit
 Summary:     %name core files
 Group:       Graphical desktop/KDE
 Requires:    kdelibs4-core
-Conflicts:   kdeutils-kcalc < 3.5.9-2
-Conflicts:   kdeutils-kgpg  < 3.5.9-2
-Conflicts:   kdeutils-kwalletmanager < 3.5.9-2
-Conflicts:   kdeutils-ktimer < 3.5.9-2
+Conflicts:   kdeutils-kcalc < 3.5.9-3
+Conflicts:   kdeutils-kgpg  < 3.5.9-3
+Conflicts:   kdeutils-kwalletmanager < 3.5.9-3
+Conflicts:   kdeutils-ktimer < 3.5.9-3
 
 %description core
 Core files for %{name}.
@@ -71,7 +71,7 @@ Requires:       %name-core = %version
 Obsoletes:      %name-kcalc < 3.93.0-0.714053.1
 Obsoletes:      kde4-kcalc < 4.0.68
 Provides:       kde4-kcalc = %version
-Conflicts:      kdeutils-kcalc < 3.5.9-2
+Conflicts:      kdeutils-kcalc < 3.5.9-3
 
 %description -n kcalc
 %{name} kcalc.
@@ -177,7 +177,7 @@ Requires:       %name-core = %version
 Obsoletes:      %name-kgpg < 3.93.0-0.714053.1
 Obsoletes:      kde4-kgpg < 4.0.68
 Provides:       kde4-kgpg = %version
-Obsoletes:      kdeutils-kgpg < 1:3.5.9-2
+Obsoletes:      kdeutils-kgpg < 1:3.5.9-3
 
 %description -n kgpg
 %{name} kgpg.
@@ -276,7 +276,7 @@ Requires:       %name-core = %version
 Obsoletes:      %name-ktimer < 3.93.0-0.714053.1
 Obsoletes:      kde4-ktimer < 4.0.68
 Provides:       kde4-ktimer = %version
-Conflicts:      kdeutils-ktimer < 1:3.5.9-2
+Conflicts:      kdeutils-ktimer < 1:3.5.9-3
 
 %description -n ktimer
 %{name} ktimer.
@@ -296,7 +296,7 @@ Requires:       %name-core = %version
 Obsoletes:      %name-kwallet < 3.93.0-0.714053.1
 Obsoletes:      kde4-kwallet < 4.0.68
 Provides:       kde4-kwallet = %version
-Conflicts:      kdeutils-kwalletmanager < 1:3.5.9-2
+Conflicts:      kdeutils-kwalletmanager < 1:3.5.9-3
 
 %description -n kwallet
 %{name} kwallet.

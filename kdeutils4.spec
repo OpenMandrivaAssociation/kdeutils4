@@ -4,7 +4,7 @@ Version: 4.0.72
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 3
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
@@ -46,10 +46,14 @@ Obsoletes: kdeutils4-kedit
 
 #----------------------------------------------------------------------
 
-%package core
-Summary: %name core files
-Group: Graphical desktop/KDE
-Requires: kdelibs4-core
+%package     core
+Summary:     %name core files
+Group:       Graphical desktop/KDE
+Requires:    kdelibs4-core
+Conflicts:   kdeutils-kcalc < 3.5.9-2
+Conflicts:   kdeutils-kgpg  < 3.5.9-2
+Conflicts:   kdeutils-kwalletmanager < 3.5.9-2
+Conflicts:   kdeutils-ktimer < 3.5.9-2
 
 %description core
 Core files for %{name}.
@@ -60,13 +64,14 @@ Core files for %{name}.
 
 #----------------------------------------------------------------------
 
-%package -n kcalc
-Summary: %{name} kcalc
-Group: Graphical desktop/KDE
-Requires: %name-core = %version
-Obsoletes: %name-kcalc < 3.93.0-0.714053.1
+%package -n     kcalc
+Summary:        %{name} kcalc
+Group:          Graphical desktop/KDE
+Requires:       %name-core = %version
+Obsoletes:      %name-kcalc < 3.93.0-0.714053.1
 Obsoletes:      kde4-kcalc < 4.0.68
 Provides:       kde4-kcalc = %version
+Conflicts:      kdeutils-kcalc < 3.5.9-2
 
 %description -n kcalc
 %{name} kcalc.
@@ -165,13 +170,14 @@ Provides:       kde4-kfloppy = %version
 
 #---------------------------------------------
 
-%package -n kgpg
-Summary: %{name} kgpg
-Group: Graphical desktop/KDE
-Requires: %name-core = %version
-Obsoletes: %name-kgpg < 3.93.0-0.714053.1
+%package -n     kgpg
+Summary:        %{name} kgpg
+Group:          Graphical desktop/KDE
+Requires:       %name-core = %version
+Obsoletes:      %name-kgpg < 3.93.0-0.714053.1
 Obsoletes:      kde4-kgpg < 4.0.68
 Provides:       kde4-kgpg = %version
+Obsoletes:      kdeutils-kgpg < 1:3.5.9-2
 
 %description -n kgpg
 %{name} kgpg.
@@ -263,13 +269,14 @@ KDE 4 library
 
 #---------------------------------------------
 
-%package -n ktimer
-Summary: %{name} ktimer
-Group: Graphical desktop/KDE
-Requires: %name-core = %version
-Obsoletes: %name-ktimer < 3.93.0-0.714053.1
+%package -n     ktimer
+Summary:        %{name} ktimer
+Group:          Graphical desktop/KDE
+Requires:       %name-core = %version
+Obsoletes:      %name-ktimer < 3.93.0-0.714053.1
 Obsoletes:      kde4-ktimer < 4.0.68
 Provides:       kde4-ktimer = %version
+Conflicts:      kdeutils-ktimer < 1:3.5.9-2
 
 %description -n ktimer
 %{name} ktimer.
@@ -282,13 +289,14 @@ Provides:       kde4-ktimer = %version
 
 #---------------------------------------------
 
-%package -n kwallet
-Summary: %{name} kwallet
-Group: Graphical desktop/KDE
-Requires: %name-core = %version
-Obsoletes: %name-kwallet < 3.93.0-0.714053.1
+%package -n     kwallet
+Summary:        %{name} kwallet
+Group:          Graphical desktop/KDE
+Requires:       %name-core = %version
+Obsoletes:      %name-kwallet < 3.93.0-0.714053.1
 Obsoletes:      kde4-kwallet < 4.0.68
 Provides:       kde4-kwallet = %version
+Conflicts:      kdeutils-kwalletmanager < 1:3.5.9-2
 
 %description -n kwallet
 %{name} kwallet.

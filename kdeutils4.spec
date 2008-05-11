@@ -177,7 +177,7 @@ Requires:       %name-core = %version
 Obsoletes:      %name-kgpg < 3.93.0-0.714053.1
 Obsoletes:      kde4-kgpg < 4.0.68
 Provides:       kde4-kgpg = %version
-Obsoletes:      kdeutils-kgpg < 1:3.5.9-3
+Obsoletes:      kdeutils-kgpg < 3.5.9-3
 
 %description -n kgpg
 %{name} kgpg.
@@ -276,7 +276,7 @@ Requires:       %name-core = %version
 Obsoletes:      %name-ktimer < 3.93.0-0.714053.1
 Obsoletes:      kde4-ktimer < 4.0.68
 Provides:       kde4-ktimer = %version
-Conflicts:      kdeutils-ktimer < 1:3.5.9-3
+Conflicts:      kdeutils-ktimer < 3.5.9-3
 
 %description -n ktimer
 %{name} ktimer.
@@ -296,7 +296,7 @@ Requires:       %name-core = %version
 Obsoletes:      %name-kwallet < 3.93.0-0.714053.1
 Obsoletes:      kde4-kwallet < 4.0.68
 Provides:       kde4-kwallet = %version
-Conflicts:      kdeutils-kwalletmanager < 1:3.5.9-3
+Conflicts:      kdeutils-kwalletmanager < 3.5.9-3
 
 %description -n kwallet
 %{name} kwallet.

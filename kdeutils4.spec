@@ -1,6 +1,6 @@
 Name: kdeutils4
 Summary: K Desktop Environment
-Version: 4.0.72
+Version: 4.0.73
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -17,6 +17,7 @@ BuildRequires: libzip-devel
 BuildRequires: kde4-macros
 BuildRequires: qimageblitz-devel 
 BuildRequires: libarchive-devel 
+BuildRequires: python-kde4
 %ifarch %{ix86}
 BuildRequires: tpctl-devel
 %endif
@@ -29,13 +30,15 @@ Requires: kdf
 Requires: kfloppy
 Requires: kgpg
 Requires: kjots
-Requires: kmilo
 Requires: ktimer
 Requires: kwallet
 Requires: superkaramba
 Requires: sweeper
 
 Obsoletes: kdeutils4-kedit
+Obsoletes: kdeutils4-kmilo < 4.0.73-1
+Obsoletes: kmilo < 4.0.73-1
+Obsoletes: %{_lib}kmilo4 < 4.0.73-1
 
 %description
 %{name} metapackage.
@@ -213,59 +216,6 @@ Provides:       kde4-kjots = %version
 %_kde_datadir/applications/kde4/Kjots.desktop
 %_kde_datadir/config.kcfg/kjots.kcfg
 %_kde_docdir/HTML/*/kjots
-
-#---------------------------------------------
-
-%package -n kmilo
-Summary: %{name} kmilo
-Group: Graphical desktop/KDE
-Requires: %name-core = %version
-Obsoletes: %name-kmilo < 3.93.0-0.714053.1
-Obsoletes: kdeutils4-devel
-Obsoletes:      kde4-kmilo < 4.0.68
-Provides:       kde4-kmilo = %version
-
-%description -n kmilo
-%{name} kmilo.
-
-%files -n kmilo
-%defattr(-,root,root)
-%_kde_libdir/kde4/kcm_thinkpad.so
-%_kde_libdir/kde4/kded_kmilod.so
-%_kde_libdir/kde4/kmilo_asus.so
-%_kde_libdir/kde4/kmilo_kvaio.so
-%_kde_libdir/kde4/kmilo_thinkpad.so
-%_kde_libdir/kde4/kcm_kvaio.so
-%_kde_libdir/kde4/kmilo_delli8k.so
-%_kde_datadir/kde4/services/kmilo/kmilo_delli8k.desktop
-%_kde_datadir/kde4/services/kvaio.desktop
-%_kde_datadir/kde4/services/kded/kmilod.desktop
-%_kde_datadir/kde4/services/kmilo/kmilo_asus.desktop
-%_kde_datadir/kde4/services/kmilo/kmilo_kvaio.desktop
-%_kde_datadir/kde4/services/kmilo/kmilo_thinkpad.desktop
-%_kde_datadir/kde4/services/thinkpad.desktop
-%_kde_datadir/kde4/servicetypes/kmilo/kmilopluginsvc.desktop
-%_datadir/dbus-1/interfaces/org.kde.kmilod.xml
-# Should not be installed
-%exclude %_kde_libdir/libkmilo.so
-
-#---------------------------------------------
-
-%define libkmilo %mklibname kmilo 4
-
-%package -n %libkmilo
-Summary: KDE 4 library
-Group: System/Libraries
-
-%description -n %libkmilo
-KDE 4 library
-
-%post -n %libkmilo -p /sbin/ldconfig
-%postun -n %libkmilo -p /sbin/ldconfig
-
-%files -n %libkmilo
-%defattr(-,root,root)
-%_kde_libdir/libkmilo.so.*
 
 #---------------------------------------------
 

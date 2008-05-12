@@ -4,7 +4,7 @@ Version: 4.0.73
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 4
+Release: %mkrel 5
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
@@ -18,6 +18,7 @@ BuildRequires: kde4-macros
 BuildRequires: qimageblitz-devel 
 BuildRequires: libarchive-devel 
 BuildRequires: python-kde4
+BuildRequires: system-config-printer
 %ifarch %{ix86}
 BuildRequires: tpctl-devel
 %endif
@@ -34,6 +35,7 @@ Requires: ktimer
 Requires: kwallet
 Requires: superkaramba
 Requires: sweeper
+Requires: %{name}-printer-applet
 
 Obsoletes: kdeutils4-kedit
 Obsoletes: kdeutils4-kmilo < 4.0.73-1
@@ -90,6 +92,25 @@ Conflicts:      kdeutils-kcalc < 3.5.9-3
 %_kde_libdir/libkdeinit4_kcalc.so
 
 #---------------------------------------------
+
+
+%package        printer-applet
+Summary:        Printer applet for KDE4
+Group:          Graphical desktop/KDE
+Requires:       %name-core = %version
+Requires:       system-config-printer
+Requires:       python
+
+%description    printer-applet
+Printer applet for KDE4
+
+%files printer-applet
+%defattr(-,root,root)
+%_kde_bindir/printer-applet
+%_kde_appsdir/printer-applet
+
+#---------------------------------------------
+
 
 %package -n kcharselect
 Summary: %{name} kcharselect

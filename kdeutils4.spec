@@ -4,7 +4,7 @@ Version: 4.0.73
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 5
+Release: %mkrel 6
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
@@ -59,6 +59,7 @@ Conflicts:   kdeutils-kcalc < 3.5.9-3
 Conflicts:   kdeutils-kgpg  < 3.5.9-3
 Conflicts:   kdeutils-kwalletmanager < 3.5.9-3
 Conflicts:   kdeutils-ktimer < 3.5.9-3
+Conflicts:   kdeutils-kfloppy < 3.5.9-3
 
 %description core
 Core files for %{name}.

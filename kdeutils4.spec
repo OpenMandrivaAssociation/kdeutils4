@@ -4,7 +4,7 @@ Version: 4.0.74
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
@@ -37,11 +37,6 @@ Requires: superkaramba
 Requires: sweeper
 Requires: %{name}-printer-applet
 
-Obsoletes: kdeutils4-kedit
-Obsoletes: kdeutils4-kmilo < 4.0.73-1
-Obsoletes: kmilo < 4.0.73-1
-Obsoletes: %{_lib}kmilo4 < 4.0.73-1
-
 %description
 %{name} metapackage.
 
@@ -60,6 +55,11 @@ Conflicts:   kdeutils-kgpg  < 3.5.9-3
 Conflicts:   kdeutils-kwalletmanager < 3.5.9-3
 Conflicts:   kdeutils-ktimer < 3.5.9-3
 Conflicts:   kdeutils-kfloppy < 3.5.9-3
+Obsoletes:   kde4-kmilo < 4.0.74-1
+Obsoletes:   %{_lib}kmilo4 < 4.0.74-1
+Obsoletes:   kdeutils4-kmilo < 4.0.74-1
+Obsoletes:   kmilo < 4.0.74-1
+Obsoletes:   kdeutils4-kedit
 
 %description core
 Core files for %{name}.

@@ -30,12 +30,14 @@ Requires: kdessh
 Requires: kdf
 Requires: kfloppy
 Requires: kgpg
-Requires: kjots
 Requires: ktimer
 Requires: kwallet
 Requires: superkaramba
 Requires: sweeper
 Requires: %{name}-printer-applet
+
+Obsoletes: kde4-kjots < 4.0.68
+Obsoletes: kjots < 4.0.80
 
 %description
 %{name} metapackage.
@@ -220,27 +222,6 @@ Obsoletes:      kdeutils-kgpg < 3.5.9-3
 %_kde_docdir/HTML/*/kgpg
 #---------------------------------------------
 
-%package -n kjots
-Summary: %{name} kjots
-Group: Graphical desktop/KDE
-Requires: %name-core = %version
-Obsoletes: %name-kjots < 3.93.0-0.714053.1
-Obsoletes:      kde4-kjots < 4.0.68
-Provides:       kde4-kjots = %version
-
-%description -n kjots
-%{name} kjots.
-
-%files -n kjots
-%defattr(-,root,root)
-%_kde_appsdir/kjots
-%_kde_bindir/kjots
-%_kde_datadir/applications/kde4/Kjots.desktop
-%_kde_datadir/config.kcfg/kjots.kcfg
-%_kde_docdir/HTML/*/kjots
-
-#---------------------------------------------
-
 %package -n     ktimer
 Summary:        %{name} ktimer
 Group:          Graphical desktop/KDE
@@ -303,10 +284,10 @@ Provides:       kde4-superkaramba = %version
 %_kde_appsdir/superkaramba
 %_kde_bindir/superkaramba
 %_kde_datadir/applications/kde4/superkaramba.desktop
-#%_kde_libdir/kde4/plasma_package_superkaramba.so
-#%_kde_libdir/kde4/plasma_scriptengine_superkaramba.so
-#%_kde_datadir/kde4/services/plasma-package-superkaramba.desktop
-#%_kde_datadir/kde4/services/plasma-scriptengine-superkaramba.desktop
+%_kde_libdir/kde4/plasma_package_superkaramba.so
+%_kde_libdir/kde4/plasma_scriptengine_superkaramba.so
+%_kde_datadir/kde4/services/plasma-package-superkaramba.desktop
+%_kde_datadir/kde4/services/plasma-scriptengine-superkaramba.desktop
 %_kde_datadir/config/superkaramba.knsrc
 %_datadir/dbus-1/interfaces/org.kde.superkaramba.xml
 %_kde_docdir/HTML/*/superkaramba

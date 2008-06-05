@@ -19,6 +19,7 @@ BuildRequires: qimageblitz-devel
 BuildRequires: libarchive-devel 
 BuildRequires: python-kde4
 BuildRequires: system-config-printer
+BuildRequires: kdepim4-devel
 %ifarch %{ix86}
 BuildRequires: tpctl-devel
 %endif
@@ -97,12 +98,12 @@ Conflicts:      kdeutils-kcalc < 3.5.9-3
 #---------------------------------------------
 
 
-%package        printer-applet
-Summary:        Printer applet for KDE4
-Group:          Graphical desktop/KDE
-Requires:       %name-core = %version
-Requires:       system-config-printer
-Requires:       python
+%package printer-applet
+Summary: Printer applet for KDE4
+Group: Graphical desktop/KDE
+Requires: %name-core = %version
+Requires: system-config-printer
+Requires: python-kde4
 
 %description    printer-applet
 Printer applet for KDE4
@@ -111,6 +112,7 @@ Printer applet for KDE4
 %defattr(-,root,root)
 %_kde_bindir/printer-applet
 %_kde_appsdir/printer-applet
+%_kde_datadir/autostart/printer-applet.desktop
 
 #---------------------------------------------
 
@@ -452,7 +454,8 @@ KDE 4 library
 %setup -q -n kdeutils-%version
 
 %build
-%cmake_kde4 
+%cmake_kde4 \
+	-DINSTALL_PRINTER_APPLET=TRUE
 
 %make
 

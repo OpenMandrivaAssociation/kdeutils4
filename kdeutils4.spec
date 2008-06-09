@@ -337,8 +337,12 @@ Group: System/Libraries
 %description -n %libkerfuffle
 KDE 4 library
 
+%if %mdkversion < 200900
 %post -n %libkerfuffle -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkerfuffle -p /sbin/ldconfig
+%endif
 
 %files -n %libkerfuffle
 %defattr(-,root,root)
@@ -355,8 +359,12 @@ Group: System/Libraries
 %description -n %libsuperkaramba
 KDE 4 library
 
+%if %mdkversion < 200900
 %post -n %libsuperkaramba -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libsuperkaramba -p /sbin/ldconfig
+%endif
 
 %files -n %libsuperkaramba
 %defattr(-,root,root)
@@ -421,8 +429,12 @@ Group: System/Libraries
 %description -n %liboktetacore
 KDE 4 library
 
+%if %mdkversion < 200900
 %post -n %liboktetacore -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %liboktetacore -p /sbin/ldconfig
+%endif
 
 %files -n %liboktetacore
 %defattr(-,root,root)
@@ -440,8 +452,12 @@ Group: System/Libraries
 %description -n %liboktetagui
 KDE 4 library
 
+%if %mdkversion < 200900
 %post -n %liboktetagui -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %liboktetagui -p /sbin/ldconfig
+%endif
 
 %files -n %liboktetagui
 %defattr(-,root,root)

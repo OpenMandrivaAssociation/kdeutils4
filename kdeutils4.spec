@@ -17,8 +17,6 @@ BuildRequires: libzip-devel
 BuildRequires: kde4-macros
 BuildRequires: qimageblitz-devel 
 BuildRequires: libarchive-devel 
-BuildRequires: python-kde4
-BuildRequires: system-config-printer
 BuildRequires: kdepim4-devel
 %ifarch %{ix86}
 BuildRequires: tpctl-devel
@@ -35,8 +33,6 @@ Requires: ktimer
 Requires: kwallet
 Requires: superkaramba
 Requires: sweeper
-Requires: %{name}-printer-applet
-
 Obsoletes: kde4-kjots < 4.0.68
 Obsoletes: kjots < 4.0.80
 
@@ -97,13 +93,15 @@ Conflicts:      kdeutils-kcalc < 3.5.9-3
 
 #---------------------------------------------
 
-
 %package printer-applet
 Summary: Printer applet for KDE4
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Requires: system-config-printer
 Requires: python-kde4
+Requires: python-cups
+Requires: python-qt4
+Requires: hal-cups-utils
 
 %description    printer-applet
 Printer applet for KDE4

@@ -218,7 +218,7 @@ Obsoletes:      kdeutils-kgpg < 3.5.9-3
 %_kde_datadir/kde4/services/ServiceMenus/encryptfolder.desktop
 %_kde_datadir/autostart/kgpg.desktop
 %_kde_datadir/config.kcfg/kgpg.kcfg
-%_datadir/dbus-1/interfaces/org.kde.kgpg.Key.xml
+%_kde_datadir/dbus-1/interfaces/org.kde.kgpg.Key.xml
 %_kde_docdir/HTML/*/kgpg
 #---------------------------------------------
 
@@ -289,7 +289,7 @@ Provides:       kde4-superkaramba = %version
 %_kde_datadir/kde4/services/plasma-package-superkaramba.desktop
 %_kde_datadir/kde4/services/plasma-scriptengine-superkaramba.desktop
 %_kde_datadir/config/superkaramba.knsrc
-%_datadir/dbus-1/interfaces/org.kde.superkaramba.xml
+%_kde_datadir/dbus-1/interfaces/org.kde.superkaramba.xml
 %_kde_docdir/HTML/*/superkaramba
 # Should not be installed
 %exclude %_kde_libdir/libsuperkaramba.so
@@ -386,7 +386,7 @@ Provides:       kde4-sweeper = %version
 %_kde_appsdir/sweeper
 %_kde_bindir/sweeper
 %_kde_datadir/applications/kde4/sweeper.desktop
-%_datadir/dbus-1/interfaces/org.kde.sweeper.xml
+%_kde_datadir/dbus-1/interfaces/org.kde.sweeper.xml
 
 #---------------------------------------------
 

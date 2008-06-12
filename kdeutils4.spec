@@ -49,7 +49,7 @@ Obsoletes: kjots < 4.0.80
 Summary:     %name core files
 Group:       Graphical desktop/KDE
 Requires:    kdelibs4-core
-%if %mdkversion > 20081
+%if %mdkversion > 200810
 Conflicts:   kdeutils-kcalc < 3.5.9-3
 Conflicts:   kdeutils-kgpg  < 3.5.9-3
 Conflicts:   kdeutils-kwalletmanager < 3.5.9-3
@@ -78,7 +78,7 @@ Requires:       %name-core = %version
 Obsoletes:      %name-kcalc < 3.93.0-0.714053.1
 Obsoletes:      kde4-kcalc < 4.0.68
 Provides:       kde4-kcalc = %version
-%if %mdkversion > 20081
+%if %mdkversion > 200810
 Conflicts:      kdeutils-kcalc < 3.5.9-3
 %endif
 
@@ -208,7 +208,7 @@ Requires:       %name-core = %version
 Obsoletes:      %name-kgpg < 3.93.0-0.714053.1
 Obsoletes:      kde4-kgpg < 4.0.68
 Provides:       kde4-kgpg = %version
-%if %mdkversion > 20081
+%if %mdkversion > 200810
 Obsoletes:      kdeutils-kgpg < 3.5.9-3
 %endif
 
@@ -235,7 +235,7 @@ Requires:       %name-core = %version
 Obsoletes:      %name-ktimer < 3.93.0-0.714053.1
 Obsoletes:      kde4-ktimer < 4.0.68
 Provides:       kde4-ktimer = %version
-%if %mdkversion > 20081
+%if %mdkversion > 200810
 Conflicts:      kdeutils-ktimer < 3.5.9-3
 %endif
 
@@ -257,7 +257,7 @@ Requires:       %name-core = %version
 Obsoletes:      %name-kwallet < 3.93.0-0.714053.1
 Obsoletes:      kde4-kwallet < 4.0.68
 Provides:       kde4-kwallet = %version
-%if %mdkversion > 20081
+%if %mdkversion > 200810
 Conflicts:      kdeutils-kwalletmanager < 3.5.9-3
 %endif
 

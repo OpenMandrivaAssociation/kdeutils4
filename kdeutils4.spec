@@ -1,6 +1,6 @@
 Name: kdeutils4
 Summary: K Desktop Environment
-Version: 4.0.82
+Version: 4.0.83
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org

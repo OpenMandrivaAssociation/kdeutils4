@@ -4,8 +4,10 @@ Version: 4.0.84
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
+Patch0:	kdeutils-4.0.84-printer-applet-manager-entry.patch
+Patch1:	kdeutils-4.0.84-printer-applet-wrong-functions.patch
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
 BuildRequires: openssl-devel
@@ -476,6 +478,8 @@ KDE 4 library
 
 %prep
 %setup -q -n kdeutils-%version
+%patch0 -p1 -b .add_manager_entry
+%patch1 -p1 -b .fix_wrong_functions
 
 %build
 %cmake_kde4 \

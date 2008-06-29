@@ -35,8 +35,6 @@ Requires: ktimer
 Requires: kwallet
 Requires: superkaramba
 Requires: sweeper
-Obsoletes: kde4-kjots < 4.0.68
-Obsoletes: kjots < 4.0.80
 
 %description
 %{name} metapackage.

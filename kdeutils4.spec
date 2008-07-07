@@ -4,7 +4,7 @@ Version: 4.0.85
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 # Patch0 and Patch1 have been merged usptream , we can remove them for kde 4.0.86
 Patch0:	kdeutils-4.0.84-printer-applet-manager-entry.patch

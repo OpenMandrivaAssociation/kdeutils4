@@ -4,7 +4,7 @@ Version: 4.0.98
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Patch0:	kdeutils-4.0.84-printer-applet-manager-entry.patch
 Patch2: kdeutils-4.0.84-customize-menu-entries.patch
@@ -479,7 +479,7 @@ KDE 4 library
 %setup -q -n kdeutils-%version
 %patch0 -p1 -b .add_manager_entry
 %patch2 -p0 -b .customize_menu_for_mandriva
-%patch3 -p0
+%patch3 -p0 -b .onlyshow
 
 %build
 %cmake_kde4 \

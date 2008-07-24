@@ -1,10 +1,10 @@
 Name: kdeutils4
 Summary: K Desktop Environment
-Version: 4.0.98
+Version: 4.1.0
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 3
+Release: %mkrel 1
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Patch0:	kdeutils-4.0.84-printer-applet-manager-entry.patch
 Patch2: kdeutils-4.0.84-customize-menu-entries.patch

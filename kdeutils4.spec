@@ -9,7 +9,6 @@ Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Patch0:	kdeutils-4.0.84-printer-applet-manager-entry.patch
 Patch2: kdeutils-4.0.84-customize-menu-entries.patch
 Patch3: kdeutils-4.0.98-fix-autostart.patch
-Patch4: kdeutils-4.0.98-fix-kgpg-crash.patch
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
 BuildRequires: openssl-devel
@@ -98,7 +97,7 @@ Conflicts:      kdeutils-kcalc < 3.5.9-3
 %_kde_libdir/libkdeinit4_kcalc.so
 
 #---------------------------------------------
-
+%ifarch %{ix86}
 %package printer-applet
 Summary: Printer applet for KDE4
 Group: Graphical desktop/KDE
@@ -119,6 +118,7 @@ Printer applet for KDE4
 %_kde_appsdir/printer-applet
 %_kde_datadir/autostart/printer-applet.desktop
 
+%endif
 #---------------------------------------------
 
 
@@ -482,11 +482,12 @@ KDE 4 library
 %patch0 -p1 -b .add_manager_entry
 %patch2 -p0 -b .customize_menu_for_mandriva
 %patch3 -p0 -b .onlyshow
-%patch4 -p0
 
 %build
 %cmake_kde4 \
-	-DINSTALL_PRINTER_APPLET=TRUE
+%ifnarch %{ix86}
+	-DINSTALL_PRINTER_APPLET=FALSE
+%endif
 
 %make
 

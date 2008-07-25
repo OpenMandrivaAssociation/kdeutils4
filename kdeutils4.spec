@@ -107,6 +107,7 @@ Requires: system-config-printer
 Requires: python-kde4
 Requires: python-cups
 Requires: python-qt4
+Requires: python-dbus
 Requires: hal-cups-utils
 
 %description    printer-applet

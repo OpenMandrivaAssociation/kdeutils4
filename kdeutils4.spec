@@ -97,13 +97,12 @@ Conflicts:      kdeutils-kcalc < 3.5.9-3
 %_kde_libdir/libkdeinit4_kcalc.so
 
 #---------------------------------------------
-%ifarch %{ix86}
 %package printer-applet
 Summary: Printer applet for KDE4
 Group: Graphical desktop/KDE
 Requires: %name-core = %version
 Requires: system-config-printer
-Requires: python-kde4
+Requires: python-kde4 >= 1:4.1.0
 Requires: python-cups
 Requires: python-qt4
 Requires: python-dbus
@@ -118,7 +117,6 @@ Printer applet for KDE4
 %_kde_appsdir/printer-applet
 %_kde_datadir/autostart/printer-applet.desktop
 
-%endif
 #---------------------------------------------
 
 
@@ -485,9 +483,7 @@ KDE 4 library
 
 %build
 %cmake_kde4 \
-%ifnarch %{ix86}
-	-DINSTALL_PRINTER_APPLET=FALSE
-%endif
+	-DINSTALL_PRINTER_APPLET=TRUE
 
 %make
 

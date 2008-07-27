@@ -3,7 +3,7 @@ Summary: K Desktop Environment
 Version: 4.1.0
 Group: Graphical desktop/KDE
 License: GPL
-URL: http://www.kde.org
+URL: http://utils.kde.org/
 Release: %mkrel 1
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Patch0:	kdeutils-4.0.84-printer-applet-manager-entry.patch
@@ -75,6 +75,7 @@ Core files for %{name}.
 %package -n     kcalc
 Summary:        %{name} kcalc
 Group:          Graphical desktop/KDE
+URL:		http://utils.kde.org/projects/kcalc
 Requires:       %name-core = %version
 Obsoletes:      %name-kcalc < 3.93.0-0.714053.1
 Obsoletes:      kde4-kcalc < 4.0.68
@@ -100,6 +101,7 @@ Conflicts:      kdeutils-kcalc < 3.5.9-3
 %package printer-applet
 Summary: Printer applet for KDE4
 Group: Graphical desktop/KDE
+URL: http://utils.kde.org/projects/printer-applet
 Requires: %name-core = %version
 Requires: system-config-printer
 Requires: python-kde4 >= 1:4.1.0
@@ -123,6 +125,7 @@ Printer applet for KDE4
 %package -n kcharselect
 Summary: %{name} kcharselect
 Group: Graphical desktop/KDE
+URL: http://utils.kde.org/projects/kcharselect
 Requires: %name-core = %version
 Obsoletes: %name-kcharselect < 3.93.0-0.714053.1
 Obsoletes:      kde4-kcharselect < 4.0.68
@@ -144,6 +147,7 @@ Provides:       kde4-kcharselect = %version
 %package -n kdessh
 Summary: %{name} kdessh
 Group: Graphical desktop/KDE
+URL: http://utils.kde.org/projects/kdessh
 Requires: %name-core = %version
 Obsoletes: %name-kdessh < 3.93.0-0.714053.1
 Obsoletes:      kde4-kdessh < 4.0.68
@@ -161,6 +165,7 @@ Provides:       kde4-kdessh = %version
 %package -n kdf
 Summary: %{name} kdf
 Group: Graphical desktop/KDE
+URL: http://utils.kde.org/projects/kdf
 Requires: %name-core = %version
 Obsoletes: %name-kdf < 3.93.0-0.714053.1
 Obsoletes:      kde4-kdf < 4.0.68
@@ -185,6 +190,7 @@ Provides:       kde4-kdf = %version
 %package -n kfloppy
 Summary: %{name} kfloppy
 Group: Graphical desktop/KDE
+URL: http://utils.kde.org/projects/kfloppy
 Requires: %name-core = %version
 Obsoletes: %name-kfloppy < 3.93.0-0.714053.1
 Obsoletes:      kde4-kfloppy < 4.0.68
@@ -205,6 +211,7 @@ Provides:       kde4-kfloppy = %version
 %package -n     kgpg
 Summary:        %{name} kgpg
 Group:          Graphical desktop/KDE
+URL: http://utils.kde.org/projects/kgpg
 Requires:       %name-core = %version
 Obsoletes:      %name-kgpg < 3.93.0-0.714053.1
 Obsoletes:      kde4-kgpg < 4.0.68
@@ -232,6 +239,7 @@ Obsoletes:      kdeutils-kgpg < 3.5.9-3
 %package -n     ktimer
 Summary:        %{name} ktimer
 Group:          Graphical desktop/KDE
+URL: http://utils.kde.org/projects/ktimer
 Requires:       %name-core = %version
 Obsoletes:      %name-ktimer < 3.93.0-0.714053.1
 Obsoletes:      kde4-ktimer < 4.0.68
@@ -254,6 +262,7 @@ Conflicts:      kdeutils-ktimer < 3.5.9-3
 %package -n     kwallet
 Summary:        %{name} kwallet
 Group:          Graphical desktop/KDE
+URL: http://utils.kde.org/projects/kwalletmanager
 Requires:       %name-core = %version
 Obsoletes:      %name-kwallet < 3.93.0-0.714053.1
 Obsoletes:      kde4-kwallet < 4.0.68
@@ -281,6 +290,7 @@ Conflicts:      kdeutils-kwalletmanager < 3.5.9-3
 %package -n superkaramba
 Summary: %{name} superkaramba
 Group: Graphical desktop/KDE
+URL: http://utils.kde.org/projects/superkaramba
 Requires: %name-core = %version
 Obsoletes: %name-superkaramba < 3.93.0-0.714053.1
 Obsoletes: kdeutils4-devel
@@ -310,6 +320,7 @@ Provides:       kde4-superkaramba = %version
 %package -n ark
 Summary: %{name} ark
 Group: Graphical desktop/KDE
+URL: http://utils.kde.org/projects/ark
 Requires: %name-core = %version
 Obsoletes: %name-ark < 3.93.0-0.714053.1
 Obsoletes: kdeutils4-devel
@@ -364,6 +375,7 @@ KDE 4 library
 %package -n %libsuperkaramba
 Summary: KDE 4 library
 Group: System/Libraries
+URL: http://utils.kde.org/projects/superkaramba
 
 %description -n %libsuperkaramba
 KDE 4 library
@@ -384,6 +396,7 @@ KDE 4 library
 %package -n sweeper
 Summary: %{name} sweeper
 Group: Graphical desktop/KDE
+URL: http://utils.kde.org/projects/sweeper
 Requires: %name-core = %version
 Obsoletes: %name-sweeper < 3.93.0-0.714053.1
 Obsoletes:      kde4-sweeper < 4.0.68
@@ -404,6 +417,7 @@ Provides:       kde4-sweeper = %version
 %package -n okteta
 Summary: %{name} okteta
 Group: Graphical desktop/KDE
+URL: http://utils.kde.org/projects/okteta
 Requires: %name-core = %version
 
 %description -n okteta
@@ -434,6 +448,7 @@ Requires: %name-core = %version
 %package -n %liboktetacore
 Summary: KDE 4 library
 Group: System/Libraries
+URL: http://utils.kde.org/projects/okteta
 
 %description -n %liboktetacore
 KDE 4 library
@@ -457,6 +472,7 @@ KDE 4 library
 %package -n %liboktetagui
 Summary: KDE 4 library
 Group: System/Libraries
+URL: http://utils.kde.org/projects/okteta
 
 %description -n %liboktetagui
 KDE 4 library

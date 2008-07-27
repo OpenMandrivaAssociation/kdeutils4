@@ -1,5 +1,5 @@
 Name: kdeutils4
-Summary: K Desktop Environment
+Summary: Various desktop utilities for KDE
 Version: 4.1.0
 Group: Graphical desktop/KDE
 License: GPL
@@ -38,7 +38,7 @@ Requires: superkaramba
 Requires: sweeper
 
 %description
-%{name} metapackage.
+The KDE Utilities are a compilation of various desktop utilities.
 
 %files
 %defattr(-,root,root,-)
@@ -73,7 +73,7 @@ Core files for %{name}.
 #----------------------------------------------------------------------
 
 %package -n     kcalc
-Summary:        %{name} kcalc
+Summary:        Do scientific calculations
 Group:          Graphical desktop/KDE
 URL:		http://utils.kde.org/projects/kcalc
 Requires:       %name-core = %version
@@ -85,7 +85,10 @@ Conflicts:      kdeutils-kcalc < 3.5.9-3
 %endif
 
 %description -n kcalc
-%{name} kcalc.
+KCalc is a calculator which offers many more mathematical functions
+than meet the eye on a first glance. Please study the section on
+keyboard accelerators and modes in the handbook to learn more about
+the many functions available.
 
 %files -n kcalc
 %defattr(-,root,root)
@@ -99,7 +102,7 @@ Conflicts:      kdeutils-kcalc < 3.5.9-3
 
 #---------------------------------------------
 %package printer-applet
-Summary: Printer applet for KDE4
+Summary: View current print jobs and configure new printers
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/printer-applet
 Requires: %name-core = %version
@@ -110,8 +113,11 @@ Requires: python-qt4
 Requires: python-dbus
 Requires: hal-cups-utils
 
-%description    printer-applet
-Printer applet for KDE4
+%description printer-applet
+Printer Applet is a system tray utility that shows current print jobs,
+shows printer warnings and errors and shows when printers that have
+been plugged in for the first time are being auto-configured by
+hal-cups-utils.
 
 %files printer-applet
 %defattr(-,root,root)
@@ -123,7 +129,7 @@ Printer applet for KDE4
 
 
 %package -n kcharselect
-Summary: %{name} kcharselect
+Summary: Select special characters from any font
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kcharselect
 Requires: %name-core = %version
@@ -132,7 +138,8 @@ Obsoletes:      kde4-kcharselect < 4.0.68
 Provides:       kde4-kcharselect = %version
 
 %description -n kcharselect
-%{name} kcharselect.
+KCharSelect is a tool to select special characters from all installed
+fonts and copy them into the clipboard.
 
 %files -n kcharselect
 %defattr(-,root,root)
@@ -145,7 +152,7 @@ Provides:       kde4-kcharselect = %version
 #---------------------------------------------
 
 %package -n kdessh
-Summary: %{name} kdessh
+Summary: Connect to other systems with ssh
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kdessh
 Requires: %name-core = %version
@@ -154,7 +161,7 @@ Obsoletes:      kde4-kdessh < 4.0.68
 Provides:       kde4-kdessh = %version
 
 %description -n kdessh
-%{name} kdessh.
+KDE ssh runs a program on a remote host.
 
 %files -n kdessh
 %defattr(-,root,root)
@@ -163,7 +170,7 @@ Provides:       kde4-kdessh = %version
 #---------------------------------------------
 
 %package -n kdf
-Summary: %{name} kdf
+Summary: View free disk space
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kdf
 Requires: %name-core = %version
@@ -172,7 +179,10 @@ Obsoletes:      kde4-kdf < 4.0.68
 Provides:       kde4-kdf = %version
 
 %description -n kdf
-%{name} kdf.
+KDiskFree displays the available file devices (hard drive partitions,
+floppy and CD/DVD drives, etc.) along with information on their capacity,
+free space, type and mount point. It also allows you to mount and unmount
+drives and view them in a file manager.
 
 %files -n kdf
 %defattr(-,root,root)
@@ -188,7 +198,7 @@ Provides:       kde4-kdf = %version
 #---------------------------------------------
 
 %package -n kfloppy
-Summary: %{name} kfloppy
+Summary: Format floppy disks
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kfloppy
 Requires: %name-core = %version
@@ -197,7 +207,8 @@ Obsoletes:      kde4-kfloppy < 4.0.68
 Provides:       kde4-kfloppy = %version
 
 %description -n kfloppy
-%{name} kfloppy.
+KFloppy is a utility that provides a straightforward graphical means to
+format 3.5" and 5.25" floppy disks.
 
 %files -n kfloppy
 %defattr(-,root,root)
@@ -209,7 +220,7 @@ Provides:       kde4-kfloppy = %version
 #---------------------------------------------
 
 %package -n     kgpg
-Summary:        %{name} kgpg
+Summary:        Control your GPG keys
 Group:          Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kgpg
 Requires:       %name-core = %version
@@ -221,7 +232,7 @@ Obsoletes:      kdeutils-kgpg < 3.5.9-3
 %endif
 
 %description -n kgpg
-%{name} kgpg.
+KGpg is a simple interface for GnuPG, a powerful encryption utility.
 
 %files -n kgpg
 %defattr(-,root,root)
@@ -237,7 +248,7 @@ Obsoletes:      kdeutils-kgpg < 3.5.9-3
 #---------------------------------------------
 
 %package -n     ktimer
-Summary:        %{name} ktimer
+Summary:        Execute programs after some time
 Group:          Graphical desktop/KDE
 URL: http://utils.kde.org/projects/ktimer
 Requires:       %name-core = %version
@@ -249,7 +260,7 @@ Conflicts:      kdeutils-ktimer < 3.5.9-3
 %endif
 
 %description -n ktimer
-%{name} ktimer.
+KTimer is a little tool to execute programs after some time.
 
 %files -n ktimer
 %defattr(-,root,root)
@@ -260,7 +271,7 @@ Conflicts:      kdeutils-ktimer < 3.5.9-3
 #---------------------------------------------
 
 %package -n     kwallet
-Summary:        %{name} kwallet
+Summary:        Manage your passwords
 Group:          Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kwalletmanager
 Requires:       %name-core = %version
@@ -272,7 +283,9 @@ Conflicts:      kdeutils-kwalletmanager < 3.5.9-3
 %endif
 
 %description -n kwallet
-%{name} kwallet.
+KDE Wallet Manager is for management of the wallets installed on the
+system. The KDE wallet subsystem provides a convenient and secure way
+to manage all your passwords.
 
 %files -n kwallet
 %defattr(-,root,root)
@@ -288,7 +301,7 @@ Conflicts:      kdeutils-kwalletmanager < 3.5.9-3
 #---------------------------------------------
 
 %package -n superkaramba
-Summary: %{name} superkaramba
+Summary: Put Karamba applets to the desktop with Python
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/superkaramba
 Requires: %name-core = %version
@@ -298,7 +311,8 @@ Obsoletes:      kde4-superkaramba < 4.0.68
 Provides:       kde4-superkaramba = %version
 
 %description -n superkaramba
-%{name} superkaramba.
+SuperKaramba is a tool that allows you to easily create interactive
+widgets on your KDE desktop.
 
 %files -n superkaramba
 %defattr(-,root,root)
@@ -318,7 +332,7 @@ Provides:       kde4-superkaramba = %version
 #---------------------------------------------
 
 %package -n ark
-Summary: %{name} ark
+Summary: Handle file archives
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/ark
 Requires: %name-core = %version
@@ -328,7 +342,8 @@ Obsoletes:      kde4-ark < 4.0.68
 Provides:       kde4-ark = %version
 
 %description -n ark
-%{name} ark.
+Ark is a program for managing various archive formats within the KDE
+environment.
 
 %files -n ark
 %defattr(-,root,root)
@@ -394,7 +409,7 @@ KDE 4 library
 #---------------------------------------------
 
 %package -n sweeper
-Summary: %{name} sweeper
+Summary: Clean unwanted traces from your system
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/sweeper
 Requires: %name-core = %version
@@ -403,7 +418,7 @@ Obsoletes:      kde4-sweeper < 4.0.68
 Provides:       kde4-sweeper = %version
 
 %description -n sweeper
-%{name} sweeper.
+Sweeper helps to clean unwanted traces the user leaves on the system.
 
 %files -n sweeper
 %defattr(-,root,root)
@@ -415,13 +430,14 @@ Provides:       kde4-sweeper = %version
 #---------------------------------------------
 
 %package -n okteta
-Summary: %{name} okteta
+Summary: Edit raw file data as Hex values
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/okteta
 Requires: %name-core = %version
 
 %description -n okteta
-%{name} okteta.
+Okteta is a simple editor for the raw data of files. This type of
+program is also called hex editor or binary editor.
 
 %files -n okteta
 %defattr(-,root,root)

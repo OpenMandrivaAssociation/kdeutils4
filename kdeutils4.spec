@@ -4,12 +4,23 @@ Version: 4.1.0
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
-Release: %mkrel 2
+Release: %mkrel 3
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Patch0:	kdeutils-4.0.84-printer-applet-manager-entry.patch
 Patch2: kdeutils-4.0.84-customize-menu-entries.patch
 Patch3: kdeutils-4.0.98-fix-autostart.patch
 Patch4: kdeutils-4.1.0-update-ark-to-trunk.patch
+# Post 4.1 patches
+Patch100: kdeutils-post-4.1.0-rev837424.patch
+Patch101: kdeutils-post-4.1.0-rev839591.patch
+Patch102: kdeutils-post-4.1.0-rev839627.patch
+Patch103: kdeutils-post-4.1.0-rev840118.patch
+Patch104: kdeutils-post-4.1.0-rev840175.patch
+Patch105: kdeutils-post-4.1.0-rev840212.patch
+Patch106: kdeutils-post-4.1.0-rev840241.patch
+Patch107: kdeutils-post-4.1.0-rev840269.patch
+Patch108: kdeutils-post-4.1.0-rev840361.patch
+Patch109: kdeutils-post-4.1.0-rev841697.patch
 
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
@@ -515,6 +526,17 @@ KDE 4 library
 %patch2 -p0 -b .customize_menu_for_mandriva
 %patch3 -p0 -b .onlyshow
 %patch4 -p0 -b .ark_from_trunk
+# Post 4.1 patches
+%patch100 -p0 -b .post410
+%patch101 -p0 -b .post410
+%patch102 -p0 -b .post410
+%patch103 -p0 -b .post410
+%patch104 -p0 -b .post410
+%patch105 -p0 -b .post410
+%patch106 -p0 -b .post410
+%patch107 -p0 -b .post410
+%patch108 -p0 -b .post410
+%patch109 -p0 -b .post410
 
 %build
 %cmake_kde4 \

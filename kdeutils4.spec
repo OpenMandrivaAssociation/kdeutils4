@@ -4,11 +4,13 @@ Version: 4.1.0
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
-Release: %mkrel 1
+Release: %mkrel 2
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Patch0:	kdeutils-4.0.84-printer-applet-manager-entry.patch
 Patch2: kdeutils-4.0.84-customize-menu-entries.patch
 Patch3: kdeutils-4.0.98-fix-autostart.patch
+Patch4: kdeutils-4.1.0-update-ark-to-trunk.patch
+
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
 BuildRequires: openssl-devel
@@ -512,6 +514,7 @@ KDE 4 library
 %patch0 -p1 -b .add_manager_entry
 %patch2 -p0 -b .customize_menu_for_mandriva
 %patch3 -p0 -b .onlyshow
+%patch4 -p0 -b .ark_from_trunk
 
 %build
 %cmake_kde4 \

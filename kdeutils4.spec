@@ -4,7 +4,7 @@ Version: 4.1.0
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
-Release: %mkrel 3
+Release: %mkrel 4
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Patch0:	kdeutils-4.0.84-printer-applet-manager-entry.patch
 Patch2: kdeutils-4.0.84-customize-menu-entries.patch

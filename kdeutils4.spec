@@ -1,10 +1,13 @@
+%define with_printer_applet 0
+%{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
+
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
 Version: 4.1.0
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
-Release: %mkrel 5
+Release: %mkrel 6
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Patch0:	kdeutils-4.0.84-printer-applet-manager-entry.patch
 Patch2: kdeutils-4.0.84-customize-menu-entries.patch
@@ -114,6 +117,8 @@ the many functions available.
 %_kde_libdir/libkdeinit4_kcalc.so
 
 #---------------------------------------------
+
+%if %{with_printer_applet}
 %package printer-applet
 Summary: View current print jobs and configure new printers
 Group: Graphical desktop/KDE
@@ -136,6 +141,7 @@ hal-cups-utils.
 %_kde_bindir/printer-applet
 %_kde_appsdir/printer-applet
 %_kde_datadir/autostart/printer-applet.desktop
+%endif
 
 #---------------------------------------------
 
@@ -539,7 +545,11 @@ KDE 4 library
 
 %build
 %cmake_kde4 \
+%if %{with_printer_applet}
 	-DINSTALL_PRINTER_APPLET=TRUE
+%else
+        -DINSTALL_PRINTER_APPLET=FALSE
+%endif
 
 %make
 

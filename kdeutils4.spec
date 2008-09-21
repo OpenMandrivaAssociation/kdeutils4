@@ -13,6 +13,7 @@ Patch0:	kdeutils-4.0.84-printer-applet-manager-entry.patch
 Patch2: kdeutils-4.0.84-customize-menu-entries.patch
 Patch3: kdeutils-4.0.98-fix-autostart.patch
 Patch4: kdeutils-4.1.1-update-ark-to-trunk.patch
+Patch5: kdeutils-4.1.1-remove-printer-applet.patch
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
 BuildRequires: openssl-devel
@@ -362,6 +363,7 @@ environment.
 %_kde_datadir/kde4/services/ark_part.desktop
 %_kde_datadir/kde4/services/kerfuffle_*
 %_kde_datadir/kde4/servicetypes/kerfufflePlugin.desktop
+%_kde_datadir/kde4/services/ServiceMenus/ark_*.desktop
 %_kde_docdir/HTML/*/ark
 
 # Should not be installed
@@ -519,14 +521,12 @@ KDE 4 library
 %patch2 -p1 -b .customize_menu_for_mandriva
 %patch3 -p0 -b .onlyshow
 %patch4 -p0 -b .ark_from_trunk
+%if ! %{with_printer_applet}
+%patch5 -p0 -b .remove_printer_appelt
+%endif
 
 %build
-%cmake_kde4 \
-%if %{with_printer_applet}
-	-DINSTALL_PRINTER_APPLET=TRUE
-%else
-        -DINSTALL_PRINTER_APPLET=FALSE
-%endif
+%cmake_kde4
 
 %make
 

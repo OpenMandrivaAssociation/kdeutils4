@@ -7,14 +7,16 @@ Version: 4.1.2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
-Release: %mkrel 2
-Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
+Release: %mkrel 3
+Source0:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
+Source1:    kmilo.tar.bz2
 Patch0:	kdeutils-4.0.84-printer-applet-manager-entry.patch
 Patch2: kdeutils-4.0.84-customize-menu-entries.patch
 Patch3: kdeutils-4.0.98-fix-autostart.patch
 Patch4: kdeutils-4.1.1-update-ark-to-trunk.patch
 Patch5: kdeutils-4.1.1-remove-printer-applet.patch
 Patch6: kdeutils-4.1.2-kgpgdoc.patch
+Patch7: kdeutils-4.1.2-add-kmilo-back.patch
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
 BuildRequires: openssl-devel
@@ -469,6 +471,63 @@ program is also called hex editor or binary editor.
 
 #---------------------------------------------
 
+%package -n kmilo
+Summary     : Battery and power management
+Group       : Graphical desktop/KDE
+URL         : http://www.kde.org
+Requires    : %name-core = %version
+
+%description -n kmilo
+Battery and power management, including KControl plugins.
+
+%files -n kmilo
+%defattr(-,root,root)
+%_kde_libdir/kde4/kcm_kvaio.so
+%_kde_libdir/kde4/kcm_thinkpad.so
+%_kde_libdir/kde4/kded_kmilod.so
+%_kde_libdir/kde4/kmilo_asus.so
+%_kde_libdir/kde4/kmilo_delli8k.so
+%_kde_libdir/kde4/kmilo_generic.so
+%_kde_libdir/kde4/kmilo_kvaio.so
+%_kde_libdir/kde4/kmilo_thinkpad.so
+%exclude %_kde_libdir/libkmilo.so
+%_kde_datadir/dbus-1/interfaces/org.kde.kmilod.xml
+%_kde_datadir/kde4/services/kded/kmilod.desktop
+%_kde_datadir/kde4/services/kmilo/kmilo_asus.desktop
+%_kde_datadir/kde4/services/kmilo/kmilo_delli8k.desktop
+%_kde_datadir/kde4/services/kmilo/kmilo_generic.desktop
+%_kde_datadir/kde4/services/kmilo/kmilo_kvaio.desktop
+%_kde_datadir/kde4/services/kmilo/kmilo_thinkpad.desktop
+%_kde_datadir/kde4/services/kvaio.desktop
+%_kde_datadir/kde4/services/thinkpad.desktop
+%_kde_datadir/kde4/servicetypes/kmilo/kmilopluginsvc.desktop
+
+#---------------------------------------------
+
+%define libkmilo_major 4
+%define libkmilo %mklibname kmilo %{libkmilo_major}
+
+%package -n %libkmilo
+Summary: KDE 4 library
+Group: System/Libraries
+URL: http://www.kde.org/
+
+%description -n %libkmilo
+KDE 4 library
+
+%if %mdkversion < 200900
+%post -n %libkmilo -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
+%postun -n %libkmilo -p /sbin/ldconfig
+%endif
+
+%files -n %libkmilo
+%defattr(-,root,root)
+%_kde_libdir/libkmilo.so.%{libkmilo_major}*
+
+#---------------------------------------------
+
 %define liboktetacore_major 4
 %define liboktetacore %mklibname oktetacore %{liboktetacore_major}
 
@@ -519,7 +578,7 @@ KDE 4 library
 
 
 %prep
-%setup -q -n kdeutils-%version
+%setup -q -n kdeutils-%version -a1
 %patch0 -p1 -b .add_manager_entry
 %patch2 -p1 -b .customize_menu_for_mandriva
 %patch3 -p0 -b .onlyshow
@@ -528,7 +587,7 @@ KDE 4 library
 %patch5 -p0 -b .remove_printer_appelt
 %endif
 %patch6 -p0 -b .kgpg
-
+%patch7 -p0 -b .kmilo
 %build
 %cmake_kde4
 

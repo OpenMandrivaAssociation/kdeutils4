@@ -3,18 +3,16 @@
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.1.2
+Version: 4.1.70
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
-Release: %mkrel 3
+Release: %mkrel 1
 Source0:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Source1:    kmilo.tar.bz2
 Patch0:	kdeutils-4.0.84-printer-applet-manager-entry.patch
 Patch2: kdeutils-4.0.84-customize-menu-entries.patch
 Patch3: kdeutils-4.0.98-fix-autostart.patch
-Patch4: kdeutils-4.1.1-update-ark-to-trunk.patch
-Patch5: kdeutils-4.1.1-remove-printer-applet.patch
 Patch6: kdeutils-4.1.2-kgpgdoc.patch
 Patch7: kdeutils-4.1.2-add-kmilo-back.patch
 Buildroot:	%_tmppath/%name-%version-%release-root
@@ -29,6 +27,7 @@ BuildRequires: kde4-macros
 BuildRequires: qimageblitz-devel 
 BuildRequires: libarchive-devel 
 BuildRequires: kdepim4-devel
+BuildRequires: python-kde4
 %ifarch %{ix86}
 BuildRequires: tpctl-devel
 %endif
@@ -252,6 +251,7 @@ KGpg is a simple interface for GnuPG, a powerful encryption utility.
 %_kde_datadir/applications/kde4/kgpg.desktop
 %_kde_datadir/kde4/services/ServiceMenus/encryptfile.desktop
 %_kde_datadir/kde4/services/ServiceMenus/encryptfolder.desktop
+%_kde_datadir/kde4/services/ServiceMenus/viewdecrypted.desktop
 %_kde_datadir/autostart/kgpg.desktop
 %_kde_datadir/config.kcfg/kgpg.kcfg
 %_kde_datadir/dbus-1/interfaces/org.kde.kgpg.Key.xml
@@ -580,17 +580,17 @@ KDE 4 library
 %prep
 %setup -q -n kdeutils-%version -a1
 %patch0 -p1 -b .add_manager_entry
-%patch2 -p1 -b .customize_menu_for_mandriva
+#%patch2 -p1 -b .customize_menu_for_mandriva
 %patch3 -p0 -b .onlyshow
-%patch4 -p0 -b .ark_from_trunk
-%if ! %{with_printer_applet}
-%patch5 -p0 -b .remove_printer_appelt
-%endif
 %patch6 -p0 -b .kgpg
 %patch7 -p0 -b .kmilo
 %build
-%cmake_kde4
-
+%cmake_kde4 \
+%if ! %{with_printer_applet}
+    -DINSTALL_PRINTER_APPLET=FALSE
+%else
+    -DINSTALL_PRINTER_APPLET=TRUE
+%endif
 %make
 
 %install

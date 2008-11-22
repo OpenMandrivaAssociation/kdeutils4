@@ -7,31 +7,30 @@ Version: 4.1.80
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
-Release: %mkrel 1
+Release: %mkrel 2
 Source0:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Source1:    kmilo.tar.bz2
 Patch0:	kdeutils-4.0.84-printer-applet-manager-entry.patch
 Patch2: kdeutils-4.0.84-customize-menu-entries.patch
 Patch3: kdeutils-4.0.98-fix-autostart.patch
-Patch6: kdeutils-4.1.2-kgpgdoc.patch
 Patch7: kdeutils-4.0.84-disable-printer-applet.patch
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
 BuildRequires: openssl-devel
 BuildRequires: libnet-snmp-devel
 BuildRequires: gmp-devel
-BuildRequires: kdebase4-workspace-devel
+BuildRequires: plasma-devel
 BuildRequires: kdepimlibs4-devel
 BuildRequires: libzip-devel
 BuildRequires: kde4-macros
 BuildRequires: qimageblitz-devel 
-BuildRequires: libarchive-devel 
-BuildRequires: kdepim4-devel
+BuildRequires: libarchive-devel
+%if %with_printer_applet 
 BuildRequires: python-kde4
+%endif
 %ifarch %{ix86}
 BuildRequires: tpctl-devel
 %endif
-%py_requires -d
 BuildConflicts: libxmms-devel
 Requires: kcalc
 Requires: kcharselect
@@ -255,7 +254,7 @@ KGpg is a simple interface for GnuPG, a powerful encryption utility.
 %_kde_datadir/autostart/kgpg.desktop
 %_kde_datadir/config.kcfg/kgpg.kcfg
 %_kde_datadir/dbus-1/interfaces/org.kde.kgpg.Key.xml
-#_kde_docdir/HTML/*/kgpg
+%_kde_docdir/HTML/*/kgpg
 
 #---------------------------------------------
 
@@ -317,6 +316,7 @@ Summary: Put Karamba applets to the desktop with Python
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/superkaramba
 Requires: %name-core = %version
+%py_requires -d
 Obsoletes: %name-superkaramba < 3.93.0-0.714053.1
 Obsoletes: kdeutils4-devel
 Obsoletes:      kde4-superkaramba < 4.0.68
@@ -525,7 +525,6 @@ KDE 4 library
 %patch0 -p1 -b .add_manager_entry
 #%patch2 -p1 -b .customize_menu_for_mandriva
 %patch3 -p0 -b .onlyshow
-%patch6 -p0 -b .kgpg
 %patch7 -p1
 
 %build

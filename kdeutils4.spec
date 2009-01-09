@@ -370,6 +370,7 @@ environment.
 %_kde_datadir/kde4/servicetypes/kerfufflePlugin.desktop
 %_kde_datadir/kde4/services/ServiceMenus/ark_*.desktop
 %_kde_docdir/HTML/*/ark
+%_kde_mandir/man1/ark.1.*
 
 # Should not be installed
 %exclude %_kde_libdir/libkerfuffle.so

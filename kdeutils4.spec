@@ -3,11 +3,11 @@
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.2.0
+Version: 4.2.1
+Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
-Release: %mkrel 2
 Source0:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Source1:    kmilo.tar.bz2
 Patch0:	kdeutils-4.0.84-printer-applet-manager-entry.patch

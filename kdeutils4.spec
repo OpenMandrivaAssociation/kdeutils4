@@ -4,7 +4,7 @@
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
 Version: 4.2.2
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
@@ -14,6 +14,9 @@ Patch0:	kdeutils-4.0.84-printer-applet-manager-entry.patch
 Patch2: kdeutils-4.0.84-customize-menu-entries.patch
 Patch3: kdeutils-4.0.98-fix-autostart.patch
 Patch7: kdeutils-4.0.84-disable-printer-applet.patch
+Patch100: kdeutils-4.2.3-rev948134.patch
+Patch101: kdeutils-4.2.3-rev947275.patch
+Patch102: kdeutils-4.2.3-rev947274.patch
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
 BuildRequires: openssl-devel
@@ -527,6 +530,9 @@ KDE 4 library
 #%patch2 -p1 -b .customize_menu_for_mandriva
 %patch3 -p0 -b .onlyshow
 %patch7 -p1
+%patch100 -p0
+%patch101 -p0
+%patch102 -p0
 
 %build
 %cmake_kde4 \

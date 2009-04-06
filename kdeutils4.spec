@@ -4,7 +4,7 @@
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
 Version: 4.2.2
-Release: %mkrel 2
+Release: %mkrel 3
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
@@ -17,6 +17,7 @@ Patch7: kdeutils-4.0.84-disable-printer-applet.patch
 Patch100: kdeutils-4.2.3-rev948134.patch
 Patch101: kdeutils-4.2.3-rev947275.patch
 Patch102: kdeutils-4.2.3-rev947274.patch
+Patch103: kdeutils-4.2.3-rev949880.patch
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
 BuildRequires: openssl-devel
@@ -533,6 +534,7 @@ KDE 4 library
 %patch100 -p0
 %patch101 -p0
 %patch102 -p0
+%patch103 -p0
 
 %build
 %cmake_kde4 \

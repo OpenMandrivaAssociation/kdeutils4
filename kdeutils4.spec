@@ -58,13 +58,11 @@ The KDE Utilities are a compilation of various desktop utilities.
 Summary:     %name core files
 Group:       Graphical desktop/KDE
 Requires:    kdelibs4-core
-%if %mdkversion > 200810
 Conflicts:   kdeutils-kcalc < 3.5.9-3
 Conflicts:   kdeutils-kgpg  < 3.5.9-3
 Conflicts:   kdeutils-kwalletmanager < 3.5.9-3
 Conflicts:   kdeutils-ktimer < 3.5.9-3
 Conflicts:   kdeutils-kfloppy < 3.5.9-3
-%endif
 Obsoletes:   kde4-kmilo < 4.0.74-1
 Obsoletes:   %{_lib}kmilo4 < 4.0.74-1
 Obsoletes:   kdeutils4-kmilo < 4.0.74-1
@@ -89,9 +87,7 @@ Requires:       %name-core = %version
 Obsoletes:      %name-kcalc < 3.93.0-0.714053.1
 Obsoletes:      kde4-kcalc < 4.0.68
 Provides:       kde4-kcalc = %version
-%if %mdkversion > 200810
 Conflicts:      kdeutils-kcalc < 3.5.9-3
-%endif
 
 %description -n kcalc
 KCalc is a calculator which offers many more mathematical functions
@@ -238,9 +234,7 @@ Requires:       %name-core = %version
 Obsoletes:      %name-kgpg < 3.93.0-0.714053.1
 Obsoletes:      kde4-kgpg < 4.0.68
 Provides:       kde4-kgpg = %version
-%if %mdkversion > 200810
 Obsoletes:      kdeutils-kgpg < 3.5.9-3
-%endif
 
 %description -n kgpg
 KGpg is a simple interface for GnuPG, a powerful encryption utility.
@@ -268,9 +262,7 @@ Requires:       %name-core = %version
 Obsoletes:      %name-ktimer < 3.93.0-0.714053.1
 Obsoletes:      kde4-ktimer < 4.0.68
 Provides:       kde4-ktimer = %version
-%if %mdkversion > 200810
 Conflicts:      kdeutils-ktimer < 3.5.9-3
-%endif
 
 %description -n ktimer
 KTimer is a little tool to execute programs after some time.
@@ -291,9 +283,7 @@ Requires:       %name-core = %version
 Obsoletes:      %name-kwallet < 3.93.0-0.714053.1
 Obsoletes:      kde4-kwallet < 4.0.68
 Provides:       kde4-kwallet = %version
-%if %mdkversion > 200810
 Conflicts:      kdeutils-kwalletmanager < 3.5.9-3
-%endif
 
 %description -n kwallet
 KDE Wallet Manager is for management of the wallets installed on the
@@ -388,13 +378,6 @@ Group: System/Libraries
 %description -n %libkerfuffle
 KDE 4 library
 
-%if %mdkversion < 200900
-%post -n %libkerfuffle -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libkerfuffle -p /sbin/ldconfig
-%endif
-
 %files -n %libkerfuffle
 %defattr(-,root,root)
 %_kde_libdir/libkerfuffle.so.*
@@ -410,13 +393,6 @@ URL: http://utils.kde.org/projects/superkaramba
 
 %description -n %libsuperkaramba
 KDE 4 library
-
-%if %mdkversion < 200900
-%post -n %libsuperkaramba -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libsuperkaramba -p /sbin/ldconfig
-%endif
 
 %files -n %libsuperkaramba
 %defattr(-,root,root)
@@ -485,13 +461,6 @@ URL: http://utils.kde.org/projects/okteta
 %description -n %liboktetacore
 KDE 4 library
 
-%if %mdkversion < 200900
-%post -n %liboktetacore -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %liboktetacore -p /sbin/ldconfig
-%endif
-
 %files -n %liboktetacore
 %defattr(-,root,root)
 %_kde_libdir/liboktetacore.so.%{liboktetacore_major}*
@@ -508,13 +477,6 @@ URL: http://utils.kde.org/projects/okteta
 
 %description -n %liboktetagui
 KDE 4 library
-
-%if %mdkversion < 200900
-%post -n %liboktetagui -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %liboktetagui -p /sbin/ldconfig
-%endif
 
 %files -n %liboktetagui
 %defattr(-,root,root)

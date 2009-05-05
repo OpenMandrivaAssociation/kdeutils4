@@ -28,7 +28,7 @@ BuildRequires: kde4-macros
 BuildRequires: qimageblitz-devel 
 BuildRequires: libarchive-devel
 BuildRequires: qca2-devel
-#BuildRequires: lzma-devel
+BuildRequires: lzma-devel
 %if %with_printer_applet 
 BuildRequires: python-kde4
 %endif

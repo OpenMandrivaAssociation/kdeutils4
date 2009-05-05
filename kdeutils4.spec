@@ -1,11 +1,11 @@
 %define with_printer_applet 0
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
-%define kderevision svn954171 
+%define kderevision svn961800
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.2.70
+Version: 4.2.71
 Release: %mkrel 0.%kderevision.1
 Group: Graphical desktop/KDE
 License: GPL
@@ -27,6 +27,8 @@ BuildRequires: libzip-devel
 BuildRequires: kde4-macros
 BuildRequires: qimageblitz-devel 
 BuildRequires: libarchive-devel
+BuildRequires: qca2-devel
+#BuildRequires: lzma-devel
 %if %with_printer_applet 
 BuildRequires: python-kde4
 %endif

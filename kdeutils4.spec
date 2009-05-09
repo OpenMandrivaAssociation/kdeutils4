@@ -1,17 +1,16 @@
 %define with_printer_applet 0
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
-%define kderevision svn961800
+%define kderevision svn961800 
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.2.71
-Release: %mkrel 0.%kderevision.1
+Version: 4.2.85
+Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
-Source0:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.%kderevision.tar.bz2
-Source1:    kmilo.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
 Patch0:	kdeutils-4.2.70-printer-applet-manager-entry.patch
 Patch2: kdeutils-4.0.84-customize-menu-entries.patch
 Patch3: kdeutils-4.0.98-fix-autostart.patch
@@ -27,8 +26,6 @@ BuildRequires: libzip-devel
 BuildRequires: kde4-macros
 BuildRequires: qimageblitz-devel 
 BuildRequires: libarchive-devel
-BuildRequires: qca2-devel
-BuildRequires: lzma-devel
 %if %with_printer_applet 
 BuildRequires: python-kde4
 %endif
@@ -423,6 +420,71 @@ Sweeper helps to clean unwanted traces the user leaves on the system.
 
 #---------------------------------------------
 
+%package -n kdelirc
+Summary: Frontend for the LIRC suite
+Group: Graphical desktop/KDE
+URL: http://utils.kde.org/projects/sweeper
+Requires: %name-core = %version
+
+%description -n kdelirc
+This is a frontend for the LIRC suite to use infrared devices with KDE.
+
+%files -n kdelirc
+%defattr(-,root,root)
+%{_kde_bindir}/irkick
+%{_kde_libdir}/kde4/kcm_lirc.so
+%{_kde_libdir}/libkdeinit4_irkick.so
+%exclude  %{_kde_libdir}/libkdelirc_shared.so
+%{_kde_datadir}/applications/kde4/irkick.desktop
+%{_kde_appsdir}/irkick/irkick.notifyrc
+%{_kde_appsdir}/profiles/amarok.profile.xml
+%{_kde_appsdir}/profiles/dragonplayer.profile.xml
+%{_kde_appsdir}/profiles/klauncher.profile.xml
+%{_kde_appsdir}/profiles/kmix.profile.xml
+%{_kde_appsdir}/profiles/konqueror.profile.xml
+%{_kde_appsdir}/profiles/noatun.profile.xml
+%{_kde_appsdir}/profiles/okular.profile.xml
+%{_kde_appsdir}/profiles/profile.dtd
+%{_kde_appsdir}/profiles/shutdown.profile.xml
+%{_kde_appsdir}/profiles/suspend.profile.xml
+%{_kde_appsdir}/profiles/vlc.profile.xml
+%{_kde_appsdir}/remotes/AppleRemote.remote.xml
+%{_kde_appsdir}/remotes/AsusDH.remote.xml
+%{_kde_appsdir}/remotes/RM-0010.remote.xml
+%{_kde_appsdir}/remotes/cimr100.remote.xml
+%{_kde_appsdir}/remotes/hauppauge.remote.xml
+%{_kde_appsdir}/remotes/packbell.remote.xml
+%{_kde_appsdir}/remotes/remote.dtd
+%{_kde_appsdir}/remotes/sherwood.remote.xml
+%{_kde_appsdir}/remotes/sonytv.remote.xml
+%{_kde_datadir}/autostart/irkick.desktop
+%{_kde_docdir}/HTML/en/irkick/common
+%{_kde_docdir}/HTML/en/irkick/index.cache.bz2
+%{_kde_docdir}/HTML/en/irkick/index.docbook
+%{_kde_docdir}/HTML/en/kcmlirc/common
+%{_kde_docdir}/HTML/en/kcmlirc/index.cache.bz2
+%{_kde_docdir}/HTML/en/kcmlirc/index.docbook
+%{_kde_datadir}/kde4/services/kcm_lirc.desktop
+
+#---------------------------------------------
+
+%define libkdelirc_shared_major 1
+%define libkdelirc_shared %mklibname kdelirc_shared %{libkdelirc_shared_major}
+
+%package -n %libkdelirc_shared
+Summary: KDE 4 library
+Group: System/Libraries
+URL: http://utils.kde.org/projects/okteta
+
+%description -n %libkdelirc_shared
+KDE 4 library
+
+%files -n %libkdelirc_shared
+%defattr(-,root,root)
+%_kde_libdir/libkdelirc_shared.so.%{libkdelirc_shared_major}*
+
+#---------------------------------------------
+
 %package -n okteta
 Summary: Edit raw file data as Hex values
 Group: Graphical desktop/KDE
@@ -488,7 +550,7 @@ KDE 4 library
 
 
 %prep
-%setup -q -n kdeutils-%version.%kderevision -a1
+%setup -q -n kdeutils-%version
 %patch0 -p1 -b .add_manager_entry
 #%patch2 -p1 -b .customize_menu_for_mandriva
 %patch3 -p0 -b .onlyshow

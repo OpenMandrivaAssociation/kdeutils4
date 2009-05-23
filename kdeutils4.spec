@@ -1,16 +1,16 @@
 %define with_printer_applet 0
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
-%define kderevision svn961800 
+%define kderevision svn969966
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.2.85
+Version: 4.2.87
 Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
-Source0:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%version.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%{version}%{kderevision}.tar.bz2
 Patch0:	kdeutils-4.2.70-printer-applet-manager-entry.patch
 Patch2: kdeutils-4.0.84-customize-menu-entries.patch
 Patch3: kdeutils-4.0.98-fix-autostart.patch
@@ -550,7 +550,7 @@ KDE 4 library
 
 
 %prep
-%setup -q -n kdeutils-%version
+%setup -q -n kdeutils-%{version}%{kderevision}
 %patch0 -p1 -b .add_manager_entry
 #%patch2 -p1 -b .customize_menu_for_mandriva
 %patch3 -p0 -b .onlyshow

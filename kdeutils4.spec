@@ -5,12 +5,12 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define kderevision svn969966
+%define kderevision svn973768
 %endif
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.2.87
+Version: 4.2.88
 Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL

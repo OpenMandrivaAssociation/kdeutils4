@@ -41,6 +41,7 @@ BuildRequires: python-kde4
 %ifarch %{ix86}
 BuildRequires: tpctl-devel
 %endif
+BuildRequires:  kdebase4-devel
 BuildConflicts: libxmms-devel
 Requires: kcalc
 Requires: kcharselect
@@ -362,6 +363,7 @@ environment.
 %_kde_bindir/ark
 %_kde_libdir/kde4/libarkpart.so
 %_kde_libdir/kde4/kerfuffle_*
+%_kde_libdir/kde4/libextracthere.so
 %_kde_datadir/applications/kde4/ark.desktop
 %_kde_appsdir/ark
 %_kde_datadir/config.kcfg/ark.kcfg
@@ -369,6 +371,7 @@ environment.
 %_kde_datadir/kde4/services/kerfuffle_*
 %_kde_datadir/kde4/servicetypes/kerfufflePlugin.desktop
 %_kde_datadir/kde4/services/ServiceMenus/ark_*.desktop
+%_kde_datadir/kde4/services/ark_dndextract.desktop
 %_kde_docdir/HTML/*/ark
 %_kde_mandir/man1/ark.1.*
 

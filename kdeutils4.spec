@@ -1,29 +1,17 @@
 %define with_printer_applet 0
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
-%define branch 0
-%{?_branch: %{expand: %%global branch 1}}
-
-%if %branch
-%define kderevision svn973768
-%endif
-
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.2.96
+Version: 4.2.98
 Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
-%if %branch
-Source0:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%{version}%{kderevision}.tar.bz2
-%else
-Source0:    ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%{version}.tar.bz2
-%endif
+Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%{version}.tar.bz2
 Patch0:	kdeutils-4.2.70-printer-applet-manager-entry.patch
-Patch2: kdeutils-4.0.84-customize-menu-entries.patch
-Patch3: kdeutils-4.0.98-fix-autostart.patch
-Patch7: kdeutils-4.0.84-disable-printer-applet.patch
+Patch1: kdeutils-4.0.98-fix-autostart.patch
+Patch2: kdeutils-4.0.84-disable-printer-applet.patch
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
 BuildRequires: openssl-devel
@@ -562,15 +550,10 @@ KDE 4 library
 
 
 %prep
-%if %branch
-%setup -q -n kdeutils-%{version}%{kderevision}
-%else
 %setup -q -n kdeutils-%{version}
-%endif
 %patch0 -p1 -b .add_manager_entry
-#%patch2 -p1 -b .customize_menu_for_mandriva
-%patch3 -p0 -b .onlyshow
-%patch7 -p1
+%patch1 -p0 -b .onlyshow
+%patch2 -p1
 
 %build
 %cmake_kde4 \
@@ -579,13 +562,13 @@ KDE 4 library
 %else
     -DINSTALL_PRINTER_APPLET=TRUE
 %endif
+
 %make
 
 %install
 rm -fr %buildroot
-cd build
 
-make DESTDIR=%buildroot install
+%makeinstall_std -C build
 
 %clean
 rm -fr %buildroot

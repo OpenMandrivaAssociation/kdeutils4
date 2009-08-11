@@ -55,6 +55,9 @@ The KDE Utilities are a compilation of various desktop utilities.
 Summary:     %name core files
 Group:       Graphical desktop/KDE
 Requires:    kdelibs4-core
+%if %mdkversion >= 201000
+Obsoletes:      kdeutils-common < 3.5.10-3
+%else
 Conflicts:   kdeutils-kcalc < 3.5.9-3
 Conflicts:   kdeutils-kgpg  < 3.5.9-3
 Conflicts:   kdeutils-kwalletmanager < 3.5.9-3
@@ -65,7 +68,7 @@ Obsoletes:   %{_lib}kmilo4 < 4.0.74-1
 Obsoletes:   kdeutils4-kmilo < 4.0.74-1
 Obsoletes:   kmilo < 4.0.74-1
 Obsoletes:   kdeutils4-kedit
-
+%endif
 %description core
 Core files for %{name}.
 

@@ -4,7 +4,7 @@
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
 Version: 4.3.0
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
@@ -84,7 +84,11 @@ Requires:       %name-core = %version
 Obsoletes:      %name-kcalc < 3.93.0-0.714053.1
 Obsoletes:      kde4-kcalc < 4.0.68
 Provides:       kde4-kcalc = %version
-Conflicts:      kdeutils-kcalc < 3.5.9-3
+%if %mdkversion >= 201000 
+Obsoletes:      kdeutils-kcalc < 3.5.10-3
+%else
+Conflicts:      kdeutils-kcalc < 3.5.10-3
+%endif
 
 %description -n kcalc
 KCalc is a calculator which offers many more mathematical functions
@@ -140,6 +144,9 @@ Requires: %name-core = %version
 Obsoletes: %name-kcharselect < 3.93.0-0.714053.1
 Obsoletes:      kde4-kcharselect < 4.0.68
 Provides:       kde4-kcharselect = %version
+%if %mdkversion >= 201000
+Obsoletes:      kdeutils-kcharselect < 3.5.10-3
+%endif
 
 %description -n kcharselect
 KCharSelect is a tool to select special characters from all installed
@@ -181,6 +188,9 @@ Requires: %name-core = %version
 Obsoletes: %name-kdf < 3.93.0-0.714053.1
 Obsoletes:      kde4-kdf < 4.0.68
 Provides:       kde4-kdf = %version
+%if %mdkversion >= 201000
+Obsoletes:      kdeutils-kdf < 3.5.10-3
+%endif
 
 %description -n kdf
 KDiskFree displays the available file devices (hard drive partitions,
@@ -209,6 +219,9 @@ Requires: %name-core = %version
 Obsoletes: %name-kfloppy < 3.93.0-0.714053.1
 Obsoletes:      kde4-kfloppy < 4.0.68
 Provides:       kde4-kfloppy = %version
+%if %mdkversion >= 201000
+Obsoletes:      kdeutils-kfloppy < 3.5.10-3
+%endif
 
 %description -n kfloppy
 KFloppy is a utility that provides a straightforward graphical means to
@@ -231,7 +244,9 @@ Requires:       %name-core = %version
 Obsoletes:      %name-kgpg < 3.93.0-0.714053.1
 Obsoletes:      kde4-kgpg < 4.0.68
 Provides:       kde4-kgpg = %version
-Obsoletes:      kdeutils-kgpg < 3.5.9-3
+%if %mdkversion >= 201000
+Obsoletes:      kdeutils-kpgp < 3.5.10-3
+%endif
 
 %description -n kgpg
 KGpg is a simple interface for GnuPG, a powerful encryption utility.
@@ -259,7 +274,9 @@ Requires:       %name-core = %version
 Obsoletes:      %name-ktimer < 3.93.0-0.714053.1
 Obsoletes:      kde4-ktimer < 4.0.68
 Provides:       kde4-ktimer = %version
-Conflicts:      kdeutils-ktimer < 3.5.9-3
+%if %mdkversion >= 201000
+Obsoletes:      kdeutils-ktimer < 3.5.10-3
+%endif
 
 %description -n ktimer
 KTimer is a little tool to execute programs after some time.
@@ -281,6 +298,11 @@ Obsoletes:      %name-kwallet < 3.93.0-0.714053.1
 Obsoletes:      kde4-kwallet < 4.0.68
 Provides:       kde4-kwallet = %version
 Conflicts:      kdeutils-kwalletmanager < 3.5.9-3
+%if %mdkversion >= 201000
+Obsoletes:      kdeutils-kwalletmanager < 3.5.10-3
+%else
+Conflicts:      kdeutils-kwalletmanager < 3.5.9-3
+%endif
 
 %description -n kwallet
 KDE Wallet Manager is for management of the wallets installed on the
@@ -306,6 +328,9 @@ Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/superkaramba
 Requires: %name-core = %version
 %py_requires -d
+%if %mdkversion >= 201000
+Obsoletes:      kdeutils-superkaramba < 3.5.10-3
+%endif
 Obsoletes: %name-superkaramba < 3.93.0-0.714053.1
 Obsoletes: kdeutils4-devel
 Obsoletes:      kde4-superkaramba < 4.0.68
@@ -341,6 +366,9 @@ Obsoletes: %name-ark < 3.93.0-0.714053.1
 Obsoletes: kdeutils4-devel
 Obsoletes:      kde4-ark < 4.0.68
 Provides:       kde4-ark = %version
+%if %mdkversion >= 201000
+Obsoletes:      kdeutils-ark < 3.5.10-3
+%endif
 
 %description -n ark
 Ark is a program for managing various archive formats within the KDE
@@ -490,6 +518,9 @@ Summary: Edit raw file data as Hex values
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/okteta
 Requires: %name-core = %version
+%if %mdkversion >= 201000
+Obsoletes:      kdeutils-khexedit < 3.5.10-3
+%endif
 
 %description -n okteta
 Okteta is a simple editor for the raw data of files. This type of

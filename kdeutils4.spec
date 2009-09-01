@@ -3,8 +3,8 @@
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.3.0
-Release: %mkrel 2
+Version: 4.3.1
+Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
@@ -473,8 +473,8 @@ This is a frontend for the LIRC suite to use infrared devices with KDE.
 %{_kde_appsdir}/profiles/klauncher.profile.xml
 %{_kde_appsdir}/profiles/kmix.profile.xml
 %{_kde_appsdir}/profiles/konqueror.profile.xml
-%{_kde_appsdir}/profiles/noatun.profile.xml
 %{_kde_appsdir}/profiles/okular.profile.xml
+%{_kde_appsdir}/profiles/kscd.profile.xml
 %{_kde_appsdir}/profiles/profile.dtd
 %{_kde_appsdir}/profiles/shutdown.profile.xml
 %{_kde_appsdir}/profiles/suspend.profile.xml

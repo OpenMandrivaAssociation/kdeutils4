@@ -4,7 +4,7 @@
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
 Version: 4.3.1
-Release: %mkrel 2
+Release: %mkrel 3
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
@@ -56,7 +56,11 @@ Summary:     %name core files
 Group:       Graphical desktop/KDE
 Requires:    kdelibs4-core
 %if %mdkversion >= 201000
-Obsoletes:      kdeutils-common < 3.5.10-3
+Obsoletes:   kdeutils-common < 3.5.10-3
+Obsoletes:   kdeutils-kmilo-3.5.10-3
+Obsoletes:   kdeutils4-kmilo < 4.0.74-1
+Obsoletes:   kmilo < 4.0.74-1
+Obsoletes:   kdeutils4-kedit
 %else
 Conflicts:   kdeutils-kcalc < 3.5.9-3
 Conflicts:   kdeutils-kgpg  < 3.5.9-3

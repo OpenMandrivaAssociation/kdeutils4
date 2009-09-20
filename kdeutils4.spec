@@ -4,7 +4,7 @@
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
 Version: 4.3.1
-Release: %mkrel 3
+Release: %mkrel 4
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
@@ -371,11 +371,12 @@ URL: http://utils.kde.org/projects/ark
 Requires: %name-core = %version
 Obsoletes: %name-ark < 3.93.0-0.714053.1
 Obsoletes: kdeutils4-devel
-Obsoletes:      kde4-ark < 4.0.68
-Provides:       kde4-ark = %version
+Obsoletes: kde4-ark < 4.0.68
+Provides:  kde4-ark = %version
 %if %mdkversion >= 201000
-Obsoletes:      kdeutils-ark < 3.5.10-3
+Obsoletes: kdeutils-ark < 3.5.10-3
 %endif
+Suggests: p7zip
 
 %description -n ark
 Ark is a program for managing various archive formats within the KDE

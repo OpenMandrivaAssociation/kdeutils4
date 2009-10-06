@@ -3,8 +3,8 @@
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.3.1
-Release: %mkrel 5
+Version: 4.3.2
+Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
@@ -480,7 +480,6 @@ This is a frontend for the LIRC suite to use infrared devices with KDE.
 %{_kde_appsdir}/profiles/kmix.profile.xml
 %{_kde_appsdir}/profiles/konqueror.profile.xml
 %{_kde_appsdir}/profiles/okular.profile.xml
-%exclude %{_kde_appsdir}/profiles/kscd.profile.xml
 %{_kde_appsdir}/profiles/profile.dtd
 %{_kde_appsdir}/profiles/shutdown.profile.xml
 %{_kde_appsdir}/profiles/suspend.profile.xml
@@ -539,7 +538,7 @@ program is also called hex editor or binary editor.
 %defattr(-,root,root)
 %_kde_bindir/okteta
 %_kde_libdir/kde4/libkbytearrayedit.so
-%_kde_libdir/kde4/liboktetapart.so
+%_kde_libdir/kde4/oktetapart.so
 %_kde_datadir/applications/kde4/okteta.desktop
 %dir %_kde_appsdir/okteta
 %_kde_appsdir/okteta/oktetaui.rc

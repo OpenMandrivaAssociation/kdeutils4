@@ -4,7 +4,7 @@
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
 Version: 4.3.2
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
@@ -12,7 +12,6 @@ Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%{version}.tar.b
 Patch0:	kdeutils-4.2.70-printer-applet-manager-entry.patch
 Patch1: kdeutils-4.0.98-fix-autostart.patch
 Patch2: kdeutils-4.0.84-disable-printer-applet.patch
-Patch3: kdeutils-4.3.1-kdf-handle-uuid.patch
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
 BuildRequires: openssl-devel
@@ -593,7 +592,6 @@ KDE 4 library
 %patch0 -p1 -b .add_manager_entry
 %patch1 -p0 -b .onlyshow
 %patch2 -p1
-%patch3 -p0
 
 %build
 %cmake_kde4 \

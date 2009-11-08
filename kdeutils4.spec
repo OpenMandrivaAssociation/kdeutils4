@@ -1,18 +1,19 @@
+%define kde_snapshot svn1040395
+
 %define with_printer_applet 0
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.3.2
-Release: %mkrel 5
+Version: 4.3.73
+Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
-Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%{version}.tar.bz2
+Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%{version}%kde_snapshot.tar.bz2
 Patch0:	kdeutils-4.2.70-printer-applet-manager-entry.patch
 Patch1: kdeutils-4.0.98-fix-autostart.patch
 Patch2: kdeutils-4.0.84-disable-printer-applet.patch
-Patch3: kdeutils-4.3.2-kdf-handle-uuid.patch
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
 BuildRequires: openssl-devel
@@ -80,7 +81,6 @@ Core files for %{name}.
 %files core
 %defattr(-,root,root)
 %_kde_iconsdir/*/*/*/*
-%_kde_docdir/HTML/en/kcontrol/blockdevices
 
 #----------------------------------------------------------------------
 
@@ -239,7 +239,6 @@ format 3.5" and 5.25" floppy disks.
 %defattr(-,root,root)
 %_kde_bindir/kfloppy
 %_kde_datadir/applications/kde4/KFloppy.desktop
-%_kde_datadir/kde4/services/ServiceMenus/floppy_format.desktop
 %_kde_docdir/HTML/*/kfloppy
 
 #---------------------------------------------
@@ -360,8 +359,6 @@ widgets on your KDE desktop.
 %_kde_datadir/config/superkaramba.knsrc
 %_kde_datadir/dbus-1/interfaces/org.kde.superkaramba.xml
 %_kde_docdir/HTML/*/superkaramba
-# Should not be installed
-%exclude %_kde_libdir/libsuperkaramba.so
 
 #---------------------------------------------
 
@@ -386,9 +383,9 @@ environment.
 %files -n ark
 %defattr(-,root,root)
 %_kde_bindir/ark
-%_kde_libdir/kde4/libarkpart.so
 %_kde_libdir/kde4/kerfuffle_*
 %_kde_libdir/kde4/libextracthere.so
+%_kde_libdir/kde4/arkpart.so
 %_kde_datadir/applications/kde4/ark.desktop
 %_kde_appsdir/ark
 %_kde_datadir/config.kcfg/ark.kcfg
@@ -399,9 +396,6 @@ environment.
 %_kde_datadir/kde4/services/ark_dndextract.desktop
 %_kde_docdir/HTML/*/ark
 %_kde_mandir/man1/ark.1.*
-
-# Should not be installed
-%exclude %_kde_libdir/libkerfuffle.so
 
 #---------------------------------------------
 
@@ -456,7 +450,6 @@ Sweeper helps to clean unwanted traces the user leaves on the system.
 %_kde_datadir/dbus-1/interfaces/org.kde.sweeper.xml
 
 #---------------------------------------------
-
 %package -n kdelirc
 Summary: Frontend for the LIRC suite
 Group: Graphical desktop/KDE
@@ -471,7 +464,6 @@ This is a frontend for the LIRC suite to use infrared devices with KDE.
 %{_kde_bindir}/irkick
 %{_kde_libdir}/kde4/kcm_lirc.so
 %{_kde_libdir}/libkdeinit4_irkick.so
-%exclude  %{_kde_libdir}/libkdelirc_shared.so
 %{_kde_datadir}/applications/kde4/irkick.desktop
 %{_kde_appsdir}/irkick/irkick.notifyrc
 %{_kde_appsdir}/profiles/amarok.profile.xml
@@ -484,15 +476,6 @@ This is a frontend for the LIRC suite to use infrared devices with KDE.
 %{_kde_appsdir}/profiles/shutdown.profile.xml
 %{_kde_appsdir}/profiles/suspend.profile.xml
 %{_kde_appsdir}/profiles/vlc.profile.xml
-%{_kde_appsdir}/remotes/AppleRemote.remote.xml
-%{_kde_appsdir}/remotes/AsusDH.remote.xml
-%{_kde_appsdir}/remotes/RM-0010.remote.xml
-%{_kde_appsdir}/remotes/cimr100.remote.xml
-%{_kde_appsdir}/remotes/hauppauge.remote.xml
-%{_kde_appsdir}/remotes/packbell.remote.xml
-%{_kde_appsdir}/remotes/remote.dtd
-%{_kde_appsdir}/remotes/sherwood.remote.xml
-%{_kde_appsdir}/remotes/sonytv.remote.xml
 %{_kde_datadir}/autostart/irkick.desktop
 %{_kde_docdir}/HTML/en/irkick/common
 %{_kde_docdir}/HTML/en/irkick/index.cache.bz2
@@ -501,7 +484,6 @@ This is a frontend for the LIRC suite to use infrared devices with KDE.
 %{_kde_docdir}/HTML/en/kcmlirc/index.cache.bz2
 %{_kde_docdir}/HTML/en/kcmlirc/index.docbook
 %{_kde_datadir}/kde4/services/kcm_lirc.desktop
-
 #---------------------------------------------
 
 %define libkdelirc_shared_major 1
@@ -538,17 +520,14 @@ program is also called hex editor or binary editor.
 %_kde_bindir/okteta
 %_kde_libdir/kde4/libkbytearrayedit.so
 %_kde_libdir/kde4/oktetapart.so
+%_kde_libdir/kde4/plugins/designer/oktetadesignerplugin.so
 %_kde_datadir/applications/kde4/okteta.desktop
-%dir %_kde_appsdir/okteta
-%_kde_appsdir/okteta/oktetaui.rc
-%dir %_kde_appsdir/oktetapart
-%_kde_appsdir/oktetapart/oktetapartui.rc
+%_kde_appsdir/okteta
+%_kde_appsdir/oktetapart
 %_kde_datadir/kde4/services/kbytearrayedit.desktop
 %_kde_datadir/kde4/services/oktetapart.desktop
 %_kde_docdir/HTML/en/okteta
 
-%exclude %_kde_libdir/liboktetagui.so
-%exclude %_kde_libdir/liboktetacore.so
 #---------------------------------------------
 
 %define liboktetacore_major 4
@@ -565,6 +544,24 @@ KDE 4 library
 %files -n %liboktetacore
 %defattr(-,root,root)
 %_kde_libdir/liboktetacore.so.%{liboktetacore_major}*
+
+#---------------------------------------------
+
+%define liboktetakastengui_major 4
+%define liboktetakastengui %mklibname oktetakastengui %{liboktetakastengui_major}
+
+%package -n %liboktetakastengui
+Summary: KDE 4 library
+Group: System/Libraries
+URL: http://utils.kde.org/projects/okteta
+
+%description -n %liboktetakastengui
+KDE 4 library
+
+%files -n %liboktetakastengui
+%defattr(-,root,root)
+%_kde_libdir/liboktetakastengui.so.%{liboktetakastengui_major}*
+
 #---------------------------------------------
 
 %define liboktetagui_major 4
@@ -581,15 +578,140 @@ KDE 4 library
 %files -n %liboktetagui
 %defattr(-,root,root)
 %_kde_libdir/liboktetagui.so.%{liboktetagui_major}*
+
 #---------------------------------------------
 
+%define liboktetakastencore_major 4
+%define liboktetakastencore %mklibname oktetakastencore %{liboktetakastencore_major}
+
+%package -n %liboktetakastencore
+Summary: KDE 4 library
+Group: System/Libraries
+URL: http://utils.kde.org/projects/okteta
+
+%description -n %liboktetakastencore
+KDE 4 library
+
+%files -n %liboktetakastencore
+%defattr(-,root,root)
+%_kde_libdir/liboktetakastencore.so.%{liboktetakastencore_major}*
+
+#---------------------------------------------
+
+%define liboktetakastencontrollers_major 4
+%define liboktetakastencontrollers %mklibname oktetakastencontrollers %{liboktetakastencontrollers_major}
+
+%package -n %liboktetakastencontrollers
+Summary: KDE 4 library
+Group: System/Libraries
+URL: http://utils.kde.org/projects/okteta
+
+%description -n %liboktetakastencontrollers
+KDE 4 library
+
+%files -n %liboktetakastencontrollers
+%defattr(-,root,root)
+%_kde_libdir/liboktetakastencontrollers.so.%{liboktetakastencontrollers_major}*
+
+#---------------------------------------------
+
+%define libkastengui_major 4
+%define libkastengui %mklibname kastengui %{libkastengui_major}
+
+%package -n %libkastengui
+Summary: KDE 4 library
+Group: System/Libraries
+URL: http://utils.kde.org/projects/okteta
+
+%description -n %libkastengui
+KDE 4 library
+
+%files -n %libkastengui
+%defattr(-,root,root)
+%_kde_libdir/libkastengui.so.%{libkastengui_major}*
+
+#---------------------------------------------
+
+%define libkastencore_major 4
+%define libkastencore %mklibname kastencore %{libkastencore_major}
+
+%package -n %libkastencore
+Summary: KDE 4 library
+Group: System/Libraries
+URL: http://utils.kde.org/projects/okteta
+
+%description -n %libkastencore
+KDE 4 library
+
+%files -n %libkastencore
+%defattr(-,root,root)
+%_kde_libdir/libkastencore.so.%{libkastencore_major}*
+
+#---------------------------------------------
+
+%define libkastencontrollers_major 4
+%define libkastencontrollers %mklibname kastencontrollers %{libkastencontrollers_major}
+
+%package -n %libkastencontrollers
+Summary: KDE 4 library
+Group: System/Libraries
+URL: http://utils.kde.org/projects/okteta
+
+%description -n %libkastencontrollers
+KDE 4 library
+
+%files -n %libkastencontrollers
+%defattr(-,root,root)
+%_kde_libdir/libkastencontrollers.so.%{libkastencontrollers_major}*
+
+#---------------------------------------------
+
+%package devel
+Summary: Devel stuff for %{name}
+Group: Development/KDE and Qt
+Requires: kdelibs4-devel >= 2:4.2.98
+Requires: %name = %version-%release
+Requires: %libkerfuffle = %version-%release
+Requires: %libsuperkaramba = %version-%release
+Requires: %libkdelirc_shared = %version-%release
+Requires: %liboktetacore = %version-%release
+Requires: %liboktetakastengui = %version-%release
+Requires: %liboktetagui = %version-%release
+Requires: %liboktetakastencore = %version-%release
+Requires: %liboktetakastencontrollers = %version-%release
+Requires: %libkastengui = %version-%release
+Requires: %libkastencore = %version-%release
+Requires: %libkastencontrollers = %version-%release
+
+%description  devel
+This package contains header files needed if you wish to build applications
+based on %{name}.
+
+%files devel
+%defattr(-,root,root)
+%{_kde_includedir}/okteta
+%{_kde_includedir}/KDE/Okteta
+%{_kde_includedir}/kasten
+%{_kde_includedir}/KDE/Kasten
+%{_kde_libdir}/libkastencontrollers.so
+%{_kde_libdir}/libkastencore.so
+%{_kde_libdir}/libkastengui.so
+%{_kde_libdir}/libkerfuffle.so
+%{_kde_libdir}/liboktetacore.so
+%{_kde_libdir}/liboktetagui.so
+%{_kde_libdir}/liboktetakastencore.so
+%{_kde_libdir}/liboktetakastengui.so
+%{_kde_libdir}/libsuperkaramba.so
+%{_kde_libdir}/libkdelirc_shared.so
+%{_kde_libdir}/liboktetakastencontrollers.so
+
+#---------------------------------------------
 
 %prep
-%setup -q -n kdeutils-%{version}
+%setup -q -n kdeutils-%{version}%kde_snapshot
 %patch0 -p1 -b .add_manager_entry
 %patch1 -p0 -b .onlyshow
 %patch2 -p1
-%patch3 -p0
 
 %build
 %cmake_kde4 \

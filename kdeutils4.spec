@@ -1,12 +1,12 @@
-%define kde_snapshot svn1040395
+%define kde_snapshot svn1048496
 
 %define with_printer_applet 0
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.3.73
-Release: %mkrel 2
+Version: 4.3.75
+Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/

@@ -1,11 +1,11 @@
-%define kde_snapshot svn1048496
+%define kde_snapshot svn1053190
 
 %define with_printer_applet 0
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.3.75
+Version: 4.3.77
 Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -216,6 +216,7 @@ drives and view them in a file manager.
 %_kde_datadir/applications/kde4/kwikdisk.desktop
 %_kde_datadir/kde4/services/kcmdf.desktop
 %_kde_docdir/HTML/*/kdf
+%_kde_docdir/HTML/*/kcontrol/blockdevices
 
 #---------------------------------------------
 

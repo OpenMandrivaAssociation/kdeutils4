@@ -537,6 +537,7 @@ program is also called hex editor or binary editor.
 %_kde_appsdir/oktetapart
 %_kde_datadir/kde4/services/kbytearrayedit.desktop
 %_kde_datadir/kde4/services/oktetapart.desktop
+%_kde_datadir/config/structures.knsrc
 %_kde_docdir/HTML/en/okteta
 
 #---------------------------------------------
@@ -700,10 +701,6 @@ based on %{name}.
 
 %files devel
 %defattr(-,root,root)
-%{_kde_includedir}/okteta
-%{_kde_includedir}/KDE/Okteta
-%{_kde_includedir}/kasten
-%{_kde_includedir}/KDE/Kasten
 %{_kde_libdir}/libkastencontrollers.so
 %{_kde_libdir}/libkastencore.so
 %{_kde_libdir}/libkastengui.so

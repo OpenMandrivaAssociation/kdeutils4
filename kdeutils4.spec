@@ -531,13 +531,11 @@ program is also called hex editor or binary editor.
 %_kde_bindir/okteta
 %_kde_libdir/kde4/libkbytearrayedit.so
 %_kde_libdir/kde4/oktetapart.so
-%_kde_libdir/kde4/plugins/designer/oktetadesignerplugin.so
 %_kde_datadir/applications/kde4/okteta.desktop
 %_kde_appsdir/okteta
 %_kde_appsdir/oktetapart
 %_kde_datadir/kde4/services/kbytearrayedit.desktop
 %_kde_datadir/kde4/services/oktetapart.desktop
-%_kde_datadir/config/structures.knsrc
 %_kde_docdir/HTML/en/okteta
 
 #---------------------------------------------

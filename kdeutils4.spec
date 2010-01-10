@@ -45,7 +45,6 @@ BuildRequires:  kdebase4-devel
 BuildConflicts: libxmms-devel
 Requires: kcalc
 Requires: kcharselect
-Requires: kdessh
 Requires: kdf
 Requires: kfloppy
 Requires: kgpg
@@ -177,24 +176,6 @@ fonts and copy them into the clipboard.
 %_kde_bindir/kcharselect
 %_kde_datadir/applications/kde4/KCharSelect.desktop
 %_kde_docdir/HTML/*/kcharselect
-
-#---------------------------------------------
-
-%package -n kdessh
-Summary: Connect to other systems with ssh
-Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/kdessh
-Requires: %name-core = %version
-Obsoletes: %name-kdessh < 3.93.0-0.714053.1
-Obsoletes:      kde4-kdessh < 4.0.68
-Provides:       kde4-kdessh = %version
-
-%description -n kdessh
-KDE ssh runs a program on a remote host.
-
-%files -n kdessh
-%defattr(-,root,root)
-%_kde_bindir/kdessh
 
 #---------------------------------------------
 

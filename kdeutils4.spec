@@ -24,7 +24,7 @@ Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%{version}.tar.b
 Patch0:	kdeutils-4.2.70-printer-applet-manager-entry.patch
 Patch1: kdeutils-4.0.98-fix-autostart.patch
 Patch2: kdeutils-4.0.84-disable-printer-applet.patch
-Patch3: kdeutils-4.3.95-customize-menu-entries.patch
+Patch3: kdeutils-4.3.90-customize-menu-entries.patch
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
 BuildRequires: openssl-devel

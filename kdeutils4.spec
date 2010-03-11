@@ -470,13 +470,10 @@ This is a frontend for the LIRC suite to use infrared devices with KDE.
 %{_kde_appsdir}/profiles/suspend.profile.xml
 %{_kde_appsdir}/profiles/vlc.profile.xml
 %{_kde_datadir}/autostart/irkick.desktop
-%{_kde_docdir}/HTML/en/irkick/common
-%{_kde_docdir}/HTML/en/irkick/index.cache.bz2
-%{_kde_docdir}/HTML/en/irkick/index.docbook
-%{_kde_docdir}/HTML/en/kcmlirc/common
-%{_kde_docdir}/HTML/en/kcmlirc/index.cache.bz2
-%{_kde_docdir}/HTML/en/kcmlirc/index.docbook
 %{_kde_datadir}/kde4/services/kcm_lirc.desktop
+
+%doc %{_kde_docdir}/HTML/en/kcmlirc
+%doc %{_kde_docdir}/HTML/en/irkick
 #---------------------------------------------
 
 %define libkdelirc_shared_major 1

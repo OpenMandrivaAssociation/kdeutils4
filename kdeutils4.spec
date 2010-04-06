@@ -40,6 +40,7 @@ BuildRequires: libarchive-devel
 BuildRequires: python-kde4
 BuildRequires: system-config-printer
 BuildRequires: python-cups
+Requires:      system-config-printer
 %endif
 %ifarch %{ix86}
 BuildRequires: tpctl-devel

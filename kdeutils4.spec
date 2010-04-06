@@ -38,6 +38,8 @@ BuildRequires: qimageblitz-devel
 BuildRequires: libarchive-devel
 %if %with_printer_applet 
 BuildRequires: python-kde4
+BuildRequires: system-config-printer
+BuildRequires: python-cups
 %endif
 %ifarch %{ix86}
 BuildRequires: tpctl-devel
@@ -149,6 +151,7 @@ hal-cups-utils.
 %_kde_bindir/printer-applet
 %_kde_appsdir/printer-applet
 %_kde_datadir/autostart/printer-applet.desktop
+%doc %_kde_docdir/HTML/en/printer-applet
 %endif
 
 #---------------------------------------------
@@ -701,7 +704,9 @@ based on %{name}.
 %endif
 %patch0 -p1 -b .add_manager_entry
 %patch1 -p0 -b .onlyshow
+%if ! %{with_printer_applet}
 %patch2 -p1
+%endif
 %patch3 -p0
 
 %build

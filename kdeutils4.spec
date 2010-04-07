@@ -40,7 +40,6 @@ BuildRequires: libarchive-devel
 BuildRequires: python-kde4
 BuildRequires: system-config-printer
 BuildRequires: python-cups
-Requires:      system-config-printer
 %endif
 %ifarch %{ix86}
 BuildRequires: tpctl-devel
@@ -139,7 +138,7 @@ Requires: python-kde4 >= 1:4.1.0
 Requires: python-cups
 Requires: python-qt4
 Requires: python-dbus
-Requires: hal-cups-utils
+Requires: system-config-printer
 
 %description printer-applet
 Printer Applet is a system tray utility that shows current print jobs,

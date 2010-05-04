@@ -11,7 +11,7 @@
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.4.2
+Version: 4.4.3
 Release: %mkrel 2
 Group: Graphical desktop/KDE
 License: GPL

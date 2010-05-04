@@ -1,7 +1,6 @@
 %define branch 0
 %{?_branch: %{expand: %%global branch 1}}
 
-
 %if %branch
 %define kde_snapshot svn1053190
 %endif
@@ -12,7 +11,7 @@
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
 Version: 4.4.3
-Release: %mkrel 2
+Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/

@@ -2,7 +2,7 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define kde_snapshot svn1053190
+%define kde_snapshot svn1138650
 %endif
 
 %define with_printer_applet 0
@@ -10,7 +10,7 @@
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.4.3
+Version: 4.4.95
 Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -45,15 +45,16 @@ BuildRequires: tpctl-devel
 %endif
 BuildRequires:  kdebase4-devel
 BuildConflicts: libxmms-devel
-Requires: kcalc
-Requires: kcharselect
-Requires: kdf
-Requires: kfloppy
-Requires: kgpg
-Requires: ktimer
-Requires: kwallet
-Requires: superkaramba
-Requires: sweeper
+Suggests: kcalc
+Suggests: kcharselect
+Suggests: kdf
+Suggests: kfloppy
+Suggests: kgpg
+Suggests: ktimer
+Suggests: kwallet
+Suggests: superkaramba
+Suggests: sweeper
+Suggests: kremotecontrol
 
 %description
 The KDE Utilities are a compilation of various desktop utilities.
@@ -446,55 +447,7 @@ Sweeper helps to clean unwanted traces the user leaves on the system.
 %_kde_datadir/dbus-1/interfaces/org.kde.sweeper.xml
 
 #---------------------------------------------
-%package -n kdelirc
-Summary: Frontend for the LIRC suite
-Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/sweeper
-Requires: %name-core = %version
 
-%description -n kdelirc
-This is a frontend for the LIRC suite to use infrared devices with KDE.
-
-%files -n kdelirc
-%defattr(-,root,root)
-%{_kde_bindir}/irkick
-%{_kde_libdir}/kde4/kcm_lirc.so
-%{_kde_libdir}/libkdeinit4_irkick.so
-%{_kde_datadir}/applications/kde4/irkick.desktop
-%{_kde_appsdir}/irkick/irkick.notifyrc
-%{_kde_appsdir}/profiles/amarok.profile.xml
-%{_kde_appsdir}/profiles/dragonplayer.profile.xml
-%{_kde_appsdir}/profiles/klauncher.profile.xml
-%{_kde_appsdir}/profiles/kmix.profile.xml
-%{_kde_appsdir}/profiles/konqueror.profile.xml
-%{_kde_appsdir}/profiles/okular.profile.xml
-%{_kde_appsdir}/profiles/profile.dtd
-%{_kde_appsdir}/profiles/shutdown.profile.xml
-%{_kde_appsdir}/profiles/suspend.profile.xml
-%{_kde_appsdir}/profiles/vlc.profile.xml
-%{_kde_datadir}/autostart/irkick.desktop
-%{_kde_datadir}/kde4/services/kcm_lirc.desktop
-
-%doc %{_kde_docdir}/HTML/en/kcmlirc
-%doc %{_kde_docdir}/HTML/en/irkick
-#---------------------------------------------
-
-%define libkdelirc_shared_major 1
-%define libkdelirc_shared %mklibname kdelirc_shared %{libkdelirc_shared_major}
-
-%package -n %libkdelirc_shared
-Summary: KDE 4 library
-Group: System/Libraries
-URL: http://utils.kde.org/projects/okteta
-
-%description -n %libkdelirc_shared
-KDE 4 library
-
-%files -n %libkdelirc_shared
-%defattr(-,root,root)
-%_kde_libdir/libkdelirc_shared.so.%{libkdelirc_shared_major}*
-
-#---------------------------------------------
 %package -n okteta
 Summary: Edit raw file data as Hex values
 Group: Graphical desktop/KDE
@@ -518,7 +471,36 @@ program is also called hex editor or binary editor.
 %_kde_appsdir/oktetapart
 %_kde_datadir/kde4/services/kbytearrayedit.desktop
 %_kde_datadir/kde4/services/oktetapart.desktop
+%_kde_datadir/config/okteta-structures.knsrc
+%_kde_datadir/mime/packages/okteta.xml
+%_kde_datadir/config.kcfg/structviewpreferences.kcfg
 %_kde_docdir/HTML/en/okteta
+
+#---------------------------------------------
+%package -n kremotecontrol
+Summary: Frontend for the LIRC suite
+Group: Graphical desktop/KDE
+URL: http://utils.kde.org/projects/sweeper
+Requires: %name-core = %version
+
+%description -n kremotecontrol
+This is a frontend for the LIRC suite to use infrared devices with KDE.
+
+%files -n kremotecontrol
+%defattr(-,root,root)
+%_kde_bindir/krcdnotifieritem
+%_kde_libdir/kde4/kcm_remotecontrol.so
+%_kde_libdir/kde4/kded_kremotecontroldaemon.so
+%_kde_libdir/kde4/plasma_engine_kremoteconrol.so
+%_kde_libdir/kde4/plugins/designer/oktetadesignerplugin.so
+%_kde_datadir/applications/kde4/krcdnotifieritem.desktop
+%_kde_appsdir/kremotecontrol
+%_kde_appsdir/kremotecontroldaemon
+%_kde_datadir/kde4/services/kcm_remotecontrol.desktop
+%_kde_datadir/kde4/services/kded/kremotecontroldaemon.desktop
+%_kde_datadir/kde4/services/plasma-engine-kremotecontrol.desktop
+
+%doc %_kde_docdir/HTML/en/kremotecontrol
 
 #---------------------------------------------
 
@@ -658,6 +640,23 @@ KDE 4 library
 
 #---------------------------------------------
 
+%define liblibkremotecontrol_major 1
+%define liblibkremotecontrol %mklibname libkremotecontrol %{liblibkremotecontrol_major}
+
+%package -n %liblibkremotecontrol
+Summary: KDE 4 library
+Group: System/Libraries
+URL: http://utils.kde.org/projects/okteta
+
+%description -n %liblibkremotecontrol
+KDE 4 library
+
+%files -n %liblibkremotecontrol
+%defattr(-,root,root)
+%_kde_libdir/liblibkremotecontrol.so.%{liblibkremotecontrol_major}*
+
+#---------------------------------------------
+
 %package devel
 Summary: Devel stuff for %{name}
 Group: Development/KDE and Qt
@@ -665,7 +664,6 @@ Requires: kdelibs4-devel >= 2:4.2.98
 Requires: %name = %version-%release
 Requires: %libkerfuffle = %version-%release
 Requires: %libsuperkaramba = %version-%release
-Requires: %libkdelirc_shared = %version-%release
 Requires: %liboktetacore = %version-%release
 Requires: %liboktetakastengui = %version-%release
 Requires: %liboktetagui = %version-%release
@@ -690,8 +688,12 @@ based on %{name}.
 %{_kde_libdir}/liboktetakastencore.so
 %{_kde_libdir}/liboktetakastengui.so
 %{_kde_libdir}/libsuperkaramba.so
-%{_kde_libdir}/libkdelirc_shared.so
 %{_kde_libdir}/liboktetakastencontrollers.so
+%{_kde_libdir}/liblibkremotecontrol.so
+%_kde_includedir/KDE/Kasten
+%_kde_includedir/KDE/Okteta
+%_kde_includedir/kasten
+%_kde_includedir/okteta
 
 #---------------------------------------------
 
@@ -701,7 +703,7 @@ based on %{name}.
 %else
 %setup -q -n kdeutils-%{version}
 %endif
-%patch0 -p1 -b .add_manager_entry
+#%patch0 -p1 -b .add_manager_entry
 %patch1 -p0 -b .onlyshow
 %if ! %{with_printer_applet}
 %patch2 -p1

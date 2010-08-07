@@ -354,7 +354,6 @@ widgets on your KDE desktop.
 %_kde_datadir/kde4/services/plasma-scriptengine-superkaramba.desktop
 %_kde_datadir/config/superkaramba.knsrc
 %_kde_datadir/dbus-1/interfaces/org.kde.superkaramba.xml
-%_kde_docdir/HTML/*/superkaramba
 
 #---------------------------------------------
 
@@ -445,6 +444,7 @@ Sweeper helps to clean unwanted traces the user leaves on the system.
 %_kde_bindir/sweeper
 %_kde_datadir/applications/kde4/sweeper.desktop
 %_kde_datadir/dbus-1/interfaces/org.kde.sweeper.xml
+%_kde_docdir/HTML/*/sweeper
 
 #---------------------------------------------
 

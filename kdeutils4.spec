@@ -335,7 +335,6 @@ Requires: %name-core = %version
 Obsoletes:      kdeutils-superkaramba < 3.5.10-3
 %endif
 Obsoletes: %name-superkaramba < 3.93.0-0.714053.1
-Obsoletes: kdeutils4-devel
 Obsoletes:      kde4-superkaramba < 4.0.68
 Provides:       kde4-superkaramba = %version
 

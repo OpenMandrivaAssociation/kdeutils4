@@ -1,16 +1,16 @@
-%define branch 0
+%define branch 1
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define kde_snapshot svn1138650
+%define kde_snapshot svn1170578
 %endif
 
-%define with_printer_applet 0
+%define with_printer_applet 1
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.5.0
+Version: 4.5.67
 Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -20,10 +20,6 @@ Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%{version}%kde_s
 %else
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%{version}.tar.bz2
 %endif
-Patch0:	kdeutils-4.2.70-printer-applet-manager-entry.patch
-Patch1: kdeutils-4.0.98-fix-autostart.patch
-Patch2: kdeutils-4.0.84-disable-printer-applet.patch
-Patch3: kdeutils-4.3.90-customize-menu-entries.patch
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: X11-devel
 BuildRequires: openssl-devel
@@ -702,12 +698,6 @@ based on %{name}.
 %else
 %setup -q -n kdeutils-%{version}
 %endif
-#%patch0 -p1 -b .add_manager_entry
-%patch1 -p0 -b .onlyshow
-%if ! %{with_printer_applet}
-%patch2 -p1
-%endif
-%patch3 -p0
 
 %build
 %cmake_kde4 \

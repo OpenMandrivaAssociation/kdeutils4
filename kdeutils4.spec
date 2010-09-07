@@ -495,8 +495,6 @@ This is a frontend for the LIRC suite to use infrared devices with KDE.
 %_kde_datadir/kde4/services/kded/kremotecontroldaemon.desktop
 %_kde_datadir/kde4/services/plasma-engine-kremotecontrol.desktop
 
-%doc %_kde_docdir/HTML/en/kremotecontrol
-
 #---------------------------------------------
 
 %define liboktetacore_major 4

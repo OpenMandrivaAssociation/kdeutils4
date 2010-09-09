@@ -11,7 +11,7 @@
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
 Version: 4.5.67
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
@@ -358,7 +358,6 @@ Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/ark
 Requires: %name-core = %version
 Obsoletes: %name-ark < 3.93.0-0.714053.1
-Obsoletes: kdeutils4-devel
 Obsoletes: kde4-ark < 4.0.68
 Provides:  kde4-ark = %version
 %if %mdkversion >= 201000

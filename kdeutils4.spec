@@ -11,7 +11,7 @@
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
 Version: 4.5.67
-Release: %mkrel 2
+Release: %mkrel 3
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
@@ -665,6 +665,7 @@ Requires: %liboktetakastencontrollers = %version-%release
 Requires: %libkastengui = %version-%release
 Requires: %libkastencore = %version-%release
 Requires: %libkastencontrollers = %version-%release
+Requires: %liblibkremotecontrol = %version-%release
 
 %description  devel
 This package contains header files needed if you wish to build applications

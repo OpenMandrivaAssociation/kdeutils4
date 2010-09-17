@@ -2,7 +2,7 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define kde_snapshot svn1170578
+%define kde_snapshot svn1174542
 %endif
 
 %define with_printer_applet 1
@@ -10,36 +10,34 @@
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.5.67
-Release: %mkrel 3
+Version: 4.5.68
+Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
 %if %branch
-Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%{version}%kde_snapshot.tar.bz2
+Source0: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeutils-%{version}%kde_snapshot.tar.bz2
 %else
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%{version}.tar.bz2
 %endif
 Buildroot:	%_tmppath/%name-%version-%release-root
-BuildRequires: X11-devel
-BuildRequires: openssl-devel
-BuildRequires: libnet-snmp-devel
-BuildRequires: gmp-devel
-BuildRequires: plasma-devel
 BuildRequires: kdepimlibs4-devel
-BuildRequires: libzip-devel
-BuildRequires: kde4-macros
-BuildRequires: qimageblitz-devel 
+BuildRequires: kdebase4-workspace-devel
+BuildRequires: gmp-devel
+BuildRequires: qimageblitz-devel
+BuildRequires: qca2-devel
+BuildRequires: kdebase4-devel
 BuildRequires: libarchive-devel
+BuildRequires: zlib-devel
+BuildRequires: bzip2-devel
+BuildRequires: liblzma-devel
+BuildRequires: qjson-devel
 %if %with_printer_applet 
 BuildRequires: python-kde4
 BuildRequires: system-config-printer
 BuildRequires: python-cups
+BuildRequires: python-devel
 %endif
-%ifarch %{ix86}
-BuildRequires: tpctl-devel
-%endif
-BuildRequires:  kdebase4-devel
 BuildConflicts: libxmms-devel
 Suggests: kcalc
 Suggests: kcharselect
@@ -61,27 +59,27 @@ The KDE Utilities are a compilation of various desktop utilities.
 
 #----------------------------------------------------------------------
 
-%package     core
-Summary:     %name core files
-Group:       Graphical desktop/KDE
-Requires:    kdelibs4-core
+%package core
+Summary: %name core files
+Group: Graphical desktop/KDE
+Requires: kdelibs4-core
 %if %mdkversion >= 201000
-Obsoletes:   kdeutils-common < 3.5.10-3
-Obsoletes:   kdeutils-kmilo < 3.5.10-3
-Obsoletes:   kdeutils4-kmilo < 4.0.74-1
-Obsoletes:   kmilo < 4.0.74-1
-Obsoletes:   kdeutils4-kedit
+Obsoletes: kdeutils-common < 3.5.10-3
+Obsoletes: kdeutils-kmilo < 3.5.10-3
+Obsoletes: kdeutils4-kmilo < 4.0.74-1
+Obsoletes: kmilo < 4.0.74-1
+Obsoletes: kdeutils4-kedit
 %else
-Conflicts:   kdeutils-kcalc < 3.5.9-3
-Conflicts:   kdeutils-kgpg  < 3.5.9-3
-Conflicts:   kdeutils-kwalletmanager < 3.5.9-3
-Conflicts:   kdeutils-ktimer < 3.5.9-3
-Conflicts:   kdeutils-kfloppy < 3.5.9-3
-Obsoletes:   kde4-kmilo < 4.0.74-1
-Obsoletes:   %{_lib}kmilo4 < 4.0.74-1
-Obsoletes:   kdeutils4-kmilo < 4.0.74-1
-Obsoletes:   kmilo < 4.0.74-1
-Obsoletes:   kdeutils4-kedit
+Conflicts: kdeutils-kcalc < 3.5.9-3
+Conflicts: kdeutils-kgpg < 3.5.9-3
+Conflicts: kdeutils-kwalletmanager < 3.5.9-3
+Conflicts: kdeutils-ktimer < 3.5.9-3
+Conflicts: kdeutils-kfloppy < 3.5.9-3
+Obsoletes: kde4-kmilo < 4.0.74-1
+Obsoletes: %{_lib}kmilo4 < 4.0.74-1
+Obsoletes: kdeutils4-kmilo < 4.0.74-1
+Obsoletes: kmilo < 4.0.74-1
+Obsoletes: kdeutils4-kedit
 %endif
 %description core
 Core files for %{name}.
@@ -92,18 +90,18 @@ Core files for %{name}.
 
 #----------------------------------------------------------------------
 
-%package -n     kcalc
-Summary:        Do scientific calculations
-Group:          Graphical desktop/KDE
+%package -n kcalc
+Summary: Do scientific calculations
+Group: Graphical desktop/KDE
 URL:		http://utils.kde.org/projects/kcalc
-Requires:       %name-core = %version
-Obsoletes:      %name-kcalc < 3.93.0-0.714053.1
-Obsoletes:      kde4-kcalc < 4.0.68
-Provides:       kde4-kcalc = %version
+Requires: %name-core = %version
+Obsoletes: %name-kcalc < 3.93.0-0.714053.1
+Obsoletes: kde4-kcalc < 4.0.68
+Provides: kde4-kcalc = %version
 %if %mdkversion >= 201000 
-Obsoletes:      kdeutils-kcalc < 3.5.10-3
+Obsoletes: kdeutils-kcalc < 3.5.10-3
 %else
-Conflicts:      kdeutils-kcalc < 3.5.10-3
+Conflicts: kdeutils-kcalc < 3.5.10-3
 %endif
 
 %description -n kcalc
@@ -159,10 +157,10 @@ Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kcharselect
 Requires: %name-core = %version
 Obsoletes: %name-kcharselect < 3.93.0-0.714053.1
-Obsoletes:      kde4-kcharselect < 4.0.68
-Provides:       kde4-kcharselect = %version
+Obsoletes: kde4-kcharselect < 4.0.68
+Provides: kde4-kcharselect = %version
 %if %mdkversion >= 201000
-Obsoletes:      kdeutils-kcharselect < 3.5.10-3
+Obsoletes: kdeutils-kcharselect < 3.5.10-3
 %endif
 
 %description -n kcharselect
@@ -185,10 +183,10 @@ Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kdf
 Requires: %name-core = %version
 Obsoletes: %name-kdf < 3.93.0-0.714053.1
-Obsoletes:      kde4-kdf < 4.0.68
-Provides:       kde4-kdf = %version
+Obsoletes: kde4-kdf < 4.0.68
+Provides: kde4-kdf = %version
 %if %mdkversion >= 201000
-Obsoletes:      kdeutils-kdf < 3.5.10-3
+Obsoletes: kdeutils-kdf < 3.5.10-3
 %endif
 
 %description -n kdf
@@ -217,10 +215,10 @@ Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kfloppy
 Requires: %name-core = %version
 Obsoletes: %name-kfloppy < 3.93.0-0.714053.1
-Obsoletes:      kde4-kfloppy < 4.0.68
-Provides:       kde4-kfloppy = %version
+Obsoletes: kde4-kfloppy < 4.0.68
+Provides: kde4-kfloppy = %version
 %if %mdkversion >= 201000
-Obsoletes:      kdeutils-kfloppy < 3.5.10-3
+Obsoletes: kdeutils-kfloppy < 3.5.10-3
 %endif
 
 %description -n kfloppy
@@ -235,16 +233,16 @@ format 3.5" and 5.25" floppy disks.
 
 #---------------------------------------------
 
-%package -n     kgpg
-Summary:        Control your GPG keys
-Group:          Graphical desktop/KDE
+%package -n kgpg
+Summary: Control your GPG keys
+Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kgpg
-Requires:       %name-core = %version
-Obsoletes:      %name-kgpg < 3.93.0-0.714053.1
-Obsoletes:      kde4-kgpg < 4.0.68
-Provides:       kde4-kgpg = %version
+Requires: %name-core = %version
+Obsoletes: %name-kgpg < 3.93.0-0.714053.1
+Obsoletes: kde4-kgpg < 4.0.68
+Provides: kde4-kgpg = %version
 %if %mdkversion >= 201000
-Obsoletes:      kdeutils-kpgp < 3.5.10-3
+Obsoletes: kdeutils-kpgp < 3.5.10-3
 %endif
 
 %description -n kgpg
@@ -265,16 +263,16 @@ KGpg is a simple interface for GnuPG, a powerful encryption utility.
 
 #---------------------------------------------
 
-%package -n     ktimer
-Summary:        Execute programs after some time
-Group:          Graphical desktop/KDE
+%package -n ktimer
+Summary: Execute programs after some time
+Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/ktimer
-Requires:       %name-core = %version
-Obsoletes:      %name-ktimer < 3.93.0-0.714053.1
-Obsoletes:      kde4-ktimer < 4.0.68
-Provides:       kde4-ktimer = %version
+Requires: %name-core = %version
+Obsoletes: %name-ktimer < 3.93.0-0.714053.1
+Obsoletes: kde4-ktimer < 4.0.68
+Provides: kde4-ktimer = %version
 %if %mdkversion >= 201000
-Obsoletes:      kdeutils-ktimer < 3.5.10-3
+Obsoletes: kdeutils-ktimer < 3.5.10-3
 %endif
 
 %description -n ktimer
@@ -288,19 +286,19 @@ KTimer is a little tool to execute programs after some time.
 
 #---------------------------------------------
 
-%package -n     kwallet
-Summary:        Manage your passwords
-Group:          Graphical desktop/KDE
+%package -n kwallet
+Summary: Manage your passwords
+Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kwalletmanager
-Requires:       %name-core = %version
-Obsoletes:      %name-kwallet < 3.93.0-0.714053.1
-Obsoletes:      kde4-kwallet < 4.0.68
-Provides:       kde4-kwallet = %version
-Conflicts:      kdeutils-kwalletmanager < 3.5.9-3
+Requires: %name-core = %version
+Obsoletes: %name-kwallet < 3.93.0-0.714053.1
+Obsoletes: kde4-kwallet < 4.0.68
+Provides: kde4-kwallet = %version
+Conflicts: kdeutils-kwalletmanager < 3.5.9-3
 %if %mdkversion >= 201000
-Obsoletes:      kdeutils-kwalletmanager < 3.5.10-3
+Obsoletes: kdeutils-kwalletmanager < 3.5.10-3
 %else
-Conflicts:      kdeutils-kwalletmanager < 3.5.9-3
+Conflicts: kdeutils-kwalletmanager < 3.5.9-3
 %endif
 
 %description -n kwallet
@@ -328,11 +326,11 @@ URL: http://utils.kde.org/projects/superkaramba
 Requires: %name-core = %version
 %py_requires -d
 %if %mdkversion >= 201000
-Obsoletes:      kdeutils-superkaramba < 3.5.10-3
+Obsoletes: kdeutils-superkaramba < 3.5.10-3
 %endif
 Obsoletes: %name-superkaramba < 3.93.0-0.714053.1
-Obsoletes:      kde4-superkaramba < 4.0.68
-Provides:       kde4-superkaramba = %version
+Obsoletes: kde4-superkaramba < 4.0.68
+Provides: kde4-superkaramba = %version
 
 %description -n superkaramba
 SuperKaramba is a tool that allows you to easily create interactive
@@ -359,7 +357,7 @@ URL: http://utils.kde.org/projects/ark
 Requires: %name-core = %version
 Obsoletes: %name-ark < 3.93.0-0.714053.1
 Obsoletes: kde4-ark < 4.0.68
-Provides:  kde4-ark = %version
+Provides: kde4-ark = %version
 %if %mdkversion >= 201000
 Obsoletes: kdeutils-ark < 3.5.10-3
 %endif
@@ -426,8 +424,8 @@ Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/sweeper
 Requires: %name-core = %version
 Obsoletes: %name-sweeper < 3.93.0-0.714053.1
-Obsoletes:      kde4-sweeper < 4.0.68
-Provides:       kde4-sweeper = %version
+Obsoletes: kde4-sweeper < 4.0.68
+Provides: kde4-sweeper = %version
 
 %description -n sweeper
 Sweeper helps to clean unwanted traces the user leaves on the system.
@@ -448,7 +446,7 @@ Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/okteta
 Requires: %name-core = %version
 %if %mdkversion >= 201000
-Obsoletes:      kdeutils-khexedit < 3.5.10-3
+Obsoletes: kdeutils-khexedit < 3.5.10-3
 %endif
 
 %description -n okteta
@@ -667,7 +665,7 @@ Requires: %libkastencore = %version-%release
 Requires: %libkastencontrollers = %version-%release
 Requires: %liblibkremotecontrol = %version-%release
 
-%description  devel
+%description devel
 This package contains header files needed if you wish to build applications
 based on %{name}.
 
@@ -701,18 +699,15 @@ based on %{name}.
 %build
 %cmake_kde4 \
 %if ! %{with_printer_applet}
-    -DINSTALL_PRINTER_APPLET=FALSE
+  -DINSTALL_PRINTER_APPLET=FALSE
 %else
-    -DINSTALL_PRINTER_APPLET=TRUE
+  -DINSTALL_PRINTER_APPLET=TRUE
 %endif
-
 %make
 
 %install
 rm -fr %buildroot
-
 %makeinstall_std -C build
 
 %clean
 rm -fr %buildroot
-

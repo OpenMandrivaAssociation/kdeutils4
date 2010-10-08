@@ -2,7 +2,7 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define kde_snapshot svn1174542
+%define kde_snapshot svn1183785
 %endif
 
 %define with_printer_applet 1
@@ -10,8 +10,12 @@
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.5.68
+Version: 4.5.71
+%if %branch
+Release: %mkrel -c %kde_snapshot 1
+%else
 Release: %mkrel 1
+%endif
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
@@ -20,7 +24,7 @@ Source0: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeutils-%{version}%kde
 %else
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%{version}.tar.bz2
 %endif
-Buildroot:	%_tmppath/%name-%version-%release-root
+Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: kdepimlibs4-devel
 BuildRequires: kdebase4-workspace-devel
 BuildRequires: gmp-devel
@@ -49,6 +53,7 @@ Suggests: kwallet
 Suggests: superkaramba
 Suggests: sweeper
 Suggests: kremotecontrol
+Suggests: filelight
 
 %description
 The KDE Utilities are a compilation of various desktop utilities.
@@ -81,6 +86,7 @@ Obsoletes: kdeutils4-kmilo < 4.0.74-1
 Obsoletes: kmilo < 4.0.74-1
 Obsoletes: kdeutils4-kedit
 %endif
+
 %description core
 Core files for %{name}.
 
@@ -90,10 +96,35 @@ Core files for %{name}.
 
 #----------------------------------------------------------------------
 
+%package -n filelight
+Summary: Graphical disk usage statistics
+Group: Graphical desktop/KDE
+URL: http://utils.kde.org/projects/filelight/
+
+%description -n filelight
+Filelight allows you to quickly understand exactly where your
+diskspace is being used by graphically representing your file
+system as a set of concentric segmented-rings. You can use it
+to locate hotspots of disk usage and then manipulate those
+areas using a file manager.
+
+%files -n filelight
+%defattr(-,root,root)
+%_kde_bindir/filelight
+%_kde_libdir/kde4/filelightpart.so
+%_kde_applicationsdir/filelight.desktop
+%_kde_appsdir/filelight
+%_kde_appsdir/filelightpart
+%_kde_configdir/filelightrc
+%_kde_services/filelightpart.desktop
+%doc %_kde_docdir/HTML/en/filelight
+
+#----------------------------------------------------------------------
+
 %package -n kcalc
 Summary: Do scientific calculations
 Group: Graphical desktop/KDE
-URL:		http://utils.kde.org/projects/kcalc
+URL: http://utils.kde.org/projects/kcalc
 Requires: %name-core = %version
 Obsoletes: %name-kcalc < 3.93.0-0.714053.1
 Obsoletes: kde4-kcalc < 4.0.68
@@ -149,7 +180,6 @@ hal-cups-utils.
 %endif
 
 #---------------------------------------------
-
 
 %package -n kcharselect
 Summary: Select special characters from any font
@@ -439,36 +469,6 @@ Sweeper helps to clean unwanted traces the user leaves on the system.
 %_kde_docdir/HTML/*/sweeper
 
 #---------------------------------------------
-
-%package -n okteta
-Summary: Edit raw file data as Hex values
-Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/okteta
-Requires: %name-core = %version
-%if %mdkversion >= 201000
-Obsoletes: kdeutils-khexedit < 3.5.10-3
-%endif
-
-%description -n okteta
-Okteta is a simple editor for the raw data of files. This type of
-program is also called hex editor or binary editor.
-
-%files -n okteta
-%defattr(-,root,root)
-%_kde_bindir/okteta
-%_kde_libdir/kde4/libkbytearrayedit.so
-%_kde_libdir/kde4/oktetapart.so
-%_kde_datadir/applications/kde4/okteta.desktop
-%_kde_appsdir/okteta
-%_kde_appsdir/oktetapart
-%_kde_datadir/kde4/services/kbytearrayedit.desktop
-%_kde_datadir/kde4/services/oktetapart.desktop
-%_kde_datadir/config/okteta-structures.knsrc
-%_kde_datadir/mime/packages/okteta.xml
-%_kde_datadir/config.kcfg/structviewpreferences.kcfg
-%_kde_docdir/HTML/en/okteta
-
-#---------------------------------------------
 %package -n kremotecontrol
 Summary: Frontend for the LIRC suite
 Group: Graphical desktop/KDE
@@ -484,7 +484,6 @@ This is a frontend for the LIRC suite to use infrared devices with KDE.
 %_kde_libdir/kde4/kcm_remotecontrol.so
 %_kde_libdir/kde4/kded_kremotecontroldaemon.so
 %_kde_libdir/kde4/plasma_engine_kremoteconrol.so
-%_kde_libdir/kde4/plugins/designer/oktetadesignerplugin.so
 %_kde_datadir/applications/kde4/krcdnotifieritem.desktop
 %_kde_appsdir/kremotecontrol
 %_kde_appsdir/kremotecontroldaemon
@@ -495,149 +494,12 @@ This is a frontend for the LIRC suite to use infrared devices with KDE.
 
 #---------------------------------------------
 
-%define liboktetacore_major 4
-%define liboktetacore %mklibname oktetacore %{liboktetacore_major}
-
-%package -n %liboktetacore
-Summary: KDE 4 library
-Group: System/Libraries
-URL: http://utils.kde.org/projects/okteta
-
-%description -n %liboktetacore
-KDE 4 library
-
-%files -n %liboktetacore
-%defattr(-,root,root)
-%_kde_libdir/liboktetacore.so.%{liboktetacore_major}*
-
-#---------------------------------------------
-
-%define liboktetakastengui_major 4
-%define liboktetakastengui %mklibname oktetakastengui %{liboktetakastengui_major}
-
-%package -n %liboktetakastengui
-Summary: KDE 4 library
-Group: System/Libraries
-URL: http://utils.kde.org/projects/okteta
-
-%description -n %liboktetakastengui
-KDE 4 library
-
-%files -n %liboktetakastengui
-%defattr(-,root,root)
-%_kde_libdir/liboktetakastengui.so.%{liboktetakastengui_major}*
-
-#---------------------------------------------
-
-%define liboktetagui_major 4
-%define liboktetagui %mklibname oktetagui %{liboktetagui_major}
-
-%package -n %liboktetagui
-Summary: KDE 4 library
-Group: System/Libraries
-URL: http://utils.kde.org/projects/okteta
-
-%description -n %liboktetagui
-KDE 4 library
-
-%files -n %liboktetagui
-%defattr(-,root,root)
-%_kde_libdir/liboktetagui.so.%{liboktetagui_major}*
-
-#---------------------------------------------
-
-%define liboktetakastencore_major 4
-%define liboktetakastencore %mklibname oktetakastencore %{liboktetakastencore_major}
-
-%package -n %liboktetakastencore
-Summary: KDE 4 library
-Group: System/Libraries
-URL: http://utils.kde.org/projects/okteta
-
-%description -n %liboktetakastencore
-KDE 4 library
-
-%files -n %liboktetakastencore
-%defattr(-,root,root)
-%_kde_libdir/liboktetakastencore.so.%{liboktetakastencore_major}*
-
-#---------------------------------------------
-
-%define liboktetakastencontrollers_major 4
-%define liboktetakastencontrollers %mklibname oktetakastencontrollers %{liboktetakastencontrollers_major}
-
-%package -n %liboktetakastencontrollers
-Summary: KDE 4 library
-Group: System/Libraries
-URL: http://utils.kde.org/projects/okteta
-
-%description -n %liboktetakastencontrollers
-KDE 4 library
-
-%files -n %liboktetakastencontrollers
-%defattr(-,root,root)
-%_kde_libdir/liboktetakastencontrollers.so.%{liboktetakastencontrollers_major}*
-
-#---------------------------------------------
-
-%define libkastengui_major 4
-%define libkastengui %mklibname kastengui %{libkastengui_major}
-
-%package -n %libkastengui
-Summary: KDE 4 library
-Group: System/Libraries
-URL: http://utils.kde.org/projects/okteta
-
-%description -n %libkastengui
-KDE 4 library
-
-%files -n %libkastengui
-%defattr(-,root,root)
-%_kde_libdir/libkastengui.so.%{libkastengui_major}*
-
-#---------------------------------------------
-
-%define libkastencore_major 4
-%define libkastencore %mklibname kastencore %{libkastencore_major}
-
-%package -n %libkastencore
-Summary: KDE 4 library
-Group: System/Libraries
-URL: http://utils.kde.org/projects/okteta
-
-%description -n %libkastencore
-KDE 4 library
-
-%files -n %libkastencore
-%defattr(-,root,root)
-%_kde_libdir/libkastencore.so.%{libkastencore_major}*
-
-#---------------------------------------------
-
-%define libkastencontrollers_major 4
-%define libkastencontrollers %mklibname kastencontrollers %{libkastencontrollers_major}
-
-%package -n %libkastencontrollers
-Summary: KDE 4 library
-Group: System/Libraries
-URL: http://utils.kde.org/projects/okteta
-
-%description -n %libkastencontrollers
-KDE 4 library
-
-%files -n %libkastencontrollers
-%defattr(-,root,root)
-%_kde_libdir/libkastencontrollers.so.%{libkastencontrollers_major}*
-
-#---------------------------------------------
-
 %define liblibkremotecontrol_major 1
 %define liblibkremotecontrol %mklibname libkremotecontrol %{liblibkremotecontrol_major}
 
 %package -n %liblibkremotecontrol
 Summary: KDE 4 library
 Group: System/Libraries
-URL: http://utils.kde.org/projects/okteta
 
 %description -n %liblibkremotecontrol
 KDE 4 library
@@ -655,14 +517,6 @@ Requires: kdelibs4-devel >= 2:4.2.98
 Requires: %name = %version-%release
 Requires: %libkerfuffle = %version-%release
 Requires: %libsuperkaramba = %version-%release
-Requires: %liboktetacore = %version-%release
-Requires: %liboktetakastengui = %version-%release
-Requires: %liboktetagui = %version-%release
-Requires: %liboktetakastencore = %version-%release
-Requires: %liboktetakastencontrollers = %version-%release
-Requires: %libkastengui = %version-%release
-Requires: %libkastencore = %version-%release
-Requires: %libkastencontrollers = %version-%release
 Requires: %liblibkremotecontrol = %version-%release
 
 %description devel
@@ -671,21 +525,9 @@ based on %{name}.
 
 %files devel
 %defattr(-,root,root)
-%{_kde_libdir}/libkastencontrollers.so
-%{_kde_libdir}/libkastencore.so
-%{_kde_libdir}/libkastengui.so
 %{_kde_libdir}/libkerfuffle.so
-%{_kde_libdir}/liboktetacore.so
-%{_kde_libdir}/liboktetagui.so
-%{_kde_libdir}/liboktetakastencore.so
-%{_kde_libdir}/liboktetakastengui.so
 %{_kde_libdir}/libsuperkaramba.so
-%{_kde_libdir}/liboktetakastencontrollers.so
 %{_kde_libdir}/liblibkremotecontrol.so
-%_kde_includedir/KDE/Kasten
-%_kde_includedir/KDE/Okteta
-%_kde_includedir/kasten
-%_kde_includedir/okteta
 
 #---------------------------------------------
 

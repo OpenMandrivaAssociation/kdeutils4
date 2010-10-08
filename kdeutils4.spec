@@ -472,7 +472,7 @@ Sweeper helps to clean unwanted traces the user leaves on the system.
 %package -n kremotecontrol
 Summary: Frontend for the LIRC suite
 Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/sweeper
+URL: http://utils.kde.org/projects/kremotecontrol
 Requires: %name-core = %version
 
 %description -n kremotecontrol

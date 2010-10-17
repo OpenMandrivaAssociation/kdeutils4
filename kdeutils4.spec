@@ -168,7 +168,6 @@ Provides: kde4-kcharselect = %version
 %if %mdkversion >= 201000
 Obsoletes: kdeutils-kcharselect < 3.5.10-3
 %endif
-Conflicts: kdeutils4-core < 4.5.72
 
 %description -n kcharselect
 KCharSelect is a tool to select special characters from all installed

@@ -43,6 +43,14 @@ BuildRequires: python-cups
 BuildRequires: python-devel
 %endif
 BuildConflicts: libxmms-devel
+Obsoletes: kdeutils4-core < 4.5.72
+%if %mdkversion >= 201000
+Obsoletes: kdeutils-common < 3.5.10-3
+Obsoletes: kdeutils-kmilo < 3.5.10-3
+Obsoletes: kdeutils4-kmilo < 4.0.74-1
+Obsoletes: kmilo < 4.0.74-1
+Obsoletes: kdeutils4-kedit
+%endif
 Suggests: kcalc
 Suggests: kcharselect
 Suggests: kdf
@@ -64,42 +72,11 @@ The KDE Utilities are a compilation of various desktop utilities.
 
 #----------------------------------------------------------------------
 
-%package core
-Summary: %name core files
-Group: Graphical desktop/KDE
-Requires: kdelibs4-core
-%if %mdkversion >= 201000
-Obsoletes: kdeutils-common < 3.5.10-3
-Obsoletes: kdeutils-kmilo < 3.5.10-3
-Obsoletes: kdeutils4-kmilo < 4.0.74-1
-Obsoletes: kmilo < 4.0.74-1
-Obsoletes: kdeutils4-kedit
-%else
-Conflicts: kdeutils-kcalc < 3.5.9-3
-Conflicts: kdeutils-kgpg < 3.5.9-3
-Conflicts: kdeutils-kwalletmanager < 3.5.9-3
-Conflicts: kdeutils-ktimer < 3.5.9-3
-Conflicts: kdeutils-kfloppy < 3.5.9-3
-Obsoletes: kde4-kmilo < 4.0.74-1
-Obsoletes: %{_lib}kmilo4 < 4.0.74-1
-Obsoletes: kdeutils4-kmilo < 4.0.74-1
-Obsoletes: kmilo < 4.0.74-1
-Obsoletes: kdeutils4-kedit
-%endif
-
-%description core
-Core files for %{name}.
-
-%files core
-%defattr(-,root,root)
-%_kde_iconsdir/*/*/*/*
-
-#----------------------------------------------------------------------
-
 %package -n filelight
 Summary: Graphical disk usage statistics
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/filelight/
+Conflicts: kdeutils4-core < 4.5.72
 
 %description -n filelight
 Filelight allows you to quickly understand exactly where your
@@ -115,6 +92,8 @@ areas using a file manager.
 %_kde_applicationsdir/filelight.desktop
 %_kde_appsdir/filelight
 %_kde_appsdir/filelightpart
+%_kde_iconsdir/*/*/actions/view_filelight.*
+%_kde_iconsdir/*/*/apps/filelight.*
 %_kde_configdir/filelightrc
 %_kde_services/filelightpart.desktop
 %doc %_kde_docdir/HTML/en/filelight
@@ -125,7 +104,6 @@ areas using a file manager.
 Summary: Do scientific calculations
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kcalc
-Requires: %name-core = %version
 Obsoletes: %name-kcalc < 3.93.0-0.714053.1
 Obsoletes: kde4-kcalc < 4.0.68
 Provides: kde4-kcalc = %version
@@ -158,7 +136,6 @@ the many functions available.
 Summary: View current print jobs and configure new printers
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/printer-applet
-Requires: %name-core = %version
 Requires: python-kde4 >= 1:4.1.0
 Requires: python-cups
 Requires: python-qt4
@@ -185,13 +162,13 @@ hal-cups-utils.
 Summary: Select special characters from any font
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kcharselect
-Requires: %name-core = %version
 Obsoletes: %name-kcharselect < 3.93.0-0.714053.1
 Obsoletes: kde4-kcharselect < 4.0.68
 Provides: kde4-kcharselect = %version
 %if %mdkversion >= 201000
 Obsoletes: kdeutils-kcharselect < 3.5.10-3
 %endif
+Conflicts: kdeutils4-core < 4.5.72
 
 %description -n kcharselect
 KCharSelect is a tool to select special characters from all installed
@@ -211,13 +188,13 @@ fonts and copy them into the clipboard.
 Summary: View free disk space
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kdf
-Requires: %name-core = %version
 Obsoletes: %name-kdf < 3.93.0-0.714053.1
 Obsoletes: kde4-kdf < 4.0.68
 Provides: kde4-kdf = %version
 %if %mdkversion >= 201000
 Obsoletes: kdeutils-kdf < 3.5.10-3
 %endif
+Conflicts: kdeutils4-core < 4.5.72
 
 %description -n kdf
 KDiskFree displays the available file devices (hard drive partitions,
@@ -231,6 +208,9 @@ drives and view them in a file manager.
 %_kde_bindir/kdf
 %_kde_bindir/kwikdisk
 %_kde_libdir/kde4/kcm_kdf.so
+%_kde_iconsdir/*/*/apps/kcmdf.*
+%_kde_iconsdir/*/*/apps/kdf.*
+%_kde_iconsdir/*/*/apps/kwikdisk.*
 %_kde_datadir/applications/kde4/kdf.desktop
 %_kde_datadir/applications/kde4/kwikdisk.desktop
 %_kde_datadir/kde4/services/kcmdf.desktop
@@ -243,13 +223,13 @@ drives and view them in a file manager.
 Summary: Format floppy disks
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kfloppy
-Requires: %name-core = %version
 Obsoletes: %name-kfloppy < 3.93.0-0.714053.1
 Obsoletes: kde4-kfloppy < 4.0.68
 Provides: kde4-kfloppy = %version
 %if %mdkversion >= 201000
 Obsoletes: kdeutils-kfloppy < 3.5.10-3
 %endif
+Conflicts: kdeutils4-core < 4.5.72
 
 %description -n kfloppy
 KFloppy is a utility that provides a straightforward graphical means to
@@ -258,6 +238,7 @@ format 3.5" and 5.25" floppy disks.
 %files -n kfloppy
 %defattr(-,root,root)
 %_kde_bindir/kfloppy
+%_kde_iconsdir/*/*/apps/kfloppy.*
 %_kde_datadir/applications/kde4/KFloppy.desktop
 %_kde_docdir/HTML/*/kfloppy
 
@@ -267,7 +248,7 @@ format 3.5" and 5.25" floppy disks.
 Summary: Control your GPG keys
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kgpg
-Requires: %name-core = %version
+Conflicts: kdeutils4-core < 4.5.72
 Obsoletes: %name-kgpg < 3.93.0-0.714053.1
 Obsoletes: kde4-kgpg < 4.0.68
 Provides: kde4-kgpg = %version
@@ -282,6 +263,7 @@ KGpg is a simple interface for GnuPG, a powerful encryption utility.
 %defattr(-,root,root)
 %_kde_appsdir/kgpg
 %_kde_bindir/kgpg
+%_kde_iconsdir/*/*/apps/kgpg.*
 %_kde_datadir/applications/kde4/kgpg.desktop
 %_kde_datadir/kde4/services/ServiceMenus/encryptfile.desktop
 %_kde_datadir/kde4/services/ServiceMenus/encryptfolder.desktop
@@ -297,7 +279,7 @@ KGpg is a simple interface for GnuPG, a powerful encryption utility.
 Summary: Execute programs after some time
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/ktimer
-Requires: %name-core = %version
+Conflicts: kdeutils4-core < 4.5.72
 Obsoletes: %name-ktimer < 3.93.0-0.714053.1
 Obsoletes: kde4-ktimer < 4.0.68
 Provides: kde4-ktimer = %version
@@ -311,6 +293,7 @@ KTimer is a little tool to execute programs after some time.
 %files -n ktimer
 %defattr(-,root,root)
 %_kde_bindir/ktimer
+%_kde_iconsdir/*/*/apps/ktimer.*
 %_kde_datadir/applications/kde4/ktimer.desktop
 %_kde_docdir/HTML/*/ktimer
 
@@ -320,7 +303,7 @@ KTimer is a little tool to execute programs after some time.
 Summary: Manage your passwords
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kwalletmanager
-Requires: %name-core = %version
+Conflicts: kdeutils4-core < 4.5.72
 Obsoletes: %name-kwallet < 3.93.0-0.714053.1
 Obsoletes: kde4-kwallet < 4.0.68
 Provides: kde4-kwallet = %version
@@ -341,6 +324,8 @@ to manage all your passwords.
 %_kde_appsdir/kwalletmanager
 %_kde_bindir/kwalletmanager
 %_kde_libdir/kde4/kcm_kwallet.so
+%_kde_iconsdir/*/*/apps/kwalletmanager2.*
+%_kde_iconsdir/*/*/apps/kwalletmanager.*
 %_kde_datadir/applications/kde4/kwalletmanager-kwalletd.desktop
 %_kde_datadir/applications/kde4/kwalletmanager.desktop
 %_kde_datadir/kde4/services/kwalletconfig.desktop
@@ -353,7 +338,7 @@ to manage all your passwords.
 Summary: Put Karamba applets to the desktop with Python
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/superkaramba
-Requires: %name-core = %version
+Conflicts: kdeutils4-core < 4.5.72
 %py_requires -d
 %if %mdkversion >= 201000
 Obsoletes: kdeutils-superkaramba < 3.5.10-3
@@ -370,6 +355,7 @@ widgets on your KDE desktop.
 %defattr(-,root,root)
 %_kde_appsdir/superkaramba
 %_kde_bindir/superkaramba
+%_kde_iconsdir/*/*/apps/superkaramba.*
 %_kde_datadir/applications/kde4/superkaramba.desktop
 %_kde_libdir/kde4/plasma_package_superkaramba.so
 %_kde_libdir/kde4/plasma_scriptengine_superkaramba.so
@@ -384,7 +370,6 @@ widgets on your KDE desktop.
 Summary: Handle file archives
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/ark
-Requires: %name-core = %version
 Obsoletes: %name-ark < 3.93.0-0.714053.1
 Obsoletes: kde4-ark < 4.0.68
 Provides: kde4-ark = %version
@@ -452,7 +437,6 @@ KDE 4 library
 Summary: Clean unwanted traces from your system
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/sweeper
-Requires: %name-core = %version
 Obsoletes: %name-sweeper < 3.93.0-0.714053.1
 Obsoletes: kde4-sweeper < 4.0.68
 Provides: kde4-sweeper = %version
@@ -473,7 +457,7 @@ Sweeper helps to clean unwanted traces the user leaves on the system.
 Summary: Frontend for the LIRC suite
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kremotecontrol
-Requires: %name-core = %version
+Conflicts: kdeutils4-core < 4.5.72
 
 %description -n kremotecontrol
 This is a frontend for the LIRC suite to use infrared devices with KDE.
@@ -487,6 +471,10 @@ This is a frontend for the LIRC suite to use infrared devices with KDE.
 %_kde_datadir/applications/kde4/krcdnotifieritem.desktop
 %_kde_appsdir/kremotecontrol
 %_kde_appsdir/kremotecontroldaemon
+%_kde_iconsdir/*/*/actions/krcd_flash.*
+%_kde_iconsdir/*/*/actions/krcd_off.*
+%_kde_iconsdir/*/*/apps/krcd.*
+%_kde_iconsdir/*/*/devices/infrared-remote.*
 %_kde_datadir/kde4/services/kcm_remotecontrol.desktop
 %_kde_datadir/kde4/services/kded/kremotecontroldaemon.desktop
 %_kde_datadir/kde4/services/plasma-engine-kremotecontrol.desktop

@@ -2,7 +2,7 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define kde_snapshot svn1183785
+%define kde_snapshot svn1190490
 %endif
 
 %define with_printer_applet 1
@@ -10,7 +10,7 @@
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.5.71
+Version: 4.5.74
 %if %branch
 Release: %mkrel -c %kde_snapshot 1
 %else
@@ -43,7 +43,6 @@ BuildRequires: python-cups
 BuildRequires: python-devel
 %endif
 BuildConflicts: libxmms-devel
-Obsoletes: kdeutils4-core < 4.5.72
 %if %mdkversion >= 201000
 Obsoletes: kdeutils-common < 3.5.10-3
 Obsoletes: kdeutils-kmilo < 3.5.10-3
@@ -77,6 +76,7 @@ Summary: Graphical disk usage statistics
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/filelight/
 Conflicts: kdeutils4-core < 4.5.72
+Obsoletes: kdeutils4-core < 4.5.72
 
 %description -n filelight
 Filelight allows you to quickly understand exactly where your
@@ -194,6 +194,7 @@ Provides: kde4-kdf = %version
 Obsoletes: kdeutils-kdf < 3.5.10-3
 %endif
 Conflicts: kdeutils4-core < 4.5.72
+Obsoletes: kdeutils4-core < 4.5.72
 
 %description -n kdf
 KDiskFree displays the available file devices (hard drive partitions,
@@ -229,6 +230,7 @@ Provides: kde4-kfloppy = %version
 Obsoletes: kdeutils-kfloppy < 3.5.10-3
 %endif
 Conflicts: kdeutils4-core < 4.5.72
+Obsoletes: kdeutils4-core < 4.5.72
 
 %description -n kfloppy
 KFloppy is a utility that provides a straightforward graphical means to
@@ -248,6 +250,7 @@ Summary: Control your GPG keys
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kgpg
 Conflicts: kdeutils4-core < 4.5.72
+Obsoletes: kdeutils4-core < 4.5.72
 Obsoletes: %name-kgpg < 3.93.0-0.714053.1
 Obsoletes: kde4-kgpg < 4.0.68
 Provides: kde4-kgpg = %version
@@ -279,6 +282,7 @@ Summary: Execute programs after some time
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/ktimer
 Conflicts: kdeutils4-core < 4.5.72
+Obsoletes: kdeutils4-core < 4.5.72
 Obsoletes: %name-ktimer < 3.93.0-0.714053.1
 Obsoletes: kde4-ktimer < 4.0.68
 Provides: kde4-ktimer = %version
@@ -303,6 +307,7 @@ Summary: Manage your passwords
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kwalletmanager
 Conflicts: kdeutils4-core < 4.5.72
+Obsoletes: kdeutils4-core < 4.5.72
 Obsoletes: %name-kwallet < 3.93.0-0.714053.1
 Obsoletes: kde4-kwallet < 4.0.68
 Provides: kde4-kwallet = %version
@@ -338,6 +343,7 @@ Summary: Put Karamba applets to the desktop with Python
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/superkaramba
 Conflicts: kdeutils4-core < 4.5.72
+Obsoletes: kdeutils4-core < 4.5.72
 %py_requires -d
 %if %mdkversion >= 201000
 Obsoletes: kdeutils-superkaramba < 3.5.10-3
@@ -457,6 +463,7 @@ Summary: Frontend for the LIRC suite
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/kremotecontrol
 Conflicts: kdeutils4-core < 4.5.72
+Obsoletes: kdeutils4-core < 4.5.72
 
 %description -n kremotecontrol
 This is a frontend for the LIRC suite to use infrared devices with KDE.

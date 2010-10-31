@@ -12,7 +12,7 @@ Name: kdeutils4
 Summary: Various desktop utilities for KDE
 Version: 4.5.74
 %if %branch
-Release: %mkrel -c %kde_snapshot 1
+Release: %mkrel -c %kde_snapshot 2
 %else
 Release: %mkrel 1
 %endif

@@ -2,7 +2,7 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define kde_snapshot svn1190490
+%define kde_snapshot svn1198704
 %endif
 
 %define with_printer_applet 1
@@ -10,9 +10,9 @@
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.5.74
+Version: 4.5.77
 %if %branch
-Release: %mkrel -c %kde_snapshot 2
+Release: %mkrel -c %kde_snapshot 1
 %else
 Release: %mkrel 1
 %endif

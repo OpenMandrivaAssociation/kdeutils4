@@ -12,9 +12,9 @@ Name: kdeutils4
 Summary: Various desktop utilities for KDE
 Version: 4.6.2
 %if %branch
-Release: %mkrel -c %kde_snapshot 1
+Release: 0.%kde_snapshot.1
 %else
-Release: %mkrel 2
+Release: 1
 %endif
 Group: Graphical desktop/KDE
 License: GPL

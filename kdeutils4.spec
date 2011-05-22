@@ -14,7 +14,7 @@ Version: 4.6.3
 %if %branch
 Release: 0.%kde_snapshot.1
 %else
-Release: 1
+Release: 2
 %endif
 Group: Graphical desktop/KDE
 License: GPL

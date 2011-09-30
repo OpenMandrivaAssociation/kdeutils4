@@ -1,30 +1,14 @@
-%define branch 0
-%{?_branch: %{expand: %%global branch 1}}
-
-%if %branch
-%define kde_snapshot svn1198704
-%endif
-
 %define with_printer_applet 1
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
 Name: kdeutils4
 Summary: Various desktop utilities for KDE
-Version: 4.6.4
-%if %branch
-Release: 0.%kde_snapshot.1
-%else
-Release: 2
-%endif
+Version: 4.7.41
+Release: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://utils.kde.org/
-%if %branch
-Source0: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeutils-%{version}%kde_snapshot.tar.bz2
-%else
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%{version}.tar.bz2
-%endif
-Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: kdepimlibs4-devel
 BuildRequires: kdebase4-workspace-devel
 BuildRequires: gmp-devel
@@ -43,13 +27,6 @@ BuildRequires: python-cups
 BuildRequires: python-devel
 %endif
 BuildConflicts: libxmms-devel
-%if %mdkversion >= 201000
-Obsoletes: kdeutils-common < 3.5.10-3
-Obsoletes: kdeutils-kmilo < 3.5.10-3
-Obsoletes: kdeutils4-kmilo < 4.0.74-1
-Obsoletes: kmilo < 4.0.74-1
-Obsoletes: kdeutils4-kedit
-%endif
 Suggests: kcalc
 Suggests: kcharselect
 Suggests: kdf
@@ -107,11 +84,6 @@ URL: http://utils.kde.org/projects/kcalc
 Obsoletes: %name-kcalc < 3.93.0-0.714053.1
 Obsoletes: kde4-kcalc < 4.0.68
 Provides: kde4-kcalc = %version
-%if %mdkversion >= 201000 
-Obsoletes: kdeutils-kcalc < 3.5.10-3
-%else
-Conflicts: kdeutils-kcalc < 3.5.10-3
-%endif
 
 %description -n kcalc
 KCalc is a calculator which offers many more mathematical functions
@@ -165,9 +137,6 @@ URL: http://utils.kde.org/projects/kcharselect
 Obsoletes: %name-kcharselect < 3.93.0-0.714053.1
 Obsoletes: kde4-kcharselect < 4.0.68
 Provides: kde4-kcharselect = %version
-%if %mdkversion >= 201000
-Obsoletes: kdeutils-kcharselect < 3.5.10-3
-%endif
 
 %description -n kcharselect
 KCharSelect is a tool to select special characters from all installed
@@ -190,9 +159,6 @@ URL: http://utils.kde.org/projects/kdf
 Obsoletes: %name-kdf < 3.93.0-0.714053.1
 Obsoletes: kde4-kdf < 4.0.68
 Provides: kde4-kdf = %version
-%if %mdkversion >= 201000
-Obsoletes: kdeutils-kdf < 3.5.10-3
-%endif
 Conflicts: kdeutils4-core < 4.5.72
 Obsoletes: kdeutils4-core < 4.5.72
 
@@ -226,9 +192,6 @@ URL: http://utils.kde.org/projects/kfloppy
 Obsoletes: %name-kfloppy < 3.93.0-0.714053.1
 Obsoletes: kde4-kfloppy < 4.0.68
 Provides: kde4-kfloppy = %version
-%if %mdkversion >= 201000
-Obsoletes: kdeutils-kfloppy < 3.5.10-3
-%endif
 Conflicts: kdeutils4-core < 4.5.72
 Obsoletes: kdeutils4-core < 4.5.72
 
@@ -254,9 +217,6 @@ Obsoletes: kdeutils4-core < 4.5.72
 Obsoletes: %name-kgpg < 3.93.0-0.714053.1
 Obsoletes: kde4-kgpg < 4.0.68
 Provides: kde4-kgpg = %version
-%if %mdkversion >= 201000
-Obsoletes: kdeutils-kpgp < 3.5.10-3
-%endif
 
 %description -n kgpg
 KGpg is a simple interface for GnuPG, a powerful encryption utility.
@@ -286,9 +246,6 @@ Obsoletes: kdeutils4-core < 4.5.72
 Obsoletes: %name-ktimer < 3.93.0-0.714053.1
 Obsoletes: kde4-ktimer < 4.0.68
 Provides: kde4-ktimer = %version
-%if %mdkversion >= 201000
-Obsoletes: kdeutils-ktimer < 3.5.10-3
-%endif
 
 %description -n ktimer
 KTimer is a little tool to execute programs after some time.
@@ -312,11 +269,6 @@ Obsoletes: %name-kwallet < 3.93.0-0.714053.1
 Obsoletes: kde4-kwallet < 4.0.68
 Provides: kde4-kwallet = %version
 Conflicts: kdeutils-kwalletmanager < 3.5.9-3
-%if %mdkversion >= 201000
-Obsoletes: kdeutils-kwalletmanager < 3.5.10-3
-%else
-Conflicts: kdeutils-kwalletmanager < 3.5.9-3
-%endif
 
 %description -n kwallet
 KDE Wallet Manager is for management of the wallets installed on the
@@ -345,9 +297,6 @@ URL: http://utils.kde.org/projects/superkaramba
 Conflicts: kdeutils4-core < 4.5.72
 Obsoletes: kdeutils4-core < 4.5.72
 %py_requires -d
-%if %mdkversion >= 201000
-Obsoletes: kdeutils-superkaramba < 3.5.10-3
-%endif
 Obsoletes: %name-superkaramba < 3.93.0-0.714053.1
 Obsoletes: kde4-superkaramba < 4.0.68
 Provides: kde4-superkaramba = %version
@@ -526,11 +475,7 @@ based on %{name}.
 #---------------------------------------------
 
 %prep
-%if %branch
-%setup -q -n kdeutils-%{version}%kde_snapshot
-%else
 %setup -q -n kdeutils-%{version}
-%endif
 
 %build
 %cmake_kde4 \
@@ -542,8 +487,5 @@ based on %{name}.
 %make
 
 %install
-rm -fr %buildroot
 %makeinstall_std -C build
 
-%clean
-rm -fr %buildroot

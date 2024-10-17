@@ -7,7 +7,7 @@ Version: 4.7.41
 Release: 1
 Group: Graphical desktop/KDE
 License: GPL
-URL: http://utils.kde.org/
+URL: https://utils.kde.org/
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%{version}.tar.bz2
 BuildRequires: kdepimlibs4-devel
 BuildRequires: kdebase4-workspace-devel
@@ -51,7 +51,7 @@ The KDE Utilities are a compilation of various desktop utilities.
 %package -n filelight
 Summary: Graphical disk usage statistics
 Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/filelight/
+URL: https://utils.kde.org/projects/filelight/
 Conflicts: kdeutils4-core < 4.5.72
 Obsoletes: kdeutils4-core < 4.5.72
 
@@ -80,7 +80,7 @@ areas using a file manager.
 %package -n kcalc
 Summary: Do scientific calculations
 Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/kcalc
+URL: https://utils.kde.org/projects/kcalc
 Obsoletes: %name-kcalc < 3.93.0-0.714053.1
 Obsoletes: kde4-kcalc < 4.0.68
 Provides: kde4-kcalc = %version
@@ -107,7 +107,7 @@ the many functions available.
 %package printer-applet
 Summary: View current print jobs and configure new printers
 Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/printer-applet
+URL: https://utils.kde.org/projects/printer-applet
 Requires: python-kde4 >= 1:4.1.0
 Requires: python-cups
 Requires: python-qt4
@@ -133,7 +133,7 @@ hal-cups-utils.
 %package -n kcharselect
 Summary: Select special characters from any font
 Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/kcharselect
+URL: https://utils.kde.org/projects/kcharselect
 Obsoletes: %name-kcharselect < 3.93.0-0.714053.1
 Obsoletes: kde4-kcharselect < 4.0.68
 Provides: kde4-kcharselect = %version
@@ -155,7 +155,7 @@ fonts and copy them into the clipboard.
 %package -n kdf
 Summary: View free disk space
 Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/kdf
+URL: https://utils.kde.org/projects/kdf
 Obsoletes: %name-kdf < 3.93.0-0.714053.1
 Obsoletes: kde4-kdf < 4.0.68
 Provides: kde4-kdf = %version
@@ -188,7 +188,7 @@ drives and view them in a file manager.
 %package -n kfloppy
 Summary: Format floppy disks
 Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/kfloppy
+URL: https://utils.kde.org/projects/kfloppy
 Obsoletes: %name-kfloppy < 3.93.0-0.714053.1
 Obsoletes: kde4-kfloppy < 4.0.68
 Provides: kde4-kfloppy = %version
@@ -211,7 +211,7 @@ format 3.5" and 5.25" floppy disks.
 %package -n kgpg
 Summary: Control your GPG keys
 Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/kgpg
+URL: https://utils.kde.org/projects/kgpg
 Conflicts: kdeutils4-core < 4.5.72
 Obsoletes: kdeutils4-core < 4.5.72
 Obsoletes: %name-kgpg < 3.93.0-0.714053.1
@@ -240,7 +240,7 @@ KGpg is a simple interface for GnuPG, a powerful encryption utility.
 %package -n ktimer
 Summary: Execute programs after some time
 Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/ktimer
+URL: https://utils.kde.org/projects/ktimer
 Conflicts: kdeutils4-core < 4.5.72
 Obsoletes: kdeutils4-core < 4.5.72
 Obsoletes: %name-ktimer < 3.93.0-0.714053.1
@@ -262,7 +262,7 @@ KTimer is a little tool to execute programs after some time.
 %package -n kwallet
 Summary: Manage your passwords
 Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/kwalletmanager
+URL: https://utils.kde.org/projects/kwalletmanager
 Conflicts: kdeutils4-core < 4.5.72
 Obsoletes: kdeutils4-core < 4.5.72
 Obsoletes: %name-kwallet < 3.93.0-0.714053.1
@@ -293,7 +293,7 @@ to manage all your passwords.
 %package -n superkaramba
 Summary: Put Karamba applets to the desktop with Python
 Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/superkaramba
+URL: https://utils.kde.org/projects/superkaramba
 Conflicts: kdeutils4-core < 4.5.72
 Obsoletes: kdeutils4-core < 4.5.72
 %py_requires -d
@@ -323,7 +323,7 @@ widgets on your KDE desktop.
 %package -n ark
 Summary: Handle file archives
 Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/ark
+URL: https://utils.kde.org/projects/ark
 Obsoletes: %name-ark < 3.93.0-0.714053.1
 Obsoletes: kde4-ark < 4.0.68
 Provides: kde4-ark = %version
@@ -376,7 +376,7 @@ KDE 4 library
 %package -n %libsuperkaramba
 Summary: KDE 4 library
 Group: System/Libraries
-URL: http://utils.kde.org/projects/superkaramba
+URL: https://utils.kde.org/projects/superkaramba
 
 %description -n %libsuperkaramba
 KDE 4 library
@@ -390,7 +390,7 @@ KDE 4 library
 %package -n sweeper
 Summary: Clean unwanted traces from your system
 Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/sweeper
+URL: https://utils.kde.org/projects/sweeper
 Obsoletes: %name-sweeper < 3.93.0-0.714053.1
 Obsoletes: kde4-sweeper < 4.0.68
 Provides: kde4-sweeper = %version
@@ -410,7 +410,7 @@ Sweeper helps to clean unwanted traces the user leaves on the system.
 %package -n kremotecontrol
 Summary: Frontend for the LIRC suite
 Group: Graphical desktop/KDE
-URL: http://utils.kde.org/projects/kremotecontrol
+URL: https://utils.kde.org/projects/kremotecontrol
 Conflicts: kdeutils4-core < 4.5.72
 Obsoletes: kdeutils4-core < 4.5.72
 

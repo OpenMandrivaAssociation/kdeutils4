@@ -9,6 +9,7 @@ Group: Graphical desktop/KDE
 License: GPL
 URL: https://utils.kde.org/
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeutils-%{version}.tar.bz2
+BuildRequires:	make
 BuildRequires: kdepimlibs4-devel
 BuildRequires: kdebase4-workspace-devel
 BuildRequires: gmp-devel
